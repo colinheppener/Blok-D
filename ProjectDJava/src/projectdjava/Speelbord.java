@@ -19,7 +19,29 @@ public class Speelbord extends JComponent {
     BufferedImage muurImage;
     BufferedImage achtergrondImage;
     BufferedImage vriendImage;
-
+    private static int[][] opzetGrid = {
+        {3, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,},
+        {1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 1, 1,},
+        {1, 0, 0, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 1,},
+        {1, 1, 1, 0, 1, 1, 1, 0, 1, 1, 1, 0, 0, 0, 0, 0, 1, 0, 1, 1,},
+        {1, 0, 1, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1,},
+        {1, 0, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1,},
+        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 1, 1, 1, 0, 1, 1,},
+        {0, 1, 1, 1, 0, 1, 1, 0, 1, 1, 1, 0, 0, 0, 1, 1, 1, 0, 1, 1,},
+        {0, 0, 1, 1, 0, 0, 1, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 0, 1, 1,},
+        {1, 0, 1, 1, 1, 0, 1, 1, 1, 1, 1, 0, 1, 1, 0, 0, 0, 0, 1, 1,},
+        {1, 0, 0, 0, 1, 0, 1, 0, 0, 0, 1, 0, 1, 1, 0, 1, 1, 1, 1, 1,},
+        {1, 1, 1, 0, 1, 1, 1, 0, 1, 0, 1, 0, 1, 1, 0, 0, 0, 0, 0, 1,},
+        {1, 0, 1, 0, 0, 0, 0, 0, 1, 1, 1, 0, 1, 1, 0, 1, 1, 1, 0, 1,},
+        {1, 0, 1, 1, 1, 1, 1, 0, 1, 1, 1, 0, 0, 1, 0, 1, 1, 1, 0, 1,},
+        {1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 1, 0, 1, 0, 1, 0, 1,},
+        {1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 0, 0, 1, 0, 1, 0, 1, 0, 1,},
+        {1, 1, 1, 0, 1, 1, 1, 1, 0, 0, 1, 0, 1, 1, 0, 1, 0, 1, 0, 1,},
+        {1, 0, 1, 0, 0, 0, 0, 0, 0, 1, 1, 0, 1, 1, 0, 1, 0, 1, 0, 1,},
+        {1, 0, 1, 1, 1, 1, 1, 1, 0, 1, 1, 0, 0, 1, 0, 1, 0, 1, 0, 1,},
+        {1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 1, 4, 1,}
+        
+        };
     public Speelbord() {
         createVelden();
         Muur muur = new Muur();
@@ -36,12 +58,26 @@ public class Speelbord extends JComponent {
     Item[][] grid = new Item[20][20];
 
     private void createVelden() {
+        for (int i = 0; i < 20; i++) {
+            for (int j = 0; j < 20; j++) {
+                if(opzetGrid[i][j] == 1)
+                {
+                    grid[i][j] = new Muur();
+                }
+                if(opzetGrid[i][j] ==3)
+                {
+                    grid[i][j] = new Speler();
+                }
+                if(opzetGrid[i][j]==4)
+                {
+                    grid[i][j] = new Vriend();
+                }
+            }
+        }
 
+ 
 
-        int j = 0;
-        grid[0][0] = new Speler();
-        grid[1][3] = new Muur();
-        grid[1][6] = new Muur();
+        
     }
 
     public Item[][] getGrid() {
@@ -59,6 +95,7 @@ public class Speelbord extends JComponent {
         Speler speler = new Speler();
         Muur muur = new Muur();
         Item item = new Item();
+        Vriend vriend = new Vriend();
         for (int i = 0; i < 20; i++) {
             for (int j = 0; j < 20; j++) {
 
@@ -71,6 +108,11 @@ public class Speelbord extends JComponent {
                 if (!(grid[i][j] instanceof Speler) && (!(grid[i][j] instanceof Muur))) {
                     System.out.println(item.toString());
                     g.drawImage(achtergrondImage, j*40, i*40,40, 40, null);
+                }
+                if(grid[i][j] instanceof Vriend)
+                {
+                    System.out.println(vriend.toString());
+                    g.drawImage(vriendImage, j*40, i*40, 40, 40, null);
                 }
                 if (grid[i][j] instanceof Muur) {
                     System.out.println(muur.toString());

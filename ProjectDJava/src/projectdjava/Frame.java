@@ -9,8 +9,8 @@ import javax.swing.*;
  * @author Colin
  */
 public class Frame extends JFrame{
-    final int HEIGHT = 800;
-    final int WIDTH = 800;
+    final int HEIGHT = 900;
+    final int WIDTH = 900;
     
     public void createComponents()
     {

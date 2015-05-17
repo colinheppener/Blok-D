@@ -26,4 +26,9 @@ public class Vriend extends Item {
             System.out.println("IOException: " + ex);
         }
     }
+    
+    public String toString()
+    {
+        return "vriend";
+    }
 }
