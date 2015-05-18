@@ -21,6 +21,7 @@ public class Speler extends Item {
     }
 
     public void Loop(String richting) {
+        
     }
 
     private void getImageFile() {

@@ -89,20 +89,21 @@ public class Speelbord extends JComponent {
     public void paintComponent(Graphics g) {
         for (int i = 0; i < 20; i++) {
             for (int j = 0; j < 20; j++) {
-
+                //controleer instantie van welke klasse op bepaalde locatie in de grid staat en gebruik correct plaatje, als er geen instantie van een klasse
+                //op die locatie in de grid staat wordt een achtergrondImage gebruikt.
                 if (grid[i][j] instanceof Speler) {
                     g.drawImage(achtergrondImage, j * 40, i * 40, 40, 40, null);
                     g.drawImage(spelerImage, j * 40, i * 40, 40, 40, null);
                 }
-                if (!(grid[i][j] instanceof Speler) && (!(grid[i][j] instanceof Muur))) {
+                if (!(grid[i][j] instanceof Speler) && (!(grid[i][j] instanceof Muur)) && (!(grid[i][j] instanceof Vriend))) {
                     g.drawImage(achtergrondImage, j * 40, i * 40, 40, 40, null);
                 }
-                if (grid[i][j] instanceof Vriend) {
+                if (grid[i][j] instanceof Vriend) { 
+                    g.drawImage(achtergrondImage, j*40, i*40, 40, 40, null);
                     g.drawImage(vriendImage, j * 40, i * 40, 40, 40, null);
+                   
                 }
                 if (grid[i][j] instanceof Muur) {
-//                    g.drawRect(i*100, j*100, 100, 100);
-//                    g.setColor(Color.GREEN);
                     g.drawImage(muurImage, j * 40, i * 40, 40, 40, null);
                 }
             }
