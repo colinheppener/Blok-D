@@ -9,5 +9,8 @@ package projectdjava;
  * @author Jeroen
  */
 public class Veld {
-    
+    public Veld(Item item)
+    {
+        
+    }
 }
