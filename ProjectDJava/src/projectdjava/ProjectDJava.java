@@ -14,7 +14,7 @@ public class ProjectDJava {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        Frame frame = new Frame();
-        frame.createComponents();
+        Menu menu = new Menu();
+        menu.createComponents();
     }
 }

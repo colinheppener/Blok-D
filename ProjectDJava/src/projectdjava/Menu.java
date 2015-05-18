@@ -13,28 +13,26 @@ import javax.swing.*;
  *
  * @author Colin
  */
-public class Frame extends JFrame {
+public class Menu extends JFrame {
 
-    final int HEIGHT = 900;
-    final int WIDTH = 900;
+    final private int HEIGHT = 900;
+    final private int WIDTH = 900;
 
     public void createComponents() {
-        final JFrame frame = new JFrame();
-        JPanel controlPanel = new JPanel();
-        JButton herstartKnop = new JButton("Herstart Level");
+        JFrame frame = new JFrame();
+        JPanel panelStartKnop = new JPanel();
+        JButton startKnop = new JButton("Klik hier om het doolhof te starten!");
+        panelStartKnop.add(startKnop);
         frame.setSize(HEIGHT, WIDTH);
+        frame.add(panelStartKnop, BorderLayout.EAST);
         frame.setDefaultCloseOperation(EXIT_ON_CLOSE);
-        JComponent component = new Speelbord();
-        frame.add(component);
-        frame.add(controlPanel, BorderLayout.EAST);
-        controlPanel.add(herstartKnop);
-        controlPanel.setVisible(true);
         frame.setVisible(true);
-        herstartKnop.addActionListener(new ActionListener() {
+        startKnop.addActionListener(new ActionListener() {
 
             public void actionPerformed(ActionEvent e) {
                 //Execute when button is pressed
-                frame.repaint();
+                Frame frame = new Frame();
+                frame.createComponents();
             }
         });
     }
