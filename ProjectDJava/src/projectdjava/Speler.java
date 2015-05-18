@@ -3,21 +3,24 @@
  * and open the template in the editor.
  */
 package projectdjava;
+
+import java.awt.event.KeyEvent;
 import java.io.File;
 import java.io.IOException;
 import javax.imageio.ImageIO;
+
 /**
  *
  * @author Colin
  */
 public class Speler extends Item {
 
-    public Speler()
-    {
+
+    public Speler() {
         getImageFile();
     }
-    
-    private void Loop() {
+
+    public void Loop(String richting) {
     }
 
     private void getImageFile() {
@@ -27,9 +30,8 @@ public class Speler extends Item {
             System.out.println(ex);
         }
     }
-    
-    public String toString()
-    {
+
+    public String toString() {
         return "speler";
     }
 }

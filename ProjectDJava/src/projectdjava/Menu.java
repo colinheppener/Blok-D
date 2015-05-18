@@ -31,7 +31,8 @@ public class Menu extends JFrame {
 
             public void actionPerformed(ActionEvent e) {
                 //Execute when button is pressed
-                Frame frame = new Frame();
+                CustomKeyListener keyListen = new CustomKeyListener();
+                Frame frame = new Frame(keyListen);
                 frame.createComponents();
             }
         });
