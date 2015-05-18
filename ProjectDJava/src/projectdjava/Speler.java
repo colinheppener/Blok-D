@@ -20,15 +20,15 @@ public class Speler extends Item {
         getImageFile();
     }
 
-    public void Loop(String richting) {
-        if (richting.equals("noord"))
-        {}
-        else if (richting.equals("oost"))
-        {}
-        else if (richting.equals("zuid"))
-        {}
-        else
-        {}
+    public void Loop(int richting) {
+//        if (richting.equals("noord"))
+//        {}
+//        else if (richting.equals("oost"))
+//        {}
+//        else if (richting.equals("zuid"))
+//        {}
+//        else
+//        {}
     }
 
     private void getImageFile() {
