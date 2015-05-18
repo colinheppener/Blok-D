@@ -8,9 +8,18 @@ package projectdjava2.pkg0;
  *
  * @author Colin
  */
-public class Veld {
+public class Veld { 
     private int locatieX;
     private int locatieY;
+    private int itemOpVeldID;
+    
+    public Veld(int x, int y, int itemID)
+    {
+        locatieX = x;
+        locatieY = y;
+        itemOpVeldID = itemID;
+    }
+   
     
     private int[] getLocatie()
     {
