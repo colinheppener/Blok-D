@@ -19,7 +19,7 @@ public class Menu extends JFrame {
     final private int WIDTH = 900;
 
     public void createComponents() {
-        JFrame frame = new JFrame();
+        final JFrame frame = new JFrame();
         JPanel panelStartKnop = new JPanel();
         JButton startKnop = new JButton("Klik hier om het doolhof te starten!");
         panelStartKnop.add(startKnop);
@@ -32,6 +32,7 @@ public class Menu extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 //Execute when button is pressed
                 CustomKeyListener keyListen = new CustomKeyListener();
+                frame.dispose();
                 Frame frame = new Frame(keyListen);
                 frame.createComponents();
             }
