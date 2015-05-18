@@ -4,16 +4,11 @@
  */
 package projectdjava2.pkg0;
 
-import java.awt.image.BufferedImage;
-import javax.swing.JComponent;
-
 /**
  *
  * @author Colin
  */
-public class Item extends JComponent{
-    BufferedImage plaatje;
-    
+public class Muur extends Item{
     public void Teken()
     {
         
