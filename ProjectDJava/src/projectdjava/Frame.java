@@ -39,7 +39,7 @@ public class Frame extends JFrame {
         CustomKeyListener keyListen = new CustomKeyListener();
         component.addKeyListener(keyListen);
         frame.add(controlPanel, BorderLayout.EAST);
-        GridLayout gridLayout = new GridLayout(2, 2);
+        GridLayout gridLayout = new GridLayout(20, 2);
         controlPanel.setLayout(gridLayout);
         controlPanel.add(herstartKnop);
         controlPanel.add(menuKnop);
