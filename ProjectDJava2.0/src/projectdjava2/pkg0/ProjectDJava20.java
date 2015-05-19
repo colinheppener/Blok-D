@@ -4,6 +4,9 @@
  */
 package projectdjava2.pkg0;
 
+import javax.swing.JComponent;
+import javax.swing.JFrame;
+
 /**
  *
  * @author Colin
@@ -14,6 +17,10 @@ public class ProjectDJava20 {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+        JFrame frame = new JFrame();
+        frame.setSize(500, 500);
+        JComponent comp = new Speelbord();
+        frame.add(comp);
+        frame.setVisible(true);
     }
 }

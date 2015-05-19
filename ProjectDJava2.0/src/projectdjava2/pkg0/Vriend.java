@@ -8,7 +8,7 @@ package projectdjava2.pkg0;
  *
  * @author Colin
  */
-public class Vriend {
+public class Vriend extends Item{
     public void Teken()
     {
         

@@ -13,16 +13,12 @@ import javax.imageio.ImageIO;
  */
 public class Item {
     protected BufferedImage image;  
-    public Item()
-    {
-        getImageFile();
-    }
     public BufferedImage returnImage()
     {
         return image;
     }
     
-        private void getImageFile() {
+        protected void getImageFile() {
         try {
             image = ImageIO.read(new File("src/images/background.bmp"));
         } catch (IOException ex) {
