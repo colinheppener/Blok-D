@@ -21,6 +21,7 @@ public class ProjectDJava20 {
         frame.setSize(500, 500);
         JComponent comp = new Speelbord();
         frame.add(comp);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setVisible(true);
     }
 }

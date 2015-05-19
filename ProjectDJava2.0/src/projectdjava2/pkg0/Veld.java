@@ -21,10 +21,7 @@ public class Veld {
         itemOpVeldID = itemID;
         createItem();
     }
-    public Veld()
-    {
-        
-    }
+
    
     
     public int[] getLocatie()
@@ -40,12 +37,13 @@ public class Veld {
     {
         if(itemOpVeldID==0)
         {
-        
+            Item item = new Item();
+            ItemOpVeld = item;
         }
         if(itemOpVeldID==1)
         {
             Muur muur = new Muur(getLocatie());
-          ItemOpVeld = muur;
+            ItemOpVeld = muur;
         }
         if(itemOpVeldID==3)
         {

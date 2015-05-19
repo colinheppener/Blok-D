@@ -32,4 +32,8 @@ public class Item extends JComponent {
         }
         return plaatje;
     }
+    public String toString()
+    {
+        return "item toegevogd";
+    }
 }
