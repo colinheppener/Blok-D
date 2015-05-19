@@ -16,9 +16,8 @@ public class Speler extends Item {
 
     private int[] locatie;
 
-    public Speler(int[] loc, KeyListener e) {
+    public Speler(int[] loc) {
         locatie = loc;
-        CustomKeyListener keylisten = new CustomKeyListener();
         for (int i = 0; i < 2; i++) {
             System.out.println(locatie[i]);
 
@@ -33,5 +32,10 @@ public class Speler extends Item {
         g.setColor(Color.GREEN);
         g.drawRect(locatie[1] * 20, locatie[0] * 20, 40, 40);
 
+    }
+    
+    public String toString()//tostring methode override om te checken of speler wordt toegevogd aan de grid.
+    {
+        return "speler toegevoegd";
     }
 }
