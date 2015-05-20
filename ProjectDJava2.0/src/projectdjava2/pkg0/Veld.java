@@ -36,10 +36,10 @@ public class Veld {
     
     private void createItem()//hier wordt het daadwerkelijke item op het veld gecreeerd. Het wordt dus door veld zelf gedaan en niet meer door speelbord.
     {
-        if(itemOpVeldID==0)//als itemID 0 is wordt er nu geen item op het veld gezet, DIT IS WAT DE NULLPOINTER VEROORZAAKT
-        {
- 
-        }
+//        if(itemOpVeldID==0)//als itemID 0 is wordt er nu geen item op het veld gezet, DIT IS WAT DE NULLPOINTER VEROORZAAKT
+//        {
+// 
+//        }
         if(itemOpVeldID==1)//als itemID 1 is wordt muur op veld gecreeerd.
         {
             Muur muur = new Muur(getLocatie());
@@ -57,7 +57,7 @@ public class Veld {
             ItemOpVeld = vriend;
         }
         System.out.println("itemopveld:" +ItemOpVeld.toString());//hier wordt weergegeven(met de toString methodes uit de Speler en Muur klasse(tot nu toe) 
-                                                                 //welke items aan de grid toegevoegd worden(wordt weergegeven in de console.
+                                                                //welke items aan de grid toegevoegd worden(wordt weergegeven in de console.
     }
     
     public Item getItem()//hiermee wordt het item wat op het veld staat opgehaald, dit wordt gebruikt om het juiste item te tekenen e.d.
