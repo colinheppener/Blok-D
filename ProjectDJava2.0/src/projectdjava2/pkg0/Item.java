@@ -16,24 +16,28 @@ import javax.imageio.ImageIO;
  */
 public class Item {
 
-//    BufferedImage plaatje;
+    BufferedImage plaatje;
+    String plaatjePad;
     int[] locatie = new int[2];
 
     public void Teken(Graphics g) {
-        
+
     }
 
-//    public BufferedImage getImageFile() {
-//        try {
-//            plaatje = ImageIO.read(new File("src/images/wall.jpg"));
-//        } catch (IOException ex) {
-//            System.out.println(ex);
-//        }
-//        return plaatje;
-//    }
+    public void setPlaatjePad(String pad) {
+        plaatjePad = pad;
+    }
 
-        public String toString()
-        {
-            return "item toegevoegd";
+    public BufferedImage getImageFile() {
+        try {
+            plaatje = ImageIO.read(new File("src/images/background.bmp"));
+        } catch (IOException ex) {
+            System.out.println(ex);
         }
+        return plaatje;
+    }
+
+    public String toString() {
+        return "item toegevoegd";
+    }
 }

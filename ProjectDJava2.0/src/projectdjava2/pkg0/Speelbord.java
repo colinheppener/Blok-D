@@ -74,10 +74,9 @@ public class Speelbord extends JComponent {//deze JComponent wordt weergegeven o
         for (int i = 0; i < 20; i++) {
             for (int j = 0; j < 20; j++) {
                 Item veldItem = grid[i][j].getItem();
-                if(veldItem != null)
-                {
+
                 veldItem.Teken(g);
-                }
+                
             }
 
         }
