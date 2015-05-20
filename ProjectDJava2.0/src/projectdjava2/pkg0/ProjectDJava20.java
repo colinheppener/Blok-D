@@ -17,11 +17,6 @@ public class ProjectDJava20 {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        JFrame frame = new JFrame();
-        frame.setSize(900, 900);
-        JComponent comp = new Speelbord();
-        frame.add(comp);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setVisible(true);
+          Menu menu = new Menu();
     }
 }
