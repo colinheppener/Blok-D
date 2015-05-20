@@ -32,6 +32,7 @@ public class Frame extends JFrame {
         JPanel controlPanel = new JPanel();
         JButton herstartKnop = new JButton("Herstart Level");
         JButton menuKnop = new JButton("Terug naar menu");
+        JButton stopKnop = new JButton("sluit schermen");
         frame.setSize(HEIGHT, WIDTH);
         frame.setDefaultCloseOperation(EXIT_ON_CLOSE);
         JComponent component = new Speelbord();
@@ -47,6 +48,7 @@ public class Frame extends JFrame {
         controlPanel.setLayout(gridLayout);
         controlPanel.add(herstartKnop);
         controlPanel.add(menuKnop);
+        controlPanel.add(stopKnop);
         controlPanel.setVisible(true);
         frame.setVisible(true);
         herstartKnop.addActionListener(new ActionListener() {
@@ -63,6 +65,14 @@ public class Frame extends JFrame {
 
                 frame.dispose();
                 Menu menu = new Menu();
+            }
+        });
+                stopKnop.addActionListener(new ActionListener() {
+
+            public void actionPerformed(ActionEvent e) {
+
+                System.exit(0);
+                
             }
         });
         
