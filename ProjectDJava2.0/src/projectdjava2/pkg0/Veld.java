@@ -53,7 +53,7 @@ public class Veld {
         }
         if(itemOpVeldID==4)//als itemID 4 is wordt vriend gecreeeerd
         {
-            Vriend vriend = new Vriend();
+            Vriend vriend = new Vriend(getLocatie());
             ItemOpVeld = vriend;
         }
         if(itemOpVeldID ==0)

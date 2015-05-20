@@ -22,7 +22,7 @@ public class Muur extends Item {
     public void Teken(Graphics g)//als je deze override methode weghaalt worden de vierkanten in het grijs getekend.
     {
         g.setColor(Color.RED);
-        g.drawRect(locatie[1] * 20, locatie[0] * 20, 40, 40);
+        g.fillRect(locatie[1] * 40, locatie[0] * 40, 40, 40);
 
     }
     

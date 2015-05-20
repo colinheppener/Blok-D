@@ -30,7 +30,7 @@ public class Speler extends Item {
 
     public void Teken(Graphics g) {
         g.setColor(Color.GREEN);
-        g.drawRect(locatie[1] * 20, locatie[0] * 20, 40, 40);
+        g.fillRect(locatie[1] * 40, locatie[0] * 40, 40, 40);
 
     }
     

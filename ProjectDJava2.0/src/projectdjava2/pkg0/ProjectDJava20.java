@@ -18,7 +18,7 @@ public class ProjectDJava20 {
      */
     public static void main(String[] args) {
         JFrame frame = new JFrame();
-        frame.setSize(500, 500);
+        frame.setSize(900, 900);
         JComponent comp = new Speelbord();
         frame.add(comp);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

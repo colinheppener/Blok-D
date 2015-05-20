@@ -20,7 +20,7 @@ public class Item {
     int[] locatie = new int[2];
 
     public void Teken(Graphics g) {
-        g.drawRect(locatie[1]*20, locatie[0] *20, 40, 40);
+        
     }
 
 //    public BufferedImage getImageFile() {
