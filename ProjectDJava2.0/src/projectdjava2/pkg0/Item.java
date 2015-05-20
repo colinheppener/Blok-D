@@ -32,4 +32,8 @@ public class Item {
 //        return plaatje;
 //    }
 
+        public String toString()
+        {
+            return "item toegevoegd";
+        }
 }

@@ -56,6 +56,11 @@ public class Veld {
             Vriend vriend = new Vriend();
             ItemOpVeld = vriend;
         }
+        if(itemOpVeldID ==0)
+        {
+            Item item = new Item();
+            ItemOpVeld = item;
+        }
         System.out.println("itemopveld:" +ItemOpVeld.toString());//hier wordt weergegeven(met de toString methodes uit de Speler en Muur klasse(tot nu toe) 
                                                                 //welke items aan de grid toegevoegd worden(wordt weergegeven in de console.
     }
