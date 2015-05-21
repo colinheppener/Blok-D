@@ -36,6 +36,7 @@ public class Speler extends Item {
         if(looprichting == 0)
         {
             System.out.println("noord");
+            
         }
         else if(looprichting == 1)
         {
