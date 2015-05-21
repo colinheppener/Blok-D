@@ -20,22 +20,23 @@ public class Muur extends Item {
 
     public Muur(Point loc) {
         locatie = loc;
-        System.out.println( "X coord:" +(int)locatie.getX() + "Y coord" + (int)locatie.getY());
+        System.out.println("X coord:" + (int) locatie.getX() + "Y coord" + (int) locatie.getY());
     }
 
     @Override                    //deze tekenmethode is geoverride omdat ik muren alvast een ander kleurtje wilde geven, ook als test van de polymorphisme 
     public void Teken(Graphics g)//als je deze override methode weghaalt worden de vierkanten in het grijs getekend.
     {
         g.setColor(Color.RED);
-        g.fillRect( (int)locatie.getY() * 40,(int)locatie.getX() * 40, 40, 40);
-        g.drawImage(getImageFile(), (int)locatie.getY() * 40,(int)locatie.getX() * 40, 40, 40, null);    
+        g.fillRect((int) locatie.getY() * 40, (int) locatie.getX() * 40, 40, 40);
+        g.drawImage(getImageFile(), (int) locatie.getY() * 40, (int) locatie.getX() * 40, 40, 40, null);
     }
-    
+
     public String toString()//tostring methode override om te checken of speler wordt toegevogd aan de grid.
     {
         return "muur";
     }
-        public BufferedImage getImageFile() {
+
+    public BufferedImage getImageFile() {
         try {
             plaatje = ImageIO.read(new File("src/images/wall.jpg"));
         } catch (IOException ex) {

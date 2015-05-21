@@ -25,19 +25,6 @@ public class Item {
 
     }
 
-    public void setPlaatjePad(String pad) {
-        plaatjePad = pad;
-    }
-
-    public BufferedImage getImageFile() {
-        try {
-            plaatje = ImageIO.read(new File("src/images/background.bmp"));
-        } catch (IOException ex) {
-            System.out.println(ex);
-        }
-        return plaatje;
-    }
-
     public String toString() {
         return "item toegevoegd";
     }

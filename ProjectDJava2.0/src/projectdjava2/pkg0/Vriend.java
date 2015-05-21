@@ -20,7 +20,6 @@ public class Vriend extends Item {
 
     public Vriend(Point loc) {
         locatie = loc;
-        setPlaatjePad("src/images/vriend.png");
         getImageFile();
 
     }

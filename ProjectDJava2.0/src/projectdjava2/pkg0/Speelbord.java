@@ -50,18 +50,22 @@ public class Speelbord extends JComponent {//deze JComponent wordt weergegeven o
             for (int j = 0; j < 20; j++) {
                 if (opzetGrid[i][j] == 1) {
                     Point locatie = new Point(i, j);
+                    Muur muur = new Muur(locatie);
                     grid[i][j] = new Veld(locatie, 1);
                 }
                 if (opzetGrid[i][j] == 3) {
                     Point locatie = new Point(i, j);
+                    Speler speler = new Speler(locatie);
                     grid[i][j] = new Veld(locatie, 3);
                 }
                 if (opzetGrid[i][j] == 4) {
                     Point locatie = new Point(i, j);
+                    Vriend vriend = new Vriend(locatie);
                     grid[i][j] = new Veld(locatie, 4);
                 }
                 if (opzetGrid[i][j] == 0) {
                     Point locatie = new Point(i, j);
+                    DefaultItem defaultItem = new DefaultItem(locatie);
                     grid[i][j] = new Veld(locatie, 0);
                 }
             }
