@@ -6,6 +6,7 @@ package projectdjava2.pkg0;
 
 import java.awt.Graphics;
 import javax.swing.JComponent;
+import java.awt.Point;
 
 /**
  *
@@ -48,16 +49,20 @@ public class Speelbord extends JComponent {//deze JComponent wordt weergegeven o
         for (int i = 0; i < 20; i++) {
             for (int j = 0; j < 20; j++) {
                 if (opzetGrid[i][j] == 1) {
-                    grid[i][j] = new Veld(i, j, 1);
+                    Point locatie = new Point(i, j);
+                    grid[i][j] = new Veld(locatie, 1);
                 }
                 if (opzetGrid[i][j] == 3) {
-                    grid[i][j] = new Veld(i, j, 3);
+                    Point locatie = new Point(i, j);
+                    grid[i][j] = new Veld(locatie, 3);
                 }
                 if (opzetGrid[i][j] == 4) {
-                    grid[i][j] = new Veld(i, j, 4);
+                    Point locatie = new Point(i, j);
+                    grid[i][j] = new Veld(locatie, 4);
                 }
                 if (opzetGrid[i][j] == 0) {
-                    grid[i][j] = new Veld(i, j, 0);
+                    Point locatie = new Point(i, j);
+                    grid[i][j] = new Veld(locatie, 0);
                 }
             }
         }
@@ -76,7 +81,7 @@ public class Speelbord extends JComponent {//deze JComponent wordt weergegeven o
                 Item veldItem = grid[i][j].getItem();
 
                 veldItem.Teken(g);
-                
+
             }
 
         }

@@ -9,6 +9,7 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 import javax.imageio.ImageIO;
+import java.awt.Point;
 
 /**
  *
@@ -18,7 +19,7 @@ public class Item {
 
     BufferedImage plaatje;
     String plaatjePad;
-    int[] locatie = new int[2];
+    Point locatie;
 
     public void Teken(Graphics g) {
 

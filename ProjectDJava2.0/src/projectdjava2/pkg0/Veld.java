@@ -3,34 +3,28 @@
  * and open the template in the editor.
  */
 package projectdjava2.pkg0;
-
+import java.awt.Point;
 /**
  *
  * @author Colin
  */
 public class Veld { 
-    private int locatieX;
-    private int locatieY;
+    private Point locatie;
     private int itemOpVeldID;//dit is het idee wat meegegeven wordt vanuit de CreateVelden methode in Speelbord
     private Item ItemOpVeld;
     
-    public Veld(int x, int y, int itemID)//constructor waarin de waarden van de klassevariabelen bepaald worden, 
+    public Veld(Point loc, int itemID)//constructor waarin de waarden van de klassevariabelen bepaald worden, 
                                          //vanuit deze constructor wordt ook de methode om de items aan te maken aangeroepen
     {
-        locatieX = x;
-        locatieY = y;
+        locatie = loc;
         itemOpVeldID = itemID;
         createItem();
     }
 
    
     
-    public int[] getLocatie()//hiermee kan de locatie van het veld worden opgehaald en gebruikt worden in andere methodes.
-    {
-        int[] locatie = new int[2];
-        locatie[0]  = locatieX;
-        locatie[1] = locatieY;
-        
+    public Point getLocatie()//hiermee kan de locatie van het veld worden opgehaald en gebruikt worden in andere methodes.
+    {       
         return locatie; 
     }
     
