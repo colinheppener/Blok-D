@@ -29,7 +29,23 @@ public class Speler extends Item {
 
     }
 
-    private void Loop() {
+    public static void Loop(int looprichting) {
+        if(looprichting == 0)
+        {
+            System.out.println("noord");
+        }
+        else if(looprichting == 1)
+        {
+            System.out.println("oost");
+        }
+        else if(looprichting == 2)
+        {
+            System.out.println("zuid");
+        }
+        else if(looprichting == 3)
+        {
+            System.out.println("west");
+        }
     }
 
     public void Teken(Graphics g) {
