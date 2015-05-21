@@ -24,6 +24,7 @@ public class Menu {
         final JFrame frame = new JFrame();
         frame.setSize(900, 900);
         frame.setVisible(true);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         JButton button = new JButton("Start doolhof");
         frame.add(button);
         button.addActionListener(new ActionListener() {
