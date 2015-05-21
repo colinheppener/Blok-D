@@ -4,6 +4,7 @@
  */
 package projectdjava2.pkg0;
 import java.awt.Point;
+import java.util.HashMap;
 /**
  *
  * @author Colin
@@ -12,6 +13,7 @@ public class Veld {
     private Point locatie;
     private int itemOpVeldID;//dit is het idee wat meegegeven wordt vanuit de CreateVelden methode in Speelbord
     private Item ItemOpVeld;
+    private HashMap buren;
     
     public Veld(Point loc, int itemID)//constructor waarin de waarden van de klassevariabelen bepaald worden, 
                                          //vanuit deze constructor wordt ook de methode om de items aan te maken aangeroepen
@@ -19,9 +21,24 @@ public class Veld {
         locatie = loc;
         itemOpVeldID = itemID;
         createItem();
+        buren = getBuren(locatie);
     }
 
-   
+   public HashMap getBuren(Point locatie)
+    {
+        Speelbord speelbord = new Speelbord();
+        Veld[][] grid = speelbord.getGrid();
+        HashMap buren = new HashMap();
+        Item buur = grid[(int)locatie.getY()-1][(int)locatie.getX()].getItem();
+        buren.put(0, buur);
+        buur = grid[(int)locatie.getY()][(int)locatie.getX()+1].getItem();
+        buren.put(1, buur);
+        buur = grid[(int)locatie.getY()+1][(int)locatie.getX()].getItem();
+        buren.put(2, buur);
+        buur = grid[(int)locatie.getY()][(int)locatie.getX()-1].getItem();
+        buren.put(3, buur);
+        return buren;
+    }
     
     public Point getLocatie()//hiermee kan de locatie van het veld worden opgehaald en gebruikt worden in andere methodes.
     {       
@@ -43,7 +60,6 @@ public class Veld {
         {
             Speler speler = new Speler(getLocatie());
             ItemOpVeld = speler;
-          
         }
         if(itemOpVeldID==4)//als itemID 4 is wordt vriend gecreeeerd
         {

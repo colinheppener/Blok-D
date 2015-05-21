@@ -7,6 +7,7 @@ package projectdjava2.pkg0;
 import java.awt.Graphics;
 import javax.swing.JComponent;
 import java.awt.Point;
+import java.util.HashMap;
 
 /**
  *
@@ -39,6 +40,11 @@ public class Speelbord extends JComponent {//deze JComponent wordt weergegeven o
         {1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 1, 4, 1,}
     };
 
+    public Veld[][] getGrid()
+            {
+                return grid;
+            }
+    
     public Speelbord() {
         CreateVelden();
     }

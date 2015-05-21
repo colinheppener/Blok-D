@@ -37,7 +37,6 @@ class CustomKeyListener implements KeyListener {
             System.out.println("east ingevoerd");
             Speler.Loop(1);
         }
-
     }
 
     public void keyReleased(KeyEvent e) {
