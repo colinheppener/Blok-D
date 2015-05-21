@@ -23,8 +23,8 @@ public class Frame extends JFrame {
     public Frame() {
         createComponents();
     }
-    final int HEIGHT = 900;
-    final int WIDTH = 900;
+    final int HEIGHT = 950;
+    final int WIDTH = 950;
 
 
     public void createComponents() {

@@ -10,32 +10,33 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 import javax.imageio.ImageIO;
+import java.awt.Point;
 
 /**
  *
  * @author Colin
  */
-public class Vriend extends Item{
-    public Vriend(int[] loc)
-    {
+public class Vriend extends Item {
+
+    public Vriend(Point loc) {
         locatie = loc;
         setPlaatjePad("src/images/vriend.png");
         getImageFile();
-                
+
     }
-    public void Teken(Graphics g)
-    {
+
+    public void Teken(Graphics g) {
         g.setColor(Color.MAGENTA);
-        
-        g.fillRect(locatie[1] * 40, locatie[0] * 40, 40, 40);
-        g.drawImage(getImageFile(), locatie[1]*40, locatie[0] *40, 40, 40, null);
+
+        g.fillRect((int) locatie.getY() * 40, (int) locatie.getX() * 40, 40, 40);
+        g.drawImage(getImageFile(), (int) locatie.getY() * 40, (int) locatie.getX() * 40, 40, 40, null);
+
     }
-    
-    public String toString()
-    {
+
+    public String toString() {
         return "vriend";
     }
-    
+
     public BufferedImage getImageFile() {
         try {
             plaatje = ImageIO.read(new File("src/images/vriend.png"));

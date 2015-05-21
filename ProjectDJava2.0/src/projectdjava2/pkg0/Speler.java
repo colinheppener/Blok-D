@@ -11,6 +11,7 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 import javax.imageio.ImageIO;
+import java.awt.Point;
 
 /**
  *
@@ -18,14 +19,16 @@ import javax.imageio.ImageIO;
  */
 public class Speler extends Item {
 
-    private int[] locatie;
+    private Point locatie;
 
-    public Speler(int[] loc) {
+    ;
+
+    public Speler(Point loc) {
         locatie = loc;
-        for (int i = 0; i < 2; i++) {
-            System.out.println(locatie[i]);
 
-        }
+        System.out.println("X coord:" + locatie.getX() + "Y coord" + locatie.getY());
+
+
 
     }
 
@@ -50,8 +53,8 @@ public class Speler extends Item {
 
     public void Teken(Graphics g) {
         g.setColor(Color.GREEN);
-        g.fillRect(locatie[1] * 40, locatie[0] * 40, 40, 40);
-        g.drawImage(getImageFile(), locatie[1]*40, locatie[0] *40, 40, 40, null);
+        g.fillRect( (int)locatie.getY() * 40,(int)locatie.getX() * 40, 40, 40);
+        g.drawImage(getImageFile(), (int) locatie.getY() * 40, (int) locatie.getX() * 40, 40, 40, null);
 
     }
 
