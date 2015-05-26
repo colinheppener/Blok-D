@@ -20,7 +20,7 @@ public class Muur extends Item {
 
     public Muur(Point loc) {
         locatie = loc;
-        System.out.println("X coord:" + (int) locatie.getX() + "Y coord" + (int) locatie.getY());
+//        System.out.println("X coord:" + (int) locatie.getX() + "Y coord" + (int) locatie.getY());
     }
 
     @Override                    //deze tekenmethode is geoverride omdat ik muren alvast een ander kleurtje wilde geven, ook als test van de polymorphisme 

@@ -28,4 +28,9 @@ public class Item {
     public String toString() {
         return "item toegevoegd";
     }
+    
+    public Point getLocatie()
+    {
+        return locatie;
+    }
 }

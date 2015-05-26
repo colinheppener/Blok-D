@@ -8,6 +8,7 @@ import java.awt.Graphics;
 import javax.swing.JComponent;
 import java.awt.Point;
 import java.util.HashMap;
+import javax.swing.SwingUtilities;
 
 /**
  *
@@ -15,11 +16,11 @@ import java.util.HashMap;
  */
 public class Speelbord extends JComponent {//deze JComponent wordt weergegeven op de Frame in ProjectDJava20.java, in de main klasse dus.
 
-    private Veld[][] grid = new Veld[20][20];
+    private static Veld[][] grid = new Veld[20][20];
     private int huidiglevel = 1;
     private static int[][] opzetGrid = {
-        {3, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,},
-        {1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 1, 1,},
+        {0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,},
+        {1, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 1, 1,},
         {1, 0, 0, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 1,},
         {1, 1, 1, 0, 1, 1, 1, 0, 1, 1, 1, 0, 0, 0, 0, 0, 1, 0, 1, 1,},
         {1, 0, 1, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1,},
@@ -40,17 +41,15 @@ public class Speelbord extends JComponent {//deze JComponent wordt weergegeven o
         {1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 1, 4, 1,}
     };
 
-    public Veld[][] getGrid()
-            {
-                return grid;
-            }
-    
+    public Veld[][] getGrid() {
+        return grid;
+    }
+
     public Speelbord() {
         CreateVelden();
     }
 
-    private void CreateVelden() {//er worden nu tijdelijk alleen muren gecreeerd omdat ik bij de andere items een nare nullpointer krijg, komt door de ifjes in deze methode
-        //als die erin staat is er namelijk mogelijk dat er helemaal geen item op het veld staaat, en krijg je dus een nullpointer als je NULL probeert te tekenen
+    private void CreateVelden() {
 
         for (int i = 0; i < 20; i++) {
             for (int j = 0; j < 20; j++) {
@@ -84,8 +83,11 @@ public class Speelbord extends JComponent {//deze JComponent wordt weergegeven o
     private void StartNieuwLevel() {
     }
 
+    @Override
     public void paintComponent(Graphics g) {//hier worden de vierkanten daadwerkelijk samengevoegd 
         //en op het speelbord weergegeven, de velden tekenen zichzelf wel met de Teken methode
+        super.paintComponent(g);
+        System.out.println("repaint");
         for (int i = 0; i < 20; i++) {
             for (int j = 0; j < 20; j++) {
                 Item veldItem = grid[i][j].getItem();
@@ -96,5 +98,11 @@ public class Speelbord extends JComponent {//deze JComponent wordt weergegeven o
 
         }
 
+    }
+
+    public void replaceItemOpLocatie(Point locatie) {
+        grid[(int) locatie.getX()][(int) locatie.getY()] = new Veld(locatie, 3);
+        repaint();
+        System.out.println("replace initiated");
     }
 }

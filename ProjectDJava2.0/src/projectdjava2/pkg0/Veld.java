@@ -13,7 +13,7 @@ import java.util.HashMap;
  */
 public class Veld {
 
-    private Point locatie;
+    private static Point locatie;
     private int itemOpVeldID;//dit is het idee wat meegegeven wordt vanuit de CreateVelden methode in Speelbord
     private Item ItemOpVeld;
     private HashMap buren;
@@ -24,7 +24,7 @@ public class Veld {
         locatie = loc;
         itemOpVeldID = itemID;
         createItem();
-        buren = getBuren(locatie);
+        
     }
 
     public Veld getBuur(int richting)
@@ -35,7 +35,7 @@ public class Veld {
     public HashMap getBuren(Point locatie) {
         Speelbord speelbord = new Speelbord();
         Veld[][] grid = speelbord.getGrid();
-        HashMap buren = new HashMap();
+        buren = new HashMap();
         Item buur = grid[(int) locatie.getY()][(int) locatie.getX() + 1].getItem();
         buren.put(1, buur);
         if((int)locatie.getY() != 0)
@@ -53,7 +53,7 @@ public class Veld {
         return buren;
     }
 
-    public Point getLocatie()//hiermee kan de locatie van het veld worden opgehaald en gebruikt worden in andere methodes.
+    public static Point getLocatie()//hiermee kan de locatie van het veld worden opgehaald en gebruikt worden in andere methodes.
     {
         return locatie;
     }
@@ -83,7 +83,7 @@ public class Veld {
             DefaultItem defaultItem = new DefaultItem(getLocatie());
             ItemOpVeld = defaultItem;
         }
-        System.out.println("itemopveld:" + ItemOpVeld.toString());//hier wordt weergegeven(met de toString methodes uit de Speler en Muur klasse(tot nu toe) 
+//        System.out.println("itemopveld:" + ItemOpVeld.toString());//hier wordt weergegeven(met de toString methodes uit de Speler en Muur klasse(tot nu toe) 
         //welke items aan de grid toegevoegd worden(wordt weergegeven in de console.
     }
 

@@ -19,7 +19,7 @@ import javax.imageio.ImageIO;
 public class DefaultItem extends Item {
     public DefaultItem(Point loc) {
         locatie = loc;
-        System.out.println( "X coord:" +(int)locatie.getX() + "Y coord" + (int)locatie.getY());
+//        System.out.println( "X coord:" +(int)locatie.getX() + "Y coord" + (int)locatie.getY());
     }
     public void Teken(Graphics g)//als je deze override methode weghaalt worden de vierkanten in het grijs getekend.
     {

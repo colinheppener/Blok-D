@@ -39,7 +39,7 @@ public class Frame extends JFrame {
 
 
         frame.add(component);
-        frame.setResizable(false);
+        frame.setResizable(true);
         component.setFocusable(true);
         CustomKeyListener keyListen = new CustomKeyListener();
         component.addKeyListener(keyListen);
