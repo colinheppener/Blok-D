@@ -29,10 +29,14 @@ public class Speler extends Item {
         System.out.println(veld.getBuur(looprichting));
         if(veld.getBuur(looprichting).getItem().toString().equals("space"))
         {
+           Item item = veld.getBuur(looprichting).getItem();
            veld.getBuur(looprichting).setItem(this);
            veld.getBuur(looprichting).getItem().setVeld(veld.getBuur(looprichting));
-           veld.setItem(veld.getBuur(looprichting).getItem());
+           
+           veld.setItem(item);
+           
            veld.getItem().setVeld(veld);
+            System.out.println(veld.getBuur(looprichting).getItem().toString());
         }
     }
 
