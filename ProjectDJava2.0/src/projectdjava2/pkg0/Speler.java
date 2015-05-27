@@ -55,7 +55,6 @@ public class Speler extends Item {
             Point loc = new Point();
             loc.setLocation(locatie.getX(), locatie.getY() + 1);
             locatie.setLocation(loc);
-
             speelb.replaceItemOpLocatie(loc);
             System.out.println("loop x coord destination: " + locatie.getX() + " loop y coord destination: " + locatie.getY());
         }

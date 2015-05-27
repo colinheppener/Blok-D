@@ -53,7 +53,7 @@ public class Veld {
         return buren;
     }
 
-    public static Point getLocatie()//hiermee kan de locatie van het veld worden opgehaald en gebruikt worden in andere methodes.
+    public Point getLocatie()//hiermee kan de locatie van het veld worden opgehaald en gebruikt worden in andere methodes.
     {
         return locatie;
     }
