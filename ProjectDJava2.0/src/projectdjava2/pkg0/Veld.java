@@ -13,7 +13,7 @@ import java.util.HashMap;
  */
 public class Veld {
 
-    private static Point locatie;
+    private Point locatie;
     private Item ItemOpVeld;
     private HashMap buren;
 
@@ -51,9 +51,19 @@ public class Veld {
     public void setBuren(HashMap bur)
     {
         buren = bur;
-        System.out.println(buren.get("noord") +"     noord!");
-        System.out.println(buren.get("zuid") +"      zuid!");
-        System.out.println(buren.get("west") +"      west!");
-        System.out.println(buren.get("oost") +"      oost!");
+//        System.out.println(buren.get("noord") +"     noord!");
+//        System.out.println(buren.get("zuid") +"      zuid!");
+//        System.out.println(buren.get("west") +"      west!");
+//        System.out.println(buren.get("oost") +"      oost!");
+    }
+    public int getY()
+    {
+//        System.out.println("getY: "+(int)locatie.getY());
+        return (int)locatie.getY();
+    }
+    public int getX()
+    {
+//        System.out.println("getX: "+(int)locatie.getX());
+        return (int)locatie.getX();
     }
 }

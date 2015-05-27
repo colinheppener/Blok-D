@@ -17,15 +17,14 @@ import javax.imageio.ImageIO;
  * @author Jeroen
  */
 public class DefaultItem extends Item {
-    public DefaultItem(Point loc) {
-        locatie = loc;
+    public DefaultItem() {
 //        System.out.println( "X coord:" +(int)locatie.getX() + "Y coord" + (int)locatie.getY());
     }
     public void Teken(Graphics g)//als je deze override methode weghaalt worden de vierkanten in het grijs getekend.
     {
         g.setColor(Color.RED);
-        g.fillRect( (int)locatie.getY() * 40,(int)locatie.getX() * 40, 40, 40);
-        g.drawImage(getImageFile(), (int)locatie.getY() * 40,(int)locatie.getX() * 40, 40, 40, null);    
+        g.fillRect( (int)veld.getY() * 40,(int)veld.getX() * 40, 40, 40);
+        g.drawImage(getImageFile(), (int)veld.getY() * 40,(int)veld.getX() * 40, 40, 40, null);    
     }
     public BufferedImage getImageFile() {
         try {

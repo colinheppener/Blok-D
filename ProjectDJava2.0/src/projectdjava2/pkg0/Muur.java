@@ -18,17 +18,16 @@ import java.awt.Point;
  */
 public class Muur extends Item {
 
-    public Muur(Point loc) {
-        locatie = loc;
-//        System.out.println("X coord:" + (int) locatie.getX() + "Y coord" + (int) locatie.getY());
+    public Muur() {
+//        System.out.println("X coord:" + (int) veld.getX() + "Y coord" + (int) veld.getY());
     }
 
     @Override                    //deze tekenmethode is geoverride omdat ik muren alvast een ander kleurtje wilde geven, ook als test van de polymorphisme 
     public void Teken(Graphics g)//als je deze override methode weghaalt worden de vierkanten in het grijs getekend.
     {
         g.setColor(Color.RED);
-        g.fillRect((int) locatie.getY() * 40, (int) locatie.getX() * 40, 40, 40);
-        g.drawImage(getImageFile(), (int) locatie.getY() * 40, (int) locatie.getX() * 40, 40, 40, null);
+        g.fillRect((int) veld.getY() * 40, (int) veld.getX() * 40, 40, 40);
+        g.drawImage(getImageFile(), (int) veld.getY() * 40, (int) veld.getX() * 40, 40, 40, null);
     }
 
     public String toString()//tostring methode override om te checken of speler wordt toegevogd aan de grid.

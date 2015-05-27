@@ -42,8 +42,6 @@ public class Frame extends JFrame {
         frame.add(component);
         frame.setResizable(true);
         component.setFocusable(true);
-        CustomKeyListener keyListen = new CustomKeyListener();
-        component.addKeyListener(keyListen);
         frame.add(controlPanel, BorderLayout.EAST);
         GridLayout gridLayout = new GridLayout(20, 2);
         controlPanel.setLayout(gridLayout);

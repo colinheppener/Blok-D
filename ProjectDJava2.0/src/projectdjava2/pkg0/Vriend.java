@@ -18,8 +18,7 @@ import java.awt.Point;
  */
 public class Vriend extends Item {
 
-    public Vriend(Point loc) {
-        locatie = loc;
+    public Vriend() {
         getImageFile();
 
     }
@@ -27,8 +26,8 @@ public class Vriend extends Item {
     public void Teken(Graphics g) {
         g.setColor(Color.MAGENTA);
 
-        g.fillRect((int) locatie.getY() * 40, (int) locatie.getX() * 40, 40, 40);
-        g.drawImage(getImageFile(), (int) locatie.getY() * 40, (int) locatie.getX() * 40, 40, 40, null);
+        g.fillRect((int) veld.getY() * 40, (int) veld.getX() * 40, 40, 40);
+        g.drawImage(getImageFile(), (int) veld.getY() * 40, (int) veld.getX() * 40, 40, 40, null);
 
     }
 

@@ -20,6 +20,7 @@ public class Item {
     BufferedImage plaatje;
     String plaatjePad;
     Point locatie;
+    Veld veld;
 
     public void Teken(Graphics g) {
 
@@ -32,5 +33,10 @@ public class Item {
     public Point getLocatie()
     {
         return locatie;
+    }
+    
+    public void setVeld(Veld vel)
+    {
+        veld = vel;
     }
 }
