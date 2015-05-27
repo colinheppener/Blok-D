@@ -129,7 +129,7 @@ public class Speelbord extends JComponent {//deze JComponent wordt weergegeven o
     @Override
     public void paintComponent(Graphics g) {//hier worden de vierkanten daadwerkelijk samengevoegd 
         //en op het speelbord weergegeven, de velden tekenen zichzelf wel met de Teken methode
-        //super.paintComponent(g);
+        super.paintComponent(g);
         System.out.println("repaint");
         for (int i = 0; i < 20; i++) {
             for (int j = 0; j < 20; j++) {
