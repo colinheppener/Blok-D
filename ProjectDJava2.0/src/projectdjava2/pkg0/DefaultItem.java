@@ -22,9 +22,9 @@ public class DefaultItem extends Item {
     }
     public void Teken(Graphics g)//als je deze override methode weghaalt worden de vierkanten in het grijs getekend.
     {
-        g.setColor(Color.RED);
+        g.setColor(Color.MAGENTA);
         g.fillRect( (int)veld.getY() * 40,(int)veld.getX() * 40, 40, 40);
-        g.drawImage(getImageFile(), (int)veld.getY() * 40,(int)veld.getX() * 40, 40, 40, null);    
+//        g.drawImage(getImageFile(), (int)veld.getY() * 40,(int)veld.getX() * 40, 40, 40, null);    
     }
     public String toString()//tostring methode override om te checken of speler wordt toegevogd aan de grid.
     {

@@ -18,25 +18,16 @@ import java.awt.Point;
 public class Item {
 
     BufferedImage plaatje;
-    String plaatjePad;
-    Point locatie;
     Veld veld;
 
     public void Teken(Graphics g) {
-
     }
 
     public String toString() {
         return "item toegevoegd";
     }
-    
-    public Point getLocatie()
-    {
-        return locatie;
-    }
-    
-    public void setVeld(Veld vel)
-    {
+
+    public void setVeld(Veld vel) {
         veld = vel;
     }
 }

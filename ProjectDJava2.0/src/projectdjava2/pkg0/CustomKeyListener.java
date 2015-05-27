@@ -13,9 +13,11 @@ import java.awt.event.KeyListener;
  */
 class CustomKeyListener implements KeyListener {
     private Speler speler;
-    public CustomKeyListener(Speler spel)
+    private Speelbord speelb;
+    public CustomKeyListener(Speler spel, Speelbord sp)
     {
     speler = spel;
+    speelb = sp;
     }
     
     public void keyTyped(KeyEvent e) {
@@ -23,6 +25,7 @@ class CustomKeyListener implements KeyListener {
 
     @Override
     public void keyPressed(KeyEvent e) {
+        speelb.repaint();
         if (e.getKeyCode() == KeyEvent.VK_ENTER) {
             System.out.println("enter ingevoerd");
         }

@@ -45,7 +45,11 @@ public class Veld {
     
     public void setItem(Item item)
     {
+        System.out.println(ItemOpVeld);
         ItemOpVeld = item;
+        System.out.println(ItemOpVeld);
+        System.out.println(getX() +" "+ getY());
+        System.out.println("");
     }
     
     public void setBuren(HashMap bur)

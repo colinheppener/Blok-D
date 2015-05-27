@@ -19,14 +19,14 @@ import java.awt.Point;
 public class Vriend extends Item {
 
     public Vriend() {
-        getImageFile();
+        
 
     }
 
     public void Teken(Graphics g) {
         g.setColor(Color.MAGENTA);
 
-        g.fillRect((int) veld.getY() * 40, (int) veld.getX() * 40, 40, 40);
+//        g.fillRect((int) veld.getY() * 40, (int) veld.getX() * 40, 40, 40);
         g.drawImage(getImageFile(), (int) veld.getY() * 40, (int) veld.getX() * 40, 40, 40, null);
 
     }
