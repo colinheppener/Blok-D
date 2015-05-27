@@ -26,6 +26,10 @@ public class DefaultItem extends Item {
         g.fillRect( (int)veld.getY() * 40,(int)veld.getX() * 40, 40, 40);
         g.drawImage(getImageFile(), (int)veld.getY() * 40,(int)veld.getX() * 40, 40, 40, null);    
     }
+    public String toString()//tostring methode override om te checken of speler wordt toegevogd aan de grid.
+    {
+        return "space";
+    }
     public BufferedImage getImageFile() {
         try {
             plaatje = ImageIO.read(new File("src/images/background.bmp"));

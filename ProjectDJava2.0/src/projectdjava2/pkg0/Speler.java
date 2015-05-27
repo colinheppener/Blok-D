@@ -27,11 +27,14 @@ public class Speler extends Item {
     public void Loop(String looprichting)
     {
         System.out.println(veld.getBuur(looprichting));
-        System.out.println(veld.getY());
-        System.out.println(veld.getX());
+        if(veld.getBuur(looprichting).getItem().toString().equals("space"))
+        {
+           veld.getBuur(looprichting).setItem(this);
+           veld.getBuur(looprichting).getItem().setVeld(veld.getBuur(looprichting));
+           veld.setItem(veld.getBuur(looprichting).getItem());
+           veld.getItem().setVeld(veld);
+        }
     }
-
-
 
     public void Teken(Graphics g) {
         g.setColor(Color.GREEN);
