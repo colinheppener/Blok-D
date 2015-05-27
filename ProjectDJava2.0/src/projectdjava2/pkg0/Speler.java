@@ -32,43 +32,41 @@ public class Speler extends Item {
 
     }
 
-    public static void Loop(int looprichting) {
-        Speelbord speelb = new Speelbord();
-        if (looprichting == 0 && locatie.getY() !=0) {
-            System.out.println("noord: loop x coord oorsprong: " + locatie.getX() + "loop y coord oorsprong: " + locatie.getY());
-            Point loc = new Point();
-            loc.setLocation(locatie.getX(), locatie.getY() - 1);
-            locatie.setLocation(loc);
-            speelb.replaceItemOpLocatie(loc);
-            System.out.println("loop x coord destination: " + locatie.getX() + " loop y coord destination: " + locatie.getY());
-        }
-        if (looprichting == 1) {
-            System.out.println("oost loop x coord oorsprong: " + locatie.getX() + "loop y coord oorsprong: " + locatie.getY());
-            Point loc = new Point();
-            loc.setLocation(locatie.getX() + 1, locatie.getY());
-            locatie.setLocation(loc);
-            speelb.replaceItemOpLocatie(loc);
-            System.out.println("loop x coord destination: " + locatie.getX() + " loop y coord destination: " + locatie.getY());
-        }
-        if (looprichting == 2) {
-            System.out.println("zuid loop x coord oorsprong: " + locatie.getX() + "loop y coord oorsprong: " + locatie.getY());
-            Point loc = new Point();
-            loc.setLocation(locatie.getX(), locatie.getY() + 1);
-            locatie.setLocation(loc);
-            speelb.replaceItemOpLocatie(loc);
-            System.out.println("loop x coord destination: " + locatie.getX() + " loop y coord destination: " + locatie.getY());
-        }
-        if (looprichting == 3 && locatie.getX() !=0) {
-            System.out.println("west loop x coord oorsprong: " + locatie.getX() + "loop y coord oorsprong: " + locatie.getY());
-            Point loc = new Point();
-            loc.setLocation(locatie.getX() -1, locatie.getY());
-            locatie.setLocation(loc);
-            speelb.replaceItemOpLocatie(loc);
-            System.out.println("loop x coord destination: " + locatie.getX() + " loop y coord destination: " + locatie.getY());
-        }
-
-
-    }
+//    public static void Loop(int looprichting) {
+//        Speelbord speelb = new Speelbord();
+//        if (looprichting == 0 && locatie.getY() != 0) {
+//            System.out.println("noord: loop x coord oorsprong: " + locatie.getX() + "loop y coord oorsprong: " + locatie.getY());
+//            Point loc = new Point();
+//            loc.setLocation(locatie.getX(), locatie.getY() - 1);
+//            locatie.setLocation(loc);
+//            speelb.replaceItemOpLocatie(loc);
+//            System.out.println("loop x coord destination: " + locatie.getX() + " loop y coord destination: " + locatie.getY());
+//        }
+//        if (looprichting == 1) {
+//            System.out.println("oost loop x coord oorsprong: " + locatie.getX() + "loop y coord oorsprong: " + locatie.getY());
+//            Point loc = new Point();
+//            loc.setLocation(locatie.getX() + 1, locatie.getY());
+//            locatie.setLocation(loc);
+//            speelb.replaceItemOpLocatie(loc);
+//            System.out.println("loop x coord destination: " + locatie.getX() + " loop y coord destination: " + locatie.getY());
+//        }
+//        if (looprichting == 2) {
+//            System.out.println("zuid loop x coord oorsprong: " + locatie.getX() + "loop y coord oorsprong: " + locatie.getY());
+//            Point loc = new Point();
+//            loc.setLocation(locatie.getX(), locatie.getY() + 1);
+//            locatie.setLocation(loc);
+//            speelb.replaceItemOpLocatie(loc);
+//            System.out.println("loop x coord destination: " + locatie.getX() + " loop y coord destination: " + locatie.getY());
+//        }
+//        if (looprichting == 3 && locatie.getX() != 0) {
+//            System.out.println("west loop x coord oorsprong: " + locatie.getX() + "loop y coord oorsprong: " + locatie.getY());
+//            Point loc = new Point();
+//            loc.setLocation(locatie.getX() - 1, locatie.getY());
+//            locatie.setLocation(loc);
+//            speelb.replaceItemOpLocatie(loc);
+//            System.out.println("loop x coord destination: " + locatie.getX() + " loop y coord destination: " + locatie.getY());
+//        }
+//    }
 
     public void Teken(Graphics g) {
         g.setColor(Color.GREEN);

@@ -23,21 +23,21 @@ class CustomKeyListener implements KeyListener {
         }
         if (e.getKeyCode() == KeyEvent.VK_UP) {
             System.out.println("noord ingevoerd");
-            
-            Speler.Loop(3);
-        }
-        if (e.getKeyCode() == KeyEvent.VK_DOWN) {
-            System.out.println("south ingevoerd");
-            Speler.Loop(1);
-        }
-        if (e.getKeyCode() == KeyEvent.VK_LEFT) {
-            System.out.println("west ingevoerd");
-            Speler.Loop(0);
+//            Speler.Loop(0);
         }
         if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
             System.out.println("east ingevoerd");
-            Speler.Loop(2);
+//            Speler.Loop(1);
         }
+        if (e.getKeyCode() == KeyEvent.VK_DOWN) {
+            System.out.println("south ingevoerd");
+//            Speler.Loop(2);
+        }
+        if (e.getKeyCode() == KeyEvent.VK_LEFT) {
+            System.out.println("west ingevoerd");
+//            Speler.Loop(3);
+        }
+        
     }
 
     public void keyReleased(KeyEvent e) {
