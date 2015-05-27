@@ -15,21 +15,20 @@ import java.awt.Point;
 
 /**
  *
- * @author Colin
+ * @author Colin & Jeroen
  */
 public class Speler extends Item {
 
 
 
     public Speler() {
-
-
-//        System.out.println("X coord:" + veld.getX() + "Y coord" + veld.getY());
     }
     
-    public void Loop(int looprichting)
+    public void Loop(String looprichting)
     {
-        
+        System.out.println(veld.getBuur(looprichting));
+        System.out.println(veld.getY());
+        System.out.println(veld.getX());
     }
 
 

@@ -47,8 +47,7 @@ public class Speelbord extends JComponent {//deze JComponent wordt weergegeven o
 
     public Speelbord() {
         CreateVelden();
-        CustomKeyListener keylisten = new CustomKeyListener();
-        this.addKeyListener(keylisten);
+
     }
 
     private void CreateVelden() {
@@ -66,6 +65,8 @@ public class Speelbord extends JComponent {//deze JComponent wordt weergegeven o
                     Speler speler = new Speler();
                     grid[i][j] = new Veld(locatie, speler);
                     grid[i][j].getItem().setVeld(grid[i][j]);
+                    CustomKeyListener keylisten = new CustomKeyListener(speler);
+                    this.addKeyListener(keylisten);
                 }
                 if (opzetGrid[i][j] == 4) {
                     Point locatie = new Point(i, j);

@@ -25,7 +25,7 @@ public class Veld {
         
     }
 
-    public Veld getBuur(int richting)
+    public Veld getBuur(String richting)
     {
         return (Veld)buren.get(richting);
     }
@@ -50,7 +50,7 @@ public class Veld {
     
     public void setBuren(HashMap bur)
     {
-        buren = bur;
+        buren = new HashMap<String, Veld>(bur);
 //        System.out.println(buren.get("noord") +"     noord!");
 //        System.out.println(buren.get("zuid") +"      zuid!");
 //        System.out.println(buren.get("west") +"      west!");

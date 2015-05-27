@@ -12,7 +12,12 @@ import java.awt.event.KeyListener;
  * @author Colin
  */
 class CustomKeyListener implements KeyListener {
-
+    private Speler speler;
+    public CustomKeyListener(Speler spel)
+    {
+    speler = spel;
+    }
+    
     public void keyTyped(KeyEvent e) {
     }
 
@@ -23,19 +28,19 @@ class CustomKeyListener implements KeyListener {
         }
         if (e.getKeyCode() == KeyEvent.VK_UP) {
             System.out.println("noord ingevoerd");
-//            Speler.Loop(0);
+            speler.Loop("noord");
         }
         if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
             System.out.println("east ingevoerd");
-//            Speler.Loop(1);
+            speler.Loop("oost");
         }
         if (e.getKeyCode() == KeyEvent.VK_DOWN) {
             System.out.println("south ingevoerd");
-//            Speler.Loop(2);
+            speler.Loop("zuid");
         }
         if (e.getKeyCode() == KeyEvent.VK_LEFT) {
             System.out.println("west ingevoerd");
-//            Speler.Loop(3);
+            speler.Loop("west");
         }
         
     }
