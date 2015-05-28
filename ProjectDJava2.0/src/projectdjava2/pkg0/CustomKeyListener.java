@@ -46,7 +46,7 @@ class CustomKeyListener implements KeyListener {
             System.out.println("west ingevoerd");
             speler.Loop("west");
         }
-        speelb.revalidate();
+//        speelb.updateUI();
         speelb.repaint();
     }
 

@@ -48,7 +48,6 @@ public class Speelbord extends JComponent {//deze JComponent wordt weergegeven o
 
     public Speelbord() {
         CreateVelden();
-
     }
 
     private void CreateVelden() {
