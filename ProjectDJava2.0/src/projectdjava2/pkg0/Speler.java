@@ -32,10 +32,10 @@ public class Speler extends Item {
         
         if (veld.getBuur(looprichting).getItem() == null) {
             veld.getBuur(looprichting).setItem(this);
-            veld.setItem(null);
+        veld.setItem(null);
             
          
-            veld.getBuur(looprichting).getItem().setVeld(veld.getBuur(looprichting));
+//            veld.getBuur(looprichting).getItem().setVeld(veld.getBuur(looprichting));
 //            System.out.println(veld.getBuur(looprichting).getItem().toString());
 //            System.out.println(veld.getBuur("west").getItem().toString());
         }

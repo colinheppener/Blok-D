@@ -50,6 +50,9 @@ public class Veld {
         System.out.println(ItemOpVeld);
         System.out.println(getX() +" "+ getY());
         System.out.println("");
+        if(getItem() !=null){
+        getItem().setVeld(this);
+        }
     }
     
     public void setBuren(HashMap bur)
