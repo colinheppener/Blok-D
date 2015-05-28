@@ -17,9 +17,9 @@ import javax.swing.SwingUtilities;
  */
 public class Speelbord extends JComponent {//deze JComponent wordt weergegeven op de Frame in ProjectDJava20.java, in de main klasse dus.
 
-    private static Veld[][] grid = new Veld[20][20];
+    private Veld[][] grid = new Veld[20][20];
     private int huidiglevel = 1;
-    private static int[][] opzetGrid = {
+    private int[][] opzetGrid = {
         {0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,},
         {1, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 1, 1,},
         {1, 0, 0, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 1,},
