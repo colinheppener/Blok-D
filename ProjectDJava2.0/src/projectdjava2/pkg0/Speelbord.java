@@ -4,6 +4,7 @@
  */
 package projectdjava2.pkg0;
 
+import java.awt.Color;
 import java.awt.Graphics;
 import javax.swing.JComponent;
 import java.awt.Point;
@@ -120,7 +121,11 @@ public class Speelbord extends JComponent {//deze JComponent wordt weergegeven o
         }
     }
 
-    private void HerstartLevel() {
+    public void HerstartLevel() {
+        CreateVelden();
+        this.revalidate();
+        this.repaint();
+        
     }
 
     private void StartNieuwLevel() {
@@ -130,6 +135,7 @@ public class Speelbord extends JComponent {//deze JComponent wordt weergegeven o
     public void paintComponent(Graphics g) {//hier worden de vierkanten daadwerkelijk samengevoegd 
         //en op het speelbord weergegeven, de velden tekenen zichzelf wel met de Teken methode
         super.paintComponent(g);
+        
         System.out.println("repaint");
         for (int i = 0; i < 20; i++) {
             for (int j = 0; j < 20; j++) {
@@ -140,6 +146,6 @@ public class Speelbord extends JComponent {//deze JComponent wordt weergegeven o
             }
 
         }
-
+setBackground(Color.MAGENTA);
     }
 }

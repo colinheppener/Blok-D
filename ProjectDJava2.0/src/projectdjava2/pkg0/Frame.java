@@ -36,7 +36,7 @@ public class Frame extends JFrame {
         JButton stopKnop = new JButton("sluit schermen");
         frame.setSize(HEIGHT, WIDTH);
         frame.setDefaultCloseOperation(EXIT_ON_CLOSE);
-        JComponent component = new Speelbord();
+        final JComponent component = new Speelbord();
 
 
         frame.add(component);
@@ -52,14 +52,18 @@ public class Frame extends JFrame {
         frame.setVisible(true);
         herstartKnop.addActionListener(new ActionListener() {
 
+            @Override
             public void actionPerformed(ActionEvent e) {
                 //Execute when button is pressed
-                frame.repaint();
+                Speelbord sb = new Speelbord();
+                sb.HerstartLevel();
                 System.out.println("repaint");
+                component.requestFocusInWindow();
             }
         });
         menuKnop.addActionListener(new ActionListener() {
 
+            @Override
             public void actionPerformed(ActionEvent e) {
 
                 frame.dispose();
@@ -68,6 +72,7 @@ public class Frame extends JFrame {
         });
                 stopKnop.addActionListener(new ActionListener() {
 
+            @Override
             public void actionPerformed(ActionEvent e) {
 
                 System.exit(0);

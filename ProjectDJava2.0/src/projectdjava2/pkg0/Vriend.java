@@ -23,6 +23,7 @@ public class Vriend extends Item {
 
     }
 
+    @Override
     public void Teken(Graphics g) {
         g.setColor(Color.MAGENTA);
 
@@ -31,6 +32,7 @@ public class Vriend extends Item {
 
     }
 
+    @Override
     public String toString() {
         return "vriend";
     }

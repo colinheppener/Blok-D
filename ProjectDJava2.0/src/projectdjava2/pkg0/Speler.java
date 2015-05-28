@@ -5,13 +5,11 @@
 package projectdjava2.pkg0;
 
 import java.awt.Graphics;
-import java.awt.event.KeyListener;
 import java.awt.Color;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 import javax.imageio.ImageIO;
-import java.awt.Point;
 
 /**
  *
@@ -41,12 +39,14 @@ public class Speler extends Item {
         }
     }
 
+    @Override
     public void Teken(Graphics g) {
         g.setColor(Color.GREEN);
 //        g.fillRect((int) veld.getY() * 40, (int) veld.getX() * 40, 40, 40);
         g.drawImage(getImageFile(), (int) veld.getY() * 40, (int) veld.getX() * 40, 40, 40, null);
     }
 
+    @Override
     public String toString()//tostring methode override om te checken of speler wordt toegevogd aan de grid.
     {
         return "speler";

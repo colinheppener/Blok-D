@@ -25,6 +25,7 @@ class CustomKeyListener implements KeyListener {
 
     @Override
     public void keyPressed(KeyEvent e) {
+        speelb.revalidate();
         speelb.repaint();
         if (e.getKeyCode() == KeyEvent.VK_ENTER) {
             System.out.println("enter ingevoerd");
