@@ -23,20 +23,20 @@ public class Speler extends Item {
     public void Loop(String looprichting) {
         //  System.out.println(veld.getBuur(looprichting));
         //  System.out.println(veld.getBuur(looprichting).getItem().toString());
-        if (veld.getBuur(looprichting).getItem().toString().equals("space")) {
-            Item item = veld.getBuur(looprichting).getItem();
+        if (veld.getBuur(looprichting).getItem() instanceof Vriend && veld.getBuur(looprichting).getItem() != null) {
+            System.out.println("FINISHED!");
+            System.exit(0);
+        }
+        if (veld.getBuur(looprichting).getItem() == null) {
             veld.getBuur(looprichting).setItem(this);
-
-            veld.setItem(item);
+            veld.setItem(null);
+            
+         
             veld.getBuur(looprichting).getItem().setVeld(veld.getBuur(looprichting));
-
-            veld.getItem().setVeld(veld);
 //            System.out.println(veld.getBuur(looprichting).getItem().toString());
 //            System.out.println(veld.getBuur("west").getItem().toString());
         }
-        if (veld.getBuur(looprichting).getItem().toString().equals("vriend")) {
-            System.exit(0);
-        }
+        
     }
 
     @Override

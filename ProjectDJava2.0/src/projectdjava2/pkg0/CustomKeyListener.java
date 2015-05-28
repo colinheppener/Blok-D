@@ -12,21 +12,21 @@ import java.awt.event.KeyListener;
  * @author Colin
  */
 class CustomKeyListener implements KeyListener {
+
     private Speler speler;
     private Speelbord speelb;
-    public CustomKeyListener(Speler spel, Speelbord sp)
-    {
-    speler = spel;
-    speelb = sp;
+
+    public CustomKeyListener(Speler spel, Speelbord sp) {
+        speler = spel;
+        speelb = sp;
     }
-    
+
     public void keyTyped(KeyEvent e) {
     }
 
     @Override
     public void keyPressed(KeyEvent e) {
-        speelb.revalidate();
-        speelb.repaint();
+
         if (e.getKeyCode() == KeyEvent.VK_ENTER) {
             System.out.println("enter ingevoerd");
         }
@@ -46,7 +46,8 @@ class CustomKeyListener implements KeyListener {
             System.out.println("west ingevoerd");
             speler.Loop("west");
         }
-        
+        speelb.revalidate();
+        speelb.repaint();
     }
 
     public void keyReleased(KeyEvent e) {

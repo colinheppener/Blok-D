@@ -77,9 +77,9 @@ public class Speelbord extends JComponent {//deze JComponent wordt weergegeven o
                 }
                 if (opzetGrid[i][j] == 0) {
                     Point locatie = new Point(i, j);
-                    DefaultItem defaultItem = new DefaultItem();
-                    grid[i][j] = new Veld(locatie, defaultItem);
-                    grid[i][j].getItem().setVeld(grid[i][j]);
+                    
+                    grid[i][j] = new Veld(locatie, null);
+//                    grid[i][j].getItem().setVeld(grid[i][j]);
                 }
             }
         }
@@ -140,9 +140,10 @@ public class Speelbord extends JComponent {//deze JComponent wordt weergegeven o
         for (int i = 0; i < 20; i++) {
             for (int j = 0; j < 20; j++) {
                 Item veldItem = grid[i][j].getItem();
-
+                if(veldItem != null)
+                {
                 veldItem.Teken(g);
-
+                }
             }
 
         }
