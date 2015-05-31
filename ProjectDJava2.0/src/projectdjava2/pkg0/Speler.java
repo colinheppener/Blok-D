@@ -30,7 +30,7 @@ public class Speler extends Item {
             System.exit(0);
         }
         
-        if (veld.getBuur(looprichting).getItem() == null) {
+        if (veld.getBuur(looprichting).getItem() == null || veld.getBuur(looprichting).getItem() instanceof Valsspeler || veld.getBuur(looprichting).getItem() instanceof Helper) {
             veld.getBuur(looprichting).setItem(this);
         veld.setItem(null);
             

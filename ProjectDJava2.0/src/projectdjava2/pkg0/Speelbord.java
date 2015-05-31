@@ -24,10 +24,10 @@ public class Speelbord extends JComponent {//deze JComponent wordt weergegeven o
         {1, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 1, 1,},
         {1, 0, 0, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 1,},
         {1, 1, 1, 0, 1, 1, 1, 0, 1, 1, 1, 0, 0, 0, 0, 0, 1, 0, 1, 1,},
-        {1, 0, 1, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1,},
+        {1, 0, 1, 0, 5, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1,},
         {1, 0, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1,},
         {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 1, 1, 1, 0, 1, 1,},
-        {0, 1, 1, 1, 0, 1, 1, 0, 1, 1, 1, 0, 0, 0, 1, 1, 1, 0, 1, 1,},
+        {0, 1, 1, 1, 0, 1, 1, 0, 1, 1, 1, 6, 0, 0, 1, 1, 1, 0, 1, 1,},
         {0, 0, 1, 1, 0, 0, 1, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 0, 1, 1,},
         {1, 0, 1, 1, 1, 0, 1, 1, 1, 1, 1, 0, 1, 1, 0, 0, 0, 0, 1, 1,},
         {1, 0, 0, 0, 1, 0, 1, 0, 0, 0, 1, 0, 1, 1, 0, 1, 1, 1, 1, 1,},
@@ -37,7 +37,7 @@ public class Speelbord extends JComponent {//deze JComponent wordt weergegeven o
         {1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 1, 0, 1, 0, 1, 0, 1,},
         {1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 0, 0, 1, 0, 1, 0, 1, 0, 1,},
         {1, 1, 1, 0, 1, 1, 1, 1, 0, 0, 1, 0, 1, 1, 0, 1, 0, 1, 0, 1,},
-        {1, 0, 1, 0, 0, 0, 0, 0, 0, 1, 1, 0, 1, 1, 0, 1, 0, 1, 0, 1,},
+        {1, 0, 1, 0, 0, 0, 0, 0, 7, 1, 1, 0, 1, 1, 0, 1, 0, 1, 0, 1,},
         {1, 0, 1, 1, 1, 1, 1, 1, 0, 1, 1, 0, 0, 1, 0, 1, 0, 1, 0, 1,},
         {1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 1, 4, 1,}
     };
@@ -76,9 +76,27 @@ public class Speelbord extends JComponent {//deze JComponent wordt weergegeven o
                 }
                 if (opzetGrid[i][j] == 0) {
                     Point locatie = new Point(i, j);
-                    
+
                     grid[i][j] = new Veld(locatie, null);
 //                    grid[i][j].getItem().setVeld(grid[i][j]);
+                }
+                if (opzetGrid[i][j] == 5) {
+                    Point locatie = new Point(i, j);
+                    Valsspeler valsspeler = new Valsspeler();
+                    grid[i][j] = new Veld(locatie, valsspeler);
+                    grid[i][j].getItem().setVeld(grid[i][j]);
+                }
+                if (opzetGrid[i][j] == 6) {
+                    Point locatie = new Point(i, j);
+                    Bazooka bazooka = new Bazooka();
+                    grid[i][j] = new Veld(locatie, bazooka);
+                    grid[i][j].getItem().setVeld(grid[i][j]);
+                }
+                if (opzetGrid[i][j] == 7) {
+                    Point locatie = new Point(i, j);
+                    Helper helper = new Helper();
+                    grid[i][j] = new Veld(locatie, helper);
+                    grid[i][j].getItem().setVeld(grid[i][j]);
                 }
             }
         }
@@ -124,7 +142,7 @@ public class Speelbord extends JComponent {//deze JComponent wordt weergegeven o
         CreateVelden();
         this.revalidate();
         this.repaint();
-        
+
     }
 
     private void StartNieuwLevel() {
@@ -134,18 +152,17 @@ public class Speelbord extends JComponent {//deze JComponent wordt weergegeven o
     public void paintComponent(Graphics g) {//hier worden de vierkanten daadwerkelijk samengevoegd 
         //en op het speelbord weergegeven, de velden tekenen zichzelf wel met de Teken methode
         super.paintComponent(g);
-        
+
         System.out.println("repaint");
         for (int i = 0; i < 20; i++) {
             for (int j = 0; j < 20; j++) {
                 Item veldItem = grid[i][j].getItem();
-                if(veldItem != null)
-                {
-                veldItem.Teken(g);
+                if (veldItem != null) {
+                    veldItem.Teken(g);
                 }
             }
 
         }
-setBackground(Color.MAGENTA);
+        setBackground(Color.MAGENTA);
     }
 }
