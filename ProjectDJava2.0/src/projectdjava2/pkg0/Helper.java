@@ -38,4 +38,9 @@ public class Helper extends Item{
         }
         return plaatje;
     }
+    
+    public void ToonKortsteRoute()
+    {
+        
+    }
 }

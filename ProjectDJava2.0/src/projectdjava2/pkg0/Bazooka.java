@@ -38,4 +38,10 @@ public class Bazooka extends Item{
         }
         return plaatje;
     }
+    
+    
+    public void Schieten()
+    {
+        
+    }
 }

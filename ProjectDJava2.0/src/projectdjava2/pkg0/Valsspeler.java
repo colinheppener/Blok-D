@@ -40,4 +40,10 @@ public class Valsspeler extends Item{
         }
         return plaatje;
     }
+    
+    
+    public void DraaiTijdTerug()
+    {
+        
+    }
 }
