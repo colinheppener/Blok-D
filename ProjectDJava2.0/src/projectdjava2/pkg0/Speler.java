@@ -33,7 +33,7 @@ public class Speler extends Item {
                 System.out.println("FINISHED!");
                 System.exit(0);
             }
-            if (veld.getBuur(looprichting).getItem() == null || veld.getBuur(looprichting).getItem() instanceof Valsspeler || veld.getBuur(looprichting).getItem() instanceof Helper) {
+            if (veld.getBuur(looprichting).getItem() == null || veld.getBuur(looprichting).getItem() instanceof Valsspeler || veld.getBuur(looprichting).getItem() instanceof Helper || veld.getBuur(looprichting).getItem() instanceof Bazooka) {
                 veld.setItem(null);
                 veld.getBuur(looprichting).setItem(this);
 
