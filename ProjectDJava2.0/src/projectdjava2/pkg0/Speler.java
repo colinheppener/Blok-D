@@ -23,24 +23,21 @@ public class Speler extends Item {
     public void Loop(String looprichting) {
         //  System.out.println(veld.getBuur(looprichting));
         //  System.out.println(veld.getBuur(looprichting).getItem().toString());
-        if (veld.getBuur(looprichting) != null)
-                {
-        if (veld.getBuur(looprichting).getItem() instanceof Vriend && veld.getBuur(looprichting).getItem() != null) {
-            System.out.println("FINISHED!");
-            System.exit(0);
-        }
-        
-        if (veld.getBuur(looprichting).getItem() == null || veld.getBuur(looprichting).getItem() instanceof Valsspeler || veld.getBuur(looprichting).getItem() instanceof Helper) {
-            veld.getBuur(looprichting).setItem(this);
-        veld.setItem(null);
-            
-         
+        if (veld.getBuur(looprichting) != null) {
+            if (veld.getBuur(looprichting).getItem() instanceof Vriend) {
+                System.out.println("FINISHED!");
+                System.exit(0);
+            }
+            if (veld.getBuur(looprichting).getItem() == null || veld.getBuur(looprichting).getItem() instanceof Valsspeler || veld.getBuur(looprichting).getItem() instanceof Helper) {
+                veld.setItem(null);
+                veld.getBuur(looprichting).setItem(this);
+
 //            veld.getBuur(looprichting).getItem().setVeld(veld.getBuur(looprichting));
 //            System.out.println(veld.getBuur(looprichting).getItem().toString());
 //            System.out.println(veld.getBuur("west").getItem().toString());
+            }
         }
-        }
-        
+
     }
 
     @Override
