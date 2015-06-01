@@ -4,8 +4,9 @@
  */
 package projectdjava2.pkg0;
 
-import javax.swing.JComponent;
-import javax.swing.JFrame;
+import java.util.Scanner;
+import java.util.Timer;
+import java.util.TimerTask;
 
 /**
  *
@@ -13,10 +14,15 @@ import javax.swing.JFrame;
  */
 public class ProjectDJava20 {
 
+    static int interval;
+    static Timer timer;
+
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-          Menu menu = new Menu();
+
+        Menu menu = new Menu();
     }
 }
+

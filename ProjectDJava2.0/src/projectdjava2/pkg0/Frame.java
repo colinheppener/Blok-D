@@ -10,10 +10,10 @@ import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyListener;
-import javax.swing.JButton;
-import javax.swing.JComponent;
-import javax.swing.JFrame;
-import javax.swing.JPanel;
+import java.util.Scanner;
+import java.util.Timer;
+import java.util.TimerTask;
+import javax.swing.*;
 
 /**
  *
@@ -26,7 +26,9 @@ public class Frame extends JFrame {
     }
     final int HEIGHT = 950;
     final int WIDTH = 950;
-
+    Timer timer;
+    int interval = 56;
+    JLabel timerLabel;
 
     public void createComponents() {
         final JFrame frame = new JFrame();
@@ -37,8 +39,8 @@ public class Frame extends JFrame {
         frame.setSize(HEIGHT, WIDTH);
         frame.setDefaultCloseOperation(EXIT_ON_CLOSE);
         final JComponent component = new Speelbord();
-
-
+        initialiseTimer();
+        timerLabel = new JLabel();
         frame.add(component);
         frame.setResizable(true);
         component.setFocusable(true);
@@ -49,6 +51,7 @@ public class Frame extends JFrame {
         controlPanel.add(menuKnop);
         controlPanel.add(stopKnop);
         controlPanel.setVisible(true);
+        controlPanel.add(timerLabel);
         frame.setVisible(true);
         herstartKnop.addActionListener(new ActionListener() {
 
@@ -70,15 +73,37 @@ public class Frame extends JFrame {
                 Menu menu = new Menu();
             }
         });
-                stopKnop.addActionListener(new ActionListener() {
+        stopKnop.addActionListener(new ActionListener() {
 
             @Override
             public void actionPerformed(ActionEvent e) {
 
                 System.exit(0);
-                
+
             }
         });
+    }
+        private void initialiseTimer()
+        {
+
+        int delay = 1000;
+        int period = 1000;
+        timer = new Timer();
+        timer.scheduleAtFixedRate(new TimerTask() {
+
+            public void run() {
+                timerLabel.setText(String.valueOf(setInterval()));
+
+            }
+        }, delay, period);
         
+
+    }
+
+    private final int setInterval() {
+        if (interval == 1) {
+            timer.cancel();
+        }
+        return --interval;
     }
 }
