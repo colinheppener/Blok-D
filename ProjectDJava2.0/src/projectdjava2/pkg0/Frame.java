@@ -27,11 +27,12 @@ public class Frame extends JFrame {
     final int HEIGHT = 950;
     final int WIDTH = 950;
     Timer timer;
-    int interval = 56;
-    JLabel timerLabel;
+    int interval = 21;
+    JProgressBar timerBar;
+    JFrame frame = new JFrame();
 
     public void createComponents() {
-        final JFrame frame = new JFrame();
+        
         JPanel controlPanel = new JPanel();
         JButton herstartKnop = new JButton("Herstart Level");
         JButton menuKnop = new JButton("Terug naar menu");
@@ -40,7 +41,9 @@ public class Frame extends JFrame {
         frame.setDefaultCloseOperation(EXIT_ON_CLOSE);
         final JComponent component = new Speelbord();
         initialiseTimer();
-        timerLabel = new JLabel();
+
+        timerBar = new JProgressBar();
+        timerBar.setMaximum(21);
         frame.add(component);
         frame.setResizable(true);
         component.setFocusable(true);
@@ -51,7 +54,7 @@ public class Frame extends JFrame {
         controlPanel.add(menuKnop);
         controlPanel.add(stopKnop);
         controlPanel.setVisible(true);
-        controlPanel.add(timerLabel);
+        controlPanel.add(timerBar);
         frame.setVisible(true);
         herstartKnop.addActionListener(new ActionListener() {
 
@@ -92,7 +95,7 @@ public class Frame extends JFrame {
         timer.scheduleAtFixedRate(new TimerTask() {
 
             public void run() {
-                timerLabel.setText(String.valueOf(setInterval()));
+                timerBar.setValue(setInterval());
 
             }
         }, delay, period);
@@ -101,8 +104,14 @@ public class Frame extends JFrame {
     }
 
     private final int setInterval() {
-        if (interval == 1) {
+        if (interval == 0) {
             timer.cancel();
+            int dialogResult   = JOptionPane.showConfirmDialog(rootPane, "Tijd is op, wilt u herstarten?");
+            if(dialogResult == JOptionPane.YES_OPTION)
+            {
+                frame.dispose();
+                frame = new Frame();
+            }
         }
         return --interval;
     }
