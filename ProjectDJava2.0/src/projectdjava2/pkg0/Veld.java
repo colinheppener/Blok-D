@@ -20,6 +20,7 @@ public class Veld {
     public Veld(Point loc, Item item)//constructor waarin de waarden van de klassevariabelen bepaald worden, 
     //vanuit deze constructor wordt ook de methode om de items aan te maken aangeroepen
     {
+        
         locatie = loc;
         ItemOpVeld = item;
         

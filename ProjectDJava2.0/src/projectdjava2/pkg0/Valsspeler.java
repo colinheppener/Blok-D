@@ -15,8 +15,15 @@ import javax.imageio.ImageIO;
  *
  * @author Colin
  */
-public class Valsspeler extends Item{
+public class Valsspeler extends Item {
 
+    public Valsspeler() {
+        try {
+            plaatje = ImageIO.read(new File("src/images/valsspeler.jpg"));
+        } catch (IOException ex) {
+            System.out.println(ex);
+        }
+    }
 
     @Override
     public void Teken(Graphics g) {
@@ -33,17 +40,10 @@ public class Valsspeler extends Item{
     }
 
     public BufferedImage getImageFile() {
-        try {
-            plaatje = ImageIO.read(new File("src/images/valsspeler.jpg"));
-        } catch (IOException ex) {
-            System.out.println(ex);
-        }
+
         return plaatje;
     }
-    
-    
-    public void DraaiTijdTerug()
-    {
-        
+
+    public void DraaiTijdTerug() {
     }
 }

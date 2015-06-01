@@ -16,6 +16,15 @@ import javax.imageio.ImageIO;
  * @author Colin
  */
 public class Helper extends Item{
+    
+    public Helper()
+    {
+        try {
+            plaatje = ImageIO.read(new File("src/images/helper.png"));
+        } catch (IOException ex) {
+            System.out.println(ex);
+        }
+    }
             @Override
     public void Teken(Graphics g) {
         g.setColor(Color.MAGENTA);
@@ -31,11 +40,7 @@ public class Helper extends Item{
     }
 
     public BufferedImage getImageFile() {
-        try {
-            plaatje = ImageIO.read(new File("src/images/helper.png"));
-        } catch (IOException ex) {
-            System.out.println(ex);
-        }
+        
         return plaatje;
     }
     

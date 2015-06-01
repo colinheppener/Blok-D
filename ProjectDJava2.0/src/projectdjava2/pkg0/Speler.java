@@ -18,6 +18,11 @@ import javax.imageio.ImageIO;
 public class Speler extends Item {
 
     public Speler() {
+        try {
+            plaatje = ImageIO.read(new File("src/images/person.jpg"));
+        } catch (IOException ex) {
+            System.out.println(ex);
+        }
     }
 
     public void Loop(String looprichting) {
@@ -54,11 +59,6 @@ public class Speler extends Item {
     }
 
     public BufferedImage getImageFile() {
-        try {
-            plaatje = ImageIO.read(new File("src/images/person.jpg"));
-        } catch (IOException ex) {
-            System.out.println(ex);
-        }
         return plaatje;
     }
 }

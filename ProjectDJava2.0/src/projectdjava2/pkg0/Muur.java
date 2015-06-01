@@ -19,7 +19,11 @@ import java.awt.Point;
 public class Muur extends Item {
 
     public Muur() {
-//        System.out.println("X coord:" + (int) veld.getX() + "Y coord" + (int) veld.getY());
+        try {
+            plaatje = ImageIO.read(new File("src/images/wall.jpg"));
+        } catch (IOException ex) {
+            System.out.println(ex);
+        }
     }
 
     @Override                    //deze tekenmethode is geoverride omdat ik muren alvast een ander kleurtje wilde geven, ook als test van de polymorphisme 
@@ -36,11 +40,6 @@ public class Muur extends Item {
     }
 
     public BufferedImage getImageFile() {
-        try {
-            plaatje = ImageIO.read(new File("src/images/wall.jpg"));
-        } catch (IOException ex) {
-            System.out.println(ex);
-        }
         return plaatje;
     }
 }

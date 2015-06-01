@@ -19,8 +19,12 @@ import java.awt.Point;
 public class Vriend extends Item {
 
     public Vriend() {
-        
 
+        try {
+            plaatje = ImageIO.read(new File("src/images/vriend.png"));
+        } catch (IOException ex) {
+            System.out.println(ex);
+        }
     }
 
     @Override
@@ -38,11 +42,7 @@ public class Vriend extends Item {
     }
 
     public BufferedImage getImageFile() {
-        try {
-            plaatje = ImageIO.read(new File("src/images/vriend.png"));
-        } catch (IOException ex) {
-            System.out.println(ex);
-        }
+
         return plaatje;
     }
 }
