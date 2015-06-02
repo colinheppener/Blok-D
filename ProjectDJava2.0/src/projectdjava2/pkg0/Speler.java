@@ -34,8 +34,11 @@ public class Speler extends Item {
                 veld.getBuur(looprichting).getItem().voerActieUit();
             }
 
-            veld.setItem(null);
-            veld.getBuur(looprichting).setItem(this);
+            //veld.setItem(null);
+            //veld.getBuur(looprichting).setItem(this);
+            
+            Veld vld = veld.getBuur(looprichting);
+            veld.verplaatsItem(this, vld);
 //            veld.getBuur(looprichting).getItem().setVeld(veld.getBuur(looprichting));
 //            System.out.println(veld.getBuur(looprichting).getItem().toString());
 //            System.out.println(veld.getBuur("west").getItem().toString());
