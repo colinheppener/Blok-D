@@ -36,7 +36,7 @@ public class Bazooka extends Item{
 
     @Override
     public String toString() {
-        return "vriend";
+        return "bazooka";
     }
 
     public BufferedImage getImageFile() {
@@ -45,8 +45,8 @@ public class Bazooka extends Item{
     }
     
     
-    public void Schieten()
+    public void voerActieUit()
     {
-        
+        System.out.println("bazooka uitgevoerd");
     }
 }

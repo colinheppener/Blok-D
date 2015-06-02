@@ -23,6 +23,9 @@ public class Item {
     public void Teken(Graphics g) {
     }
 
+    public void voerActieUit() {
+    }
+
     public String toString() {
         return "item toegevoegd";
     }

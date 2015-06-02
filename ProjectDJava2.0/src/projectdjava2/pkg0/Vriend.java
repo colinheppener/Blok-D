@@ -45,4 +45,11 @@ public class Vriend extends Item {
 
         return plaatje;
     }
+    
+    public void voerActieUit()
+    {
+        System.out.println("vriend ogepakt");
+        System.out.println("FINISHED!");    
+        System.exit(0);
+    }
 }

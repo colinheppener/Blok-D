@@ -44,8 +44,8 @@ public class Helper extends Item{
         return plaatje;
     }
     
-    public void ToonKortsteRoute()
+    public void voerActieUit()
     {
-        
+        System.out.println("helper uitgevoerd");
     }
 }

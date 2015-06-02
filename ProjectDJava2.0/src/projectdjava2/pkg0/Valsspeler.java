@@ -17,6 +17,8 @@ import javax.imageio.ImageIO;
  */
 public class Valsspeler extends Item {
 
+
+
     public Valsspeler() {
         try {
             plaatje = ImageIO.read(new File("src/images/valsspeler.jpg"));
@@ -36,7 +38,7 @@ public class Valsspeler extends Item {
 
     @Override
     public String toString() {
-        return "vriend";
+        return "valsspeler";
     }
 
     public BufferedImage getImageFile() {
@@ -44,6 +46,9 @@ public class Valsspeler extends Item {
         return plaatje;
     }
 
-    public void DraaiTijdTerug() {
+
+    @Override
+    public void voerActieUit() {
+        System.out.println("valsspeler uitgevoerd");
     }
 }
