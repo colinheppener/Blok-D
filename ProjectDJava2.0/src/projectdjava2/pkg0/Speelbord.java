@@ -201,6 +201,14 @@ public class Speelbord extends JComponent {//deze JComponent wordt weergegeven o
         if(huidiglevel == 1)
         {
             CreateVelden("lvl2");
+            huidiglevel++;
+            return;
+        }
+        if(huidiglevel == 2)
+        {
+            CreateVelden("lvl1");
+            huidiglevel--;
+            
         }
     }
 
