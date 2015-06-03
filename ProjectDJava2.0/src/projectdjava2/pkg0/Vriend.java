@@ -46,6 +46,7 @@ public class Vriend extends Item {
         return plaatje;
     }
     
+    @Override
     public void voerActieUit()
     {
         System.out.println("vriend ogepakt");

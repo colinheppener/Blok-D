@@ -57,7 +57,9 @@ public class Veld {
     }
 
     public void setBuren(HashMap bur) {
-        buren = new HashMap<String, Veld>(bur);
+
+        
+        buren = (HashMap) bur.clone();
 //        System.out.println(buren.get("noord") +"     noord!");
 //        System.out.println(buren.get("zuid") +"      zuid!");
 //        System.out.println(buren.get("west") +"      west!");
