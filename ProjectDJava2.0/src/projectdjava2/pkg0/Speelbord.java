@@ -122,7 +122,7 @@ public class Speelbord extends JComponent {//deze JComponent wordt weergegeven o
                 }
                 if (opzetGrid[i][j] == 4) {
                     Point locatie = new Point(i, j);
-                    Vriend vriend = new Vriend(this);
+                    Vriend vriend = new Vriend(this, frame);
                     grid[i][j] = new Veld(locatie, vriend);
                     grid[i][j].getItem().setVeld(grid[i][j]);
                 }

@@ -12,14 +12,17 @@ import java.io.IOException;
 import javax.imageio.ImageIO;
 import java.awt.Point;
 
+
 /**
  *
  * @author Colin
  */
 public class Vriend extends Item {
     Speelbord speelb;
-    public Vriend(Speelbord sb) {
+    Frame frame;
+    public Vriend(Speelbord sb, Frame fr) {
         speelb = sb;
+        frame = fr;
         try {
             plaatje = ImageIO.read(new File("src/images/vriend.png"));
         } catch (IOException ex) {
@@ -52,5 +55,6 @@ public class Vriend extends Item {
         System.out.println("vriend ogepakt");
         System.out.println("FINISHED!");    
         speelb.StartNieuwLevel();
+        frame.meerTijd(21);
     }
 }
