@@ -110,8 +110,8 @@ public class Frame extends JFrame {
             timer.cancel();
             int dialogResult = JOptionPane.showConfirmDialog(rootPane, "Tijd is op, wilt u herstarten?");
             if (dialogResult == JOptionPane.YES_OPTION) {
-                frame.dispose();
-                frame = new Frame();
+//                frame.dispose();
+//                frame = new Frame();
             }
         }
         return --interval;

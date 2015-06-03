@@ -17,9 +17,9 @@ import java.awt.Point;
  * @author Colin
  */
 public class Vriend extends Item {
-
-    public Vriend() {
-
+    Speelbord speelb;
+    public Vriend(Speelbord sb) {
+        speelb = sb;
         try {
             plaatje = ImageIO.read(new File("src/images/vriend.png"));
         } catch (IOException ex) {
@@ -51,6 +51,6 @@ public class Vriend extends Item {
     {
         System.out.println("vriend ogepakt");
         System.out.println("FINISHED!");    
-        System.exit(0);
+        speelb.StartNieuwLevel();
     }
 }
