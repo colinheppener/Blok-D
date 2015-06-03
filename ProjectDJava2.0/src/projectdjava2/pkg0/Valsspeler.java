@@ -19,9 +19,11 @@ import javax.swing.JOptionPane;
 public class Valsspeler extends Item {
 
     private Frame frame;
+    private int valsspelerWaarde;
 
-
-    public Valsspeler(Frame fr) {
+    public Valsspeler(Frame fr, int wrd) {
+        
+        valsspelerWaarde = wrd;
         frame = fr;
         
         try {
@@ -52,7 +54,6 @@ public class Valsspeler extends Item {
     
     @Override
     public void voerActieUit() {
-        int valsspelerWaarde = 10;
         System.out.println("valsspeler uitgevoerd");
         
         frame.meerTijd(valsspelerWaarde);

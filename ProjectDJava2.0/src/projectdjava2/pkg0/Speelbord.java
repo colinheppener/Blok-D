@@ -84,7 +84,7 @@ public class Speelbord extends JComponent {//deze JComponent wordt weergegeven o
                 }
                 if (opzetGrid[i][j] == 5) {
                     Point locatie = new Point(i, j);
-                    Valsspeler valsspeler = new Valsspeler(frame);
+                    Valsspeler valsspeler = new Valsspeler(frame, 10);
                     grid[i][j] = new Veld(locatie, valsspeler);
                     grid[i][j].getItem().setVeld(grid[i][j]);
                 }
