@@ -32,14 +32,14 @@ public class Frame extends JFrame {
     JFrame frame = new JFrame();
 
     public void createComponents() {
-        
+
         JPanel controlPanel = new JPanel();
         JButton herstartKnop = new JButton("Herstart Level");
         JButton menuKnop = new JButton("Terug naar menu");
         JButton stopKnop = new JButton("sluit schermen");
         frame.setSize(HEIGHT, WIDTH);
         frame.setDefaultCloseOperation(EXIT_ON_CLOSE);
-        final JComponent component = new Speelbord();
+        final JComponent component = new Speelbord(this);
         initialiseTimer();
 
         timerBar = new JProgressBar();
@@ -61,8 +61,6 @@ public class Frame extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 //Execute when button is pressed
-                Speelbord sb = new Speelbord();
-                sb.HerstartLevel();
                 System.out.println("repaint");
                 component.requestFocusInWindow();
             }
@@ -86,10 +84,10 @@ public class Frame extends JFrame {
             }
         });
     }
-        private void initialiseTimer()
-        {
 
-        int delay = 1000;
+    private void initialiseTimer() {
+
+        int delay = 10;
         int period = 1000;
         timer = new Timer();
         timer.scheduleAtFixedRate(new TimerTask() {
@@ -99,16 +97,19 @@ public class Frame extends JFrame {
 
             }
         }, delay, period);
-        
+
 
     }
-
+    public void meerTijd(int waarde)
+    {
+        timerBar.setValue(interval += waarde);
+    }
+    
     private final int setInterval() {
         if (interval == 0) {
             timer.cancel();
-            int dialogResult   = JOptionPane.showConfirmDialog(rootPane, "Tijd is op, wilt u herstarten?");
-            if(dialogResult == JOptionPane.YES_OPTION)
-            {
+            int dialogResult = JOptionPane.showConfirmDialog(rootPane, "Tijd is op, wilt u herstarten?");
+            if (dialogResult == JOptionPane.YES_OPTION) {
                 frame.dispose();
                 frame = new Frame();
             }

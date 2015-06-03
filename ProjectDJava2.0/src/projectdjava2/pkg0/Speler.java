@@ -28,31 +28,33 @@ public class Speler extends Item {
     public void Loop(String looprichting) {
         //  System.out.println(veld.getBuur(looprichting));
         //  System.out.println(veld.getBuur(looprichting).getItem().toString());
-        if (!(veld.getBuur(looprichting).getItem() instanceof Muur)) {
+        if ((veld.getBuur(looprichting) != null)) {
+            if (!(veld.getBuur(looprichting).getItem() instanceof Muur)) {
 
-            if (veld.getBuur(looprichting).getItem() != null) {
-                veld.getBuur(looprichting).getItem().voerActieUit();
-            }
+                if (veld.getBuur(looprichting).getItem() != null) {
+                    veld.getBuur(looprichting).getItem().voerActieUit();
+                }
 
-            //veld.setItem(null);
-            //veld.getBuur(looprichting).setItem(this);
-            
-            veld.verplaatsItem(this, veld.getBuur(looprichting));
+                //veld.setItem(null);
+                //veld.getBuur(looprichting).setItem(this);
+
+                veld.verplaatsItem(this, veld.getBuur(looprichting));
 //            veld.getBuur(looprichting).getItem().setVeld(veld.getBuur(looprichting));
 //            System.out.println(veld.getBuur(looprichting).getItem().toString());
 //            System.out.println(veld.getBuur("west").getItem().toString());
+            }
         }
     }
 
-@Override
-        public void Teken(Graphics g) {
+    @Override
+    public void Teken(Graphics g) {
         g.setColor(Color.GREEN);
 //        g.fillRect((int) veld.getY() * 40, (int) veld.getX() * 40, 40, 40);
         g.drawImage(getImageFile(), (int) veld.getY() * 40, (int) veld.getX() * 40, 40, 40, null);
     }
 
     @Override
-        public String toString()//tostring methode override om te checken of speler wordt toegevogd aan de grid.
+    public String toString()//tostring methode override om te checken of speler wordt toegevogd aan de grid.
     {
         return "speler";
     }

@@ -17,6 +17,7 @@ import javax.swing.SwingUtilities;
  */
 public class Speelbord extends JComponent {//deze JComponent wordt weergegeven op de Frame in ProjectDJava20.java, in de main klasse dus.
 
+    private Frame frame;
     private Veld[][] grid = new Veld[20][20];
     private int huidiglevel = 1;
     private int[][] opzetGrid = {
@@ -46,7 +47,8 @@ public class Speelbord extends JComponent {//deze JComponent wordt weergegeven o
         return grid;
     }
 
-    public Speelbord() {
+    public Speelbord(Frame fr) {
+        frame = fr;
         CreateVelden();
     }
 
@@ -82,7 +84,7 @@ public class Speelbord extends JComponent {//deze JComponent wordt weergegeven o
                 }
                 if (opzetGrid[i][j] == 5) {
                     Point locatie = new Point(i, j);
-                    Valsspeler valsspeler = new Valsspeler();
+                    Valsspeler valsspeler = new Valsspeler(frame);
                     grid[i][j] = new Veld(locatie, valsspeler);
                     grid[i][j].getItem().setVeld(grid[i][j]);
                 }

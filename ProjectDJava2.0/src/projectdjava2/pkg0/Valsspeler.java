@@ -10,6 +10,7 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 import javax.imageio.ImageIO;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -17,9 +18,12 @@ import javax.imageio.ImageIO;
  */
 public class Valsspeler extends Item {
 
+    private Frame frame;
 
 
-    public Valsspeler() {
+    public Valsspeler(Frame fr) {
+        frame = fr;
+        
         try {
             plaatje = ImageIO.read(new File("src/images/valsspeler.jpg"));
         } catch (IOException ex) {
@@ -45,10 +49,13 @@ public class Valsspeler extends Item {
 
         return plaatje;
     }
-
-
+    
     @Override
     public void voerActieUit() {
+        int valsspelerWaarde = 10;
         System.out.println("valsspeler uitgevoerd");
+        
+        frame.meerTijd(valsspelerWaarde);
+        
     }
 }
