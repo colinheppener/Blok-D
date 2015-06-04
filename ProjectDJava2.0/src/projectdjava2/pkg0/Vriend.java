@@ -18,8 +18,8 @@ import java.awt.Point;
  * @author Colin
  */
 public class Vriend extends Item {
-    Speelbord speelb;
-    Frame frame;
+    private Speelbord speelb;
+    private Frame frame;
     public Vriend(Speelbord sb, Frame fr) {
         speelb = sb;
         frame = fr;
