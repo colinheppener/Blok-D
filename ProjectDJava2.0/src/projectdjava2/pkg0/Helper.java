@@ -43,9 +43,13 @@ public class Helper extends Item{
         
         return plaatje;
     }
-    
+    @Override
     public void voerActieUit()
     {
+        MazeSolver mazeSolver = new MazeSolver(0, veld);
+        veld.setItem(mazeSolver);
+        veld.getItem().setVeld(veld);
         System.out.println("helper uitgevoerd");
+        mazeSolver.createNewMazeSolver();
     }
 }

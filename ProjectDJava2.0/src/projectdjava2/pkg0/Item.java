@@ -30,4 +30,8 @@ public class Item {
     public void setVeld(Veld vel) {
         veld = vel;
     }
+    public Veld getVeld()
+    {
+        return veld;
+    }
 }

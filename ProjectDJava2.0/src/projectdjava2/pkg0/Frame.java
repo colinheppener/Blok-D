@@ -113,6 +113,10 @@ public class Frame extends JFrame {
                 frame.dispose();
                 frame = new Frame();
             }
+            if(dialogResult ==JOptionPane.CANCEL_OPTION)
+            {
+                frame.dispose();
+            }
         }
         return --interval;
     }
