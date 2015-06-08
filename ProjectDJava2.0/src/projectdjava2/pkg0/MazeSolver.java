@@ -82,21 +82,29 @@ public class MazeSolver extends Item {
     public void solveMaze(int wrd) {
         if (wrd == waarde + 1) {
             draw = true;
-            if (veld.getBuur("noord").getItem() instanceof MazeSolver) {
-                MazeSolver mazeSolver0 = (MazeSolver) veld.getBuur("noord").getItem();
-                mazeSolver0.solveMaze(waarde);
+            if (veld.getBuur("noord") != null) {
+                if (veld.getBuur("noord").getItem() instanceof MazeSolver) {
+                    MazeSolver mazeSolver0 = (MazeSolver) veld.getBuur("noord").getItem();
+                    mazeSolver0.solveMaze(waarde);
+                }
             }
-            if (veld.getBuur("oost").getItem() instanceof MazeSolver) {
-                MazeSolver mazeSolver1 = (MazeSolver) veld.getBuur("oost").getItem();
-                mazeSolver1.solveMaze(waarde);
+            if (veld.getBuur("oost") != null) {
+                if (veld.getBuur("oost").getItem() instanceof MazeSolver) {
+                    MazeSolver mazeSolver1 = (MazeSolver) veld.getBuur("oost").getItem();
+                    mazeSolver1.solveMaze(waarde);
+                }
             }
-            if (veld.getBuur("zuid").getItem() instanceof MazeSolver) {
-                MazeSolver mazeSolver2 = (MazeSolver) veld.getBuur("zuid").getItem();
-                mazeSolver2.solveMaze(waarde);
+            if (veld.getBuur("zuid") != null) {
+                if (veld.getBuur("zuid").getItem() instanceof MazeSolver) {
+                    MazeSolver mazeSolver2 = (MazeSolver) veld.getBuur("zuid").getItem();
+                    mazeSolver2.solveMaze(waarde);
+                }
             }
-            if (veld.getBuur("west").getItem() instanceof MazeSolver) {
-                MazeSolver mazeSolver3 = (MazeSolver) veld.getBuur("west").getItem();
-                mazeSolver3.solveMaze(waarde);
+            if (veld.getBuur("west") != null) {
+                if (veld.getBuur("west").getItem() instanceof MazeSolver) {
+                    MazeSolver mazeSolver3 = (MazeSolver) veld.getBuur("west").getItem();
+                    mazeSolver3.solveMaze(waarde);
+                }
             }
         }
     }
