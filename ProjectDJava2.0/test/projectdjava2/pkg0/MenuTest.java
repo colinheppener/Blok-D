@@ -4,7 +4,6 @@
  */
 package projectdjava2.pkg0;
 
-import java.awt.Graphics;
 import org.junit.*;
 import static org.junit.Assert.*;
 
@@ -12,9 +11,9 @@ import static org.junit.Assert.*;
  *
  * @author Colin
  */
-public class SpeelbordTest {
+public class MenuTest {
     
-    public SpeelbordTest() {
+    public MenuTest() {
     }
 
     @BeforeClass
@@ -33,15 +32,8 @@ public class SpeelbordTest {
     public void tearDown() {
     }
 
+    @Test
+    public void testSomeMethod() {
 
-    /**
-     * Test of paintComponent method, of class Speelbord.
-     */
-    @Test(expected=NullPointerException.class)
-    public void testPaintComponent() {
-        System.out.println("paintComponent");
-        Graphics g = null;
-        Speelbord instance = null;
-        instance.paintComponent(g);
     }
 }

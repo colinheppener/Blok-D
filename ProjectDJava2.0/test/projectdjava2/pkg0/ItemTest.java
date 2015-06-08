@@ -5,7 +5,6 @@
 package projectdjava2.pkg0;
 
 import java.awt.Graphics;
-import java.awt.image.BufferedImage;
 import org.junit.*;
 import static org.junit.Assert.*;
 
@@ -37,27 +36,56 @@ public class ItemTest {
     /**
      * Test of Teken method, of class Item.
      */
-    @Test
+    @Test()
     public void testTeken() {
         System.out.println("Teken");
         Graphics g = null;
         Item instance = new Item();
         instance.Teken(g);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
-     * Test of getImageFile method, of class Item.
+     * Test of voerActieUit method, of class Item.
      */
     @Test
-    public void testGetImageFile() {
-        System.out.println("getImageFile");
+    public void testVoerActieUit() {
+        System.out.println("voerActieUit");
         Item instance = new Item();
-        BufferedImage expResult = null;
-        BufferedImage result = instance.getImageFile();
+        instance.voerActieUit();
+    }
+
+    /**
+     * Test of toString method, of class Item.
+     */
+    @Test
+    public void testToString() {
+        System.out.println("toString");
+        Item instance = new Item();
+        String expResult = "item toegevoegd";
+        String result = instance.toString();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+    }
+
+    /**
+     * Test of setVeld method, of class Item.
+     */
+    @Test
+    public void testSetVeld() {
+        System.out.println("setVeld");
+        Veld vel = null;
+        Item instance = new Item();
+        instance.setVeld(vel);
+    }
+
+    /**
+     * Test of getVeld method, of class Item.
+     */
+    @Test
+    public void testGetVeld() {
+        System.out.println("getVeld");
+        Item instance = new Item();
+        Veld expResult = null;
+        Veld result = instance.getVeld();
+        assertEquals(expResult, result);
     }
 }

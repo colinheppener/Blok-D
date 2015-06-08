@@ -36,7 +36,7 @@ public class Helper extends Item{
 
     @Override
     public String toString() {
-        return "vriend";
+        return "helper";
     }
 
     public BufferedImage getImageFile() {

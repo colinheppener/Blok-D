@@ -13,9 +13,9 @@ import static org.junit.Assert.*;
  *
  * @author Colin
  */
-public class SpelerTest {
+public class ValsspelerTest {
     
-    public SpelerTest() {
+    public ValsspelerTest() {
     }
 
     @BeforeClass
@@ -35,37 +35,23 @@ public class SpelerTest {
     }
 
     /**
-     * Test of Loop method, of class Speler.
-     */
-    @Test(expected=NullPointerException.class)
-    public void testLoop() {
-        System.out.println("Loop");
-        String looprichting = "oost";
-        Speler instance = new Speler();
-        instance.Loop(looprichting);
-    }
-
-    /**
-     * Test of Teken method, of class Speler.
+     * Test of Teken method, of class Valsspeler.
      */
     @Test(expected=NullPointerException.class)
     public void testTeken() {
         System.out.println("Teken");
         Graphics g = null;
-        Speler instance = new Speler();
+        Valsspeler instance = null;
         instance.Teken(g);
+
     }
-
     /**
-     * Test of toString method, of class Speler.
+     * Test of voerActieUit method, of class Valsspeler.
      */
-    @Test
-    public void testToString() {
-        System.out.println("toString");
-        Speler instance = new Speler();
-        String expResult = "speler";
-        String result = instance.toString();
-        assertEquals(expResult, result);
-
+    @Test(expected=NullPointerException.class)
+    public void testVoerActieUit() {
+        System.out.println("voerActieUit");
+        Valsspeler instance = null;
+        instance.voerActieUit();
     }
 }

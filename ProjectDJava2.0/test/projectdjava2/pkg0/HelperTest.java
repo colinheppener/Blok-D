@@ -13,9 +13,9 @@ import static org.junit.Assert.*;
  *
  * @author Colin
  */
-public class MuurTest {
+public class HelperTest {
     
-    public MuurTest() {
+    public HelperTest() {
     }
 
     @BeforeClass
@@ -35,37 +35,51 @@ public class MuurTest {
     }
 
     /**
-     * Test of Teken method, of class Muur.
+     * Test of Teken method, of class Helper.
      */
     @Test(expected=NullPointerException.class)
     public void testTeken() {
         System.out.println("Teken");
         Graphics g = null;
-        Muur instance = new Muur();
+        Helper instance = new Helper();
         instance.Teken(g);
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
     }
 
     /**
-     * Test of toString method, of class Muur.
+     * Test of toString method, of class Helper.
      */
     @Test
     public void testToString() {
         System.out.println("toString");
-        Muur instance = new Muur();
-        String expResult = "muur";
+        Helper instance = new Helper();
+        String expResult = "helper";
         String result = instance.toString();
         assertEquals(expResult, result);
     }
 
     /**
-     * Test of getImageFile method, of class Muur.
+     * Test of getImageFile method, of class Helper.
      */
     @Test
     public void testGetImageFile() {
         System.out.println("getImageFile");
-        Muur instance = new Muur();
-        BufferedImage expResult = instance.getImageFile();
+        Helper instance = new Helper();
+        
         BufferedImage result = instance.getImageFile();
+        BufferedImage expResult = instance.getImageFile();
         assertEquals(expResult, result);
+    }
+
+    /**
+     * Test of voerActieUit method, of class Helper.
+     */
+    @Test(expected=NullPointerException.class)
+    public void testVoerActieUit() {
+        System.out.println("voerActieUit");
+        Helper instance = new Helper();
+        instance.voerActieUit();
+        
     }
 }

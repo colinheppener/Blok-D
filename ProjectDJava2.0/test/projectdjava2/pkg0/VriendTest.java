@@ -4,18 +4,22 @@
  */
 package projectdjava2.pkg0;
 
+import java.awt.Graphics;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
+import javax.imageio.ImageIO;
 import org.junit.*;
 import static org.junit.Assert.*;
+
 
 /**
  *
  * @author Colin
  */
 public class VriendTest {
-    
-    public VriendTest() {
-    }
 
+    
     @BeforeClass
     public static void setUpClass() throws Exception {
     }
@@ -35,12 +39,11 @@ public class VriendTest {
     /**
      * Test of Teken method, of class Vriend.
      */
-    @Test
+    @Test(expected=NullPointerException.class)
     public void testTeken() {
         System.out.println("Teken");
-        Vriend instance = new Vriend();
-        instance.Teken();
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        Graphics g = null;
+        Vriend instance = null;
+        instance.Teken(g);
     }
 }

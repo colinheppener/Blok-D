@@ -13,9 +13,9 @@ import static org.junit.Assert.*;
  *
  * @author Colin
  */
-public class SpelerTest {
+public class BazookaTest {
     
-    public SpelerTest() {
+    public BazookaTest() {
     }
 
     @BeforeClass
@@ -35,37 +35,41 @@ public class SpelerTest {
     }
 
     /**
-     * Test of Loop method, of class Speler.
-     */
-    @Test(expected=NullPointerException.class)
-    public void testLoop() {
-        System.out.println("Loop");
-        String looprichting = "oost";
-        Speler instance = new Speler();
-        instance.Loop(looprichting);
-    }
-
-    /**
-     * Test of Teken method, of class Speler.
+     * Test of Teken method, of class Bazooka.
      */
     @Test(expected=NullPointerException.class)
     public void testTeken() {
         System.out.println("Teken");
         Graphics g = null;
-        Speler instance = new Speler();
+        Bazooka instance = new Bazooka();
         instance.Teken(g);
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
     }
 
     /**
-     * Test of toString method, of class Speler.
+     * Test of toString method, of class Bazooka.
      */
     @Test
     public void testToString() {
         System.out.println("toString");
-        Speler instance = new Speler();
-        String expResult = "speler";
+        Bazooka instance = new Bazooka();
+        String expResult = "bazooka";
         String result = instance.toString();
         assertEquals(expResult, result);
+    }
 
+    /**
+     * Test of getImageFile method, of class Bazooka.
+     */
+
+    /**
+     * Test of voerActieUit method, of class Bazooka.
+     */
+    @Test
+    public void testVoerActieUit() {
+        System.out.println("voerActieUit");
+        Bazooka instance = new Bazooka();
+        instance.voerActieUit();
     }
 }
