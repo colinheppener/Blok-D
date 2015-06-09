@@ -37,35 +37,11 @@ public class SpelerTest {
     /**
      * Test of Loop method, of class Speler.
      */
-    @Test(expected=NullPointerException.class)
-    public void testLoop() {
+    @Test
+    public void testLoop1() {
         System.out.println("Loop");
         String looprichting = "oost";
         Speler instance = new Speler();
         instance.Loop(looprichting);
-    }
-
-    /**
-     * Test of Teken method, of class Speler.
-     */
-    @Test(expected=NullPointerException.class)
-    public void testTeken() {
-        System.out.println("Teken");
-        Graphics g = null;
-        Speler instance = new Speler();
-        instance.Teken(g);
-    }
-
-    /**
-     * Test of toString method, of class Speler.
-     */
-    @Test
-    public void testToString() {
-        System.out.println("toString");
-        Speler instance = new Speler();
-        String expResult = "speler";
-        String result = instance.toString();
-        assertEquals(expResult, result);
-
     }
 }

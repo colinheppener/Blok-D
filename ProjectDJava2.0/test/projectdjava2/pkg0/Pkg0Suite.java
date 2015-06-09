@@ -16,7 +16,7 @@ import org.junit.runners.Suite;
  * @author Colin
  */
 @RunWith(Suite.class)
-@Suite.SuiteClasses({projectdjava2.pkg0.VriendTest.class, projectdjava2.pkg0.SpeelbordTest.class, projectdjava2.pkg0.CustomKeyListenerTest.class, projectdjava2.pkg0.ItemTest.class, projectdjava2.pkg0.VeldTest.class, projectdjava2.pkg0.MuurTest.class, projectdjava2.pkg0.SpelerTest.class, projectdjava2.pkg0.ProjectDJava20Test.class})
+@Suite.SuiteClasses({projectdjava2.pkg0.SpelerTest.class})
 public class Pkg0Suite {
 
     @BeforeClass
