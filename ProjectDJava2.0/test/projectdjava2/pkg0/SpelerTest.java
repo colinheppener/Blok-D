@@ -5,7 +5,9 @@
 package projectdjava2.pkg0;
 
 import java.awt.Graphics;
+import java.awt.Point;
 import java.awt.image.BufferedImage;
+import java.util.HashMap;
 import org.junit.*;
 import static org.junit.Assert.*;
 
@@ -14,8 +16,23 @@ import static org.junit.Assert.*;
  * @author Colin
  */
 public class SpelerTest {
-    
+
+    Point locSpeler = new Point(1, 1);
+    Point locBuurNoord = new Point(1, 0);
+    Point locBuurZuid = new Point(1, 2);
+    Point locBuurOost = new Point(2, 1);
+    Point locBuurWest = new Point(0, 1);
+    HashMap bur = new HashMap<String, Veld>();
+    Veld veldnoord = new Veld(locBuurNoord, null);
+    Veld veldZuid = new Veld(locBuurZuid, null);
+    Veld veldOost = new Veld(locBuurOost, null);
+    Veld veldWest = new Veld(locBuurWest, null);
+
     public SpelerTest() {
+        bur.put("noord", veldnoord);
+        bur.put("zuid", veldZuid);
+        bur.put("oost", veldOost);
+        bur.put("west", veldWest);
     }
 
     @BeforeClass
@@ -25,11 +42,11 @@ public class SpelerTest {
     @AfterClass
     public static void tearDownClass() throws Exception {
     }
-    
+
     @Before
     public void setUp() {
     }
-    
+
     @After
     public void tearDown() {
     }
@@ -38,10 +55,53 @@ public class SpelerTest {
      * Test of Loop method, of class Speler.
      */
     @Test
-    public void testLoop1() {
+    public void testLoopOost() {
         System.out.println("Loop");
+
+
         String looprichting = "oost";
-        Speler instance = new Speler();
-        instance.Loop(looprichting);
+        Speler speler = new Speler();
+        Veld veld = new Veld(locSpeler, speler);
+        veld.setItem(speler);
+        veld.setBuren(bur);
+        speler.Loop(looprichting);
+    }
+    
+        @Test
+    public void testLoopWest() {
+        System.out.println("Loop");
+
+
+        String looprichting = "west";
+        Speler speler = new Speler();
+        Veld veld = new Veld(locSpeler, speler);
+        veld.setItem(speler);
+        veld.setBuren(bur);
+        speler.Loop(looprichting);
+    }
+            @Test
+    public void testLoopNoord() {
+        System.out.println("Loop");
+
+
+        String looprichting = "noord";
+        Speler speler = new Speler();
+        Veld veld = new Veld(locSpeler, speler);
+        veld.setItem(speler);
+        veld.setBuren(bur);
+        speler.Loop(looprichting);
+    }
+                @Test
+    public void testLoopZuid() {
+        System.out.println("Loop");
+
+
+        String looprichting = "zud";
+        Speler speler = new Speler();
+        Veld veld = new Veld(locSpeler, speler);
+        veld.setItem(speler);
+        veld.setBuren(bur);
+        
+        speler.Loop(looprichting);
     }
 }
