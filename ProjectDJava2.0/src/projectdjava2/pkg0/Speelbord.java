@@ -28,7 +28,7 @@ public class Speelbord extends JComponent {//deze JComponent wordt weergegeven o
         {1, 1, 1, 0, 1, 1, 1, 0, 1, 1, 1, 0, 0, 0, 0, 0, 1, 0, 1, 1,},
         {1, 0, 1, 0, 5, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1,},
         {1, 0, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1,},
-        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 1, 1, 1, 0, 1, 1,},
+        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0, 0, 1, 1,},
         {0, 1, 1, 1, 0, 1, 1, 0, 1, 1, 1, 6, 0, 0, 1, 1, 1, 0, 1, 1,},
         {0, 0, 1, 1, 0, 0, 1, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 0, 1, 1,},
         {1, 0, 1, 1, 1, 0, 1, 1, 1, 1, 1, 0, 1, 1, 0, 0, 0, 0, 1, 1,},
@@ -87,8 +87,8 @@ public class Speelbord extends JComponent {//deze JComponent wordt weergegeven o
         {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1}
     };
 
-    public Veld[][] getGrid() {
-        return grid;
+    public Veld getGrid(int i, int j) {
+        return grid[i][j];
     }
 
     public Speelbord(Frame fr) {
@@ -151,7 +151,7 @@ public class Speelbord extends JComponent {//deze JComponent wordt weergegeven o
                 if (opzetGrid[i][j] == 7) {
                     Point locatie = new Point(i, j);
                     Helper helper = new Helper();
-                    grid[i][j] = new Veld(locatie, helper);
+                    grid[i][j] = new Veld(locatie, helper, this);
                     grid[i][j].getItem().setVeld(grid[i][j]);
                 }
             }
@@ -226,13 +226,16 @@ public class Speelbord extends JComponent {//deze JComponent wordt weergegeven o
     public void paintComponent(Graphics g) {//hier worden de vierkanten daadwerkelijk samengevoegd 
         //en op het speelbord weergegeven, de velden tekenen zichzelf wel met de Teken methode
         super.paintComponent(g);
-
         System.out.println("repaint");
         for (int i = 0; i < 20; i++) {
             for (int j = 0; j < 20; j++) {
                 Item veldItem = grid[i][j].getItem();
+                MazeSolver veldMazeSolver = grid[i][j].getMazeSolver();
                 if (veldItem != null) {
                     veldItem.Teken(g);
+                }
+                else if (veldMazeSolver != null) {
+                    veldMazeSolver.Teken(g);
                 }
             }
 

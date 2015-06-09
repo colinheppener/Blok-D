@@ -15,7 +15,9 @@ public class Veld {
 
     private Point locatie;
     private Item ItemOpVeld;
+    private MazeSolver mazeSolverOpVeld;
     private HashMap buren;
+    private Speelbord speelbord;
 
     public Veld(Point loc, Item item)//constructor waarin de waarden van de klassevariabelen bepaald worden, 
     //vanuit deze constructor wordt ook de methode om de items aan te maken aangeroepen
@@ -24,6 +26,19 @@ public class Veld {
         locatie = loc;
         ItemOpVeld = item;
 
+    }
+    public Veld(Point loc, Item item, Speelbord splbord)//constructor waarin de waarden van de klassevariabelen bepaald worden, 
+    //vanuit deze constructor wordt ook de methode om de items aan te maken aangeroepen
+    {
+        speelbord = splbord;
+        locatie = loc;
+        ItemOpVeld = item;
+
+    }
+    
+    public Speelbord getSpeelbord()
+    {
+        return speelbord;
     }
 
     public Veld getBuur(String richting) {
@@ -39,6 +54,11 @@ public class Veld {
     {
         return ItemOpVeld;
     }
+    
+    public MazeSolver getMazeSolver()
+    {
+        return mazeSolverOpVeld;
+    }
 
     public void verplaatsItem(Item itm, Veld vld) {
         setItem(null);
@@ -49,6 +69,17 @@ public class Veld {
         System.out.println(ItemOpVeld);
         ItemOpVeld = item;
         System.out.println(ItemOpVeld);
+        System.out.println(getX() + " " + getY());
+        System.out.println("");
+        if (getItem() != null) {
+            getItem().setVeld(this);
+        }
+    }
+    
+    public void setMazeSolver(MazeSolver mazeSolver) {
+        System.out.println(mazeSolverOpVeld);
+        mazeSolverOpVeld = mazeSolver;
+        System.out.println(mazeSolverOpVeld);
         System.out.println(getX() + " " + getY());
         System.out.println("");
         if (getItem() != null) {

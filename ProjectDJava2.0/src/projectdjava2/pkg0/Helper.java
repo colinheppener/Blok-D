@@ -16,7 +16,7 @@ import javax.imageio.ImageIO;
  * @author Colin
  */
 public class Helper extends Item{
-    
+    private Speelbord speelbord;
     public Helper()
     {
         try {
@@ -46,9 +46,9 @@ public class Helper extends Item{
     @Override
     public void voerActieUit()
     {
-        MazeSolver mazeSolver = new MazeSolver(0, veld);
-        veld.setItem(mazeSolver);
-        veld.getItem().setVeld(veld);
+        MazeSolver mazeSolver = new MazeSolver(0, veld, veld.getSpeelbord());
+        veld.setMazeSolver(mazeSolver);
+        veld.getMazeSolver().setVeld(veld);
         System.out.println("helper uitgevoerd");
         mazeSolver.createNewMazeSolver();
     }
