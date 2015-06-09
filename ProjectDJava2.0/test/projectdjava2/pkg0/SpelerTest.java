@@ -23,8 +23,7 @@ public class SpelerTest {
     Point locBuurOost = new Point(2, 1);
     Point locBuurWest = new Point(0, 1);
     HashMap bur = new HashMap<String, Veld>();
-    Muur muur = new Muur();
-    Veld veldnoord = new Veld(locBuurNoord, muur);
+    Veld veldnoord = new Veld(locBuurNoord, null);
     Veld veldZuid = new Veld(locBuurZuid, null);
     Veld veldOost = new Veld(locBuurOost, null);
     Veld veldWest = new Veld(locBuurWest, null);
@@ -34,22 +33,6 @@ public class SpelerTest {
         bur.put("zuid", veldZuid);
         bur.put("oost", veldOost);
         bur.put("west", veldWest);
-    }
-
-    @BeforeClass
-    public static void setUpClass() throws Exception {
-    }
-
-    @AfterClass
-    public static void tearDownClass() throws Exception {
-    }
-
-    @Before
-    public void setUp() {
-    }
-
-    @After
-    public void tearDown() {
     }
 
     /**
