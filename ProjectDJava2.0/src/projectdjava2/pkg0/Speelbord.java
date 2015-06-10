@@ -83,7 +83,7 @@ public class Speelbord extends JComponent {//deze JComponent wordt weergegeven o
         {1, 0, 1, 0, 0, 0, 0, 0, 1, 0, 1, 0, 1, 1, 1, 1, 0, 0, 0, 1},
         {1, 0, 1, 1, 1, 1, 1, 0, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1},
         {1, 0, 1, 0, 0, 0, 0, 0, 1, 1, 0, 1, 0, 1, 0, 1, 0, 0, 0, 1},
-        {1, 0, 1, 0, 1, 1, 1, 1, 1, 1, 0, 1, 0, 1, 0, 1 ,0, 1, 0, 1},
+        {1, 0, 1, 0, 1, 1, 1, 1, 1, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1},
         {1, 5, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 1, 4, 1},
         {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1}
     };
@@ -104,8 +104,7 @@ public class Speelbord extends JComponent {//deze JComponent wordt weergegeven o
         if (level.equals("lvl2")) {
             opzetGrid = lvl2;
         }
-        if(level.equals("lvl3"))
-        {
+        if (level.equals("lvl3")) {
             opzetGrid = lvl3;
         }
 
@@ -199,25 +198,20 @@ public class Speelbord extends JComponent {//deze JComponent wordt weergegeven o
 
         this.revalidate();
         this.repaint();
-
     }
 
     public void StartNieuwLevel() {
-        if(huidiglevel == 1)
-        {
+        if (huidiglevel == 1) {
             CreateVelden("lvl2");
             huidiglevel++;
             return;
         }
-        if(huidiglevel == 2)
-        {
+        if (huidiglevel == 2) {
             CreateVelden("lvl3");
             huidiglevel++;
             return;
-            
         }
-        if(huidiglevel == 3)
-        {
+        if (huidiglevel == 3) {
             System.out.println("GAME COMPLETED");
             System.exit(0);
         }
@@ -234,8 +228,7 @@ public class Speelbord extends JComponent {//deze JComponent wordt weergegeven o
                 MazeSolver veldMazeSolver = grid[i][j].getMazeSolver();
                 if (veldItem != null) {
                     veldItem.Teken(g);
-                }
-                else if (veldMazeSolver != null) {
+                } else if (veldMazeSolver != null) {
                     veldMazeSolver.Teken(g);
                 }
             }
