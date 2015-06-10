@@ -56,10 +56,8 @@ public class MazeSolver {
                         } else {
                             for (int j = 0; j < 20; j++) {
                                 for (int k = 0; k < 20; k++) {
-                                    if(speelbord.getGrid(j, k).getMazeSolver() != null)
-                                    {
-                                        if(speelbord.getGrid(j, k).getMazeSolver().getDraw() == true)
-                                        {
+                                    if (speelbord.getGrid(j, k).getMazeSolver() != null) {
+                                        if (speelbord.getGrid(j, k).getMazeSolver().getDraw() == true) {
                                             speelbord.getGrid(j, k).getMazeSolver().setDraw(false);
                                         }
                                     }
@@ -80,17 +78,15 @@ public class MazeSolver {
     public void setVeld(Veld vel) {
         veld = vel;
     }
-    
-    public void setDraw(boolean dr)
-    {
+
+    public void setDraw(boolean dr) {
         draw = dr;
     }
-    
-    public boolean getDraw()
-    {
+
+    public boolean getDraw() {
         return draw;
     }
-    
+
     public void solveMaze(int wrd) {
         if (wrd == waarde + 1) {
             draw = true;
@@ -119,12 +115,10 @@ public class MazeSolver {
     }
 
     public void Teken(Graphics g) {
-        if (draw == false) {
-            g.setColor(Color.GREEN);
-        } else {
+        if (draw == true) {
             g.setColor(Color.RED);
+            g.fillRect((int) veld.getY() * 40, (int) veld.getX() * 40, 40, 40);
         }
-        g.drawRect((int) veld.getY() * 40, (int) veld.getX() * 40, 40, 40);
-        g.drawString(waarde + "", (int) veld.getY() * 40, (int) veld.getX() * 40);
+//        g.drawString(waarde + "", (int) veld.getY() * 40, (int) veld.getX() * 40);
     }
 }

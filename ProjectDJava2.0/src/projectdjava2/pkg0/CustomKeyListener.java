@@ -46,6 +46,10 @@ class CustomKeyListener implements KeyListener {
             System.out.println("west ingevoerd");
             speler.Loop("west");
         }
+        if (e.getKeyCode() == KeyEvent.VK_SPACE) {
+            System.out.println("space");
+            speler.schiet();
+        }
 //        speelb.updateUI();
         speelb.repaint();
     }

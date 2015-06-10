@@ -17,6 +17,8 @@ import javax.imageio.ImageIO;
  */
 public class Speler extends Item {
 
+    private String richting = "noord";
+    
     public Speler() {
         try {
             plaatje = ImageIO.read(new File("src/images/person.jpg"));
@@ -26,6 +28,7 @@ public class Speler extends Item {
     }
 
     public void Loop(String looprichting) {
+        richting = looprichting;
         //  System.out.println(veld.getBuur(looprichting));
         //  System.out.println(veld.getBuur(looprichting).getItem().toString());
         if ((veld.getBuur(looprichting) != null)) {
@@ -44,6 +47,10 @@ public class Speler extends Item {
 //            System.out.println(veld.getBuur("west").getItem().toString());
             }
         }
+    }
+    public void schiet()
+    {
+        Raket raket = new Raket(veld.getBuur(richting), richting);
     }
 
     @Override
