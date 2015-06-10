@@ -18,7 +18,8 @@ import javax.imageio.ImageIO;
 public class Speler extends Item {
 
     private String richting = "noord";
-    private boolean hasBazooka = false;
+//    private boolean hasBazooka = false;
+    private Bazooka bazooka;
     
     public Speler() {
         try {
@@ -51,19 +52,29 @@ public class Speler extends Item {
     }
     public void schiet()
     {
-        Raket raket = new Raket(veld.getBuur(richting), richting);
-        this.hasBazooka = true;
+        //Raket raket = new Raket(veld.getBuur(richting), richting);
+        //this.hasBazooka = true;
+        if (bazooka != null)
+        {
+            bazooka.schiet(richting);
+            bazooka = null;
+        }
     }
 
-    public boolean hasBazooka()
+//    public boolean hasBazooka()
+//    {
+//        return hasBazooka;
+//    }
+    
+    public void pikUpBazooka(Bazooka baz)
     {
-        return hasBazooka;
+        bazooka = baz;
     }
     
-    public void setBazooka(boolean waarde)
-    {
-        hasBazooka = true;
-    }
+//    public void setBazooka(boolean waarde)
+//    {
+//        hasBazooka = true;
+//    }
     
     
     @Override

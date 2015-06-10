@@ -27,11 +27,9 @@ public class Raket extends Item {
 
         while ((veld.getBuur(richting) != null)) {
             if (!(veld.getBuur(richting).getItem() instanceof Muur)) {
-                try{
-                Thread.sleep(500);
-                }
-                catch(InterruptedException e)
-                {
+                try {
+                    Thread.sleep(500);
+                } catch (InterruptedException e) {
                     System.out.println("error in beweging");
                 }
                 verplaatsItem(this, veld, veld.getBuur(richting));
@@ -44,12 +42,9 @@ public class Raket extends Item {
         }
     }
 
-    @Override
     public void Teken(Graphics g) {
         g.setColor(Color.RED);
         g.fillRect((int) veld.getY() * 40, (int) veld.getX() * 40, 40, 40);
-
-//        g.drawString(waarde + "", (int) veld.getY() * 40, (int) veld.getX() * 40);
     }
 
     @Override

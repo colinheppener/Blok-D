@@ -48,10 +48,7 @@ class CustomKeyListener implements KeyListener {
         }
         if (e.getKeyCode() == KeyEvent.VK_SPACE) {
             System.out.println("space");
-            if(speler.hasBazooka())
-            {
             speler.schiet();
-            }
         }
 //        speelb.updateUI();
         speelb.repaint();

@@ -15,10 +15,11 @@ import javax.imageio.ImageIO;
  *
  * @author Colin
  */
-public class Bazooka extends Item{
+public class Bazooka extends Item {
+
     private Speler speler;
-    public Bazooka(Speler speler)
-    {
+
+    public Bazooka(Speler speler) {
         this.speler = speler;
         try {
             plaatje = ImageIO.read(new File("src/images/bazooka.png"));
@@ -26,8 +27,8 @@ public class Bazooka extends Item{
             System.out.println(ex);
         }
     }
-    
-        @Override
+
+    @Override
     public void Teken(Graphics g) {
         g.setColor(Color.MAGENTA);
 
@@ -36,20 +37,24 @@ public class Bazooka extends Item{
 
     }
 
+    public void schiet(String richting) {
+        Raket raket = new Raket(speler.getVeld().getBuur(richting), richting);
+    }
+
     @Override
     public String toString() {
         return "bazooka";
     }
 
     public BufferedImage getImageFile() {
-        
+
         return plaatje;
     }
-    
-    
-    public void voerActieUit()
-    {
+
+    public void voerActieUit() {
         System.out.println("bazooka uitgevoerd");
-        speler.setBazooka(true);
+//        speler.setBazooka(true);
+        speler.pikUpBazooka(this);
+        veld.setItem(null);
     }
 }
