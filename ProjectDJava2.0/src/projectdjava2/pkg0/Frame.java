@@ -120,4 +120,9 @@ public class Frame extends JFrame {
         }
         return --interval;
     }
+    
+    public int getCurrentTime()
+    {
+        return interval;
+    }
 }

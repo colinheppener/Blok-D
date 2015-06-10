@@ -60,11 +60,6 @@ public class Veld {
         return mazeSolverOpVeld;
     }
 
-    public void verplaatsItem(Item itm, Veld vld) {
-        setItem(null);
-        vld.setItem(itm);
-    }
-
     public void setItem(Item item) {
         System.out.println(ItemOpVeld);
         ItemOpVeld = item;

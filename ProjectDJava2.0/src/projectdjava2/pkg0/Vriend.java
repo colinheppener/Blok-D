@@ -20,6 +20,7 @@ import java.awt.Point;
 public class Vriend extends Item {
     private Speelbord speelb;
     private Frame frame;
+
     public Vriend(Speelbord sb, Frame fr) {
         speelb = sb;
         frame = fr;

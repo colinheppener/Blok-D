@@ -22,17 +22,8 @@ public class SpelerTest {
     Point locBuurZuid = new Point(1, 2);
     Point locBuurOost = new Point(2, 1);
     Point locBuurWest = new Point(0, 1);
-    HashMap bur = new HashMap<String, Veld>();
-    Veld veldnoord = new Veld(locBuurNoord, null);
-    Veld veldZuid = new Veld(locBuurZuid, null);
-    Veld veldOost = new Veld(locBuurOost, null);
-    Veld veldWest = new Veld(locBuurWest, null);
 
     public SpelerTest() {
-        bur.put("noord", veldnoord);
-        bur.put("zuid", veldZuid);
-        bur.put("oost", veldOost);
-        bur.put("west", veldWest);
     }
 
     /**
@@ -41,8 +32,15 @@ public class SpelerTest {
     @Test
     public void testLoopOost() {
         System.out.println("Loop");
-
-
+        HashMap bur = new HashMap<String, Veld>();
+        Veld veldnoord = new Veld(locBuurNoord, null);
+        Veld veldZuid = new Veld(locBuurZuid, null);
+        Veld veldOost = new Veld(locBuurOost, null);
+        Veld veldWest = new Veld(locBuurWest, null);
+        bur.put("noord", veldnoord);
+        bur.put("zuid", veldZuid);
+        bur.put("oost", veldOost);
+        bur.put("west", veldWest);
         String looprichting = "oost";
         Speler speler = new Speler();
         Veld veld = new Veld(locSpeler, speler);
@@ -58,8 +56,15 @@ public class SpelerTest {
     @Test
     public void testLoopWest() {
         System.out.println("Loop");
-
-
+        HashMap bur = new HashMap<String, Veld>();
+        Veld veldnoord = new Veld(locBuurNoord, null);
+        Veld veldZuid = new Veld(locBuurZuid, null);
+        Veld veldOost = new Veld(locBuurOost, null);
+        Veld veldWest = new Veld(locBuurWest, null);
+        bur.put("noord", veldnoord);
+        bur.put("zuid", veldZuid);
+        bur.put("oost", veldOost);
+        bur.put("west", veldWest);
         String looprichting = "west";
         Speler speler = new Speler();
         Veld veld = new Veld(locSpeler, speler);
@@ -76,7 +81,15 @@ public class SpelerTest {
     public void testLoopNoord() {
         System.out.println("Loop");
 
-
+        HashMap bur = new HashMap<String, Veld>();
+        Veld veldnoord = new Veld(locBuurNoord, null);
+        Veld veldZuid = new Veld(locBuurZuid, null);
+        Veld veldOost = new Veld(locBuurOost, null);
+        Veld veldWest = new Veld(locBuurWest, null);
+        bur.put("noord", veldnoord);
+        bur.put("zuid", veldZuid);
+        bur.put("oost", veldOost);
+        bur.put("west", veldWest);
         String looprichting = "noord";
         Speler speler = new Speler();
         Veld veld = new Veld(locSpeler, speler);
@@ -92,8 +105,15 @@ public class SpelerTest {
     @Test
     public void testLoopZuid() {
         System.out.println("Loop");
-
-
+        HashMap bur = new HashMap<String, Veld>();
+        Veld veldnoord = new Veld(locBuurNoord, null);
+        Veld veldZuid = new Veld(locBuurZuid, null);
+        Veld veldOost = new Veld(locBuurOost, null);
+        Veld veldWest = new Veld(locBuurWest, null);
+        bur.put("noord", veldnoord);
+        bur.put("zuid", veldZuid);
+        bur.put("oost", veldOost);
+        bur.put("west", veldWest);
         String looprichting = "zuid";
         Speler speler = new Speler();
         Veld veld = new Veld(locSpeler, speler);
@@ -101,6 +121,89 @@ public class SpelerTest {
         veld.setBuren(bur);
 
         String expResult = "java.awt.Point[x=1,y=2]";
+        System.out.println(expResult);
+        speler.Loop(looprichting);
+        String result = String.valueOf(speler.getVeld().getLocatie());
+        System.out.println(result);
+        assertEquals(expResult, result);
+    }
+    @Test
+    public void testLoopMuur() {
+        System.out.println("Loop");
+        HashMap bur = new HashMap<String, Veld>();
+        Muur muur = new Muur();
+        Veld veldnoord = new Veld(locBuurNoord, null);
+        Veld veldZuid = new Veld(locBuurZuid, null);
+        Veld veldOost = new Veld(locBuurOost, muur);
+        Veld veldWest = new Veld(locBuurWest, null);
+        bur.put("noord", veldnoord);
+        bur.put("zuid", veldZuid);
+        bur.put("oost", veldOost);
+        bur.put("west", veldWest);
+        String looprichting = "oost";
+        Speler speler = new Speler();
+        Veld veld = new Veld(locSpeler, speler);
+        veld.setItem(speler);
+        veld.setBuren(bur);
+
+        String expResult = "java.awt.Point[x=1,y=1]";
+        System.out.println(expResult);
+        speler.Loop(looprichting);
+        String result = String.valueOf(speler.getVeld().getLocatie());
+        System.out.println(result);
+        assertEquals(expResult, result);
+    }
+
+    @Test
+    public void testLoopVriend() {
+        System.out.println("Loop");
+        HashMap bur = new HashMap<String, Veld>();
+        Frame frame = new Frame();
+        Speelbord sb = new Speelbord(frame);
+        Vriend vriend = new Vriend(sb, frame);
+        Veld veldnoord = new Veld(locBuurNoord, null);
+        Veld veldZuid = new Veld(locBuurZuid, null);
+        Veld veldOost = new Veld(locBuurOost, vriend);
+        Veld veldWest = new Veld(locBuurWest, null);
+        bur.put("noord", veldnoord);
+        bur.put("zuid", veldZuid);
+        bur.put("oost", veldOost);
+        bur.put("west", veldWest);
+        String looprichting = "oost";
+        Speler speler = new Speler();
+        Veld veld = new Veld(locSpeler, speler);
+        veld.setItem(speler);
+        veld.setBuren(bur);
+
+        String expResult = "java.awt.Point[x=2,y=1]";
+        System.out.println(expResult);
+        speler.Loop(looprichting);
+        String result = String.valueOf(speler.getVeld().getLocatie());
+        System.out.println(result);
+        assertEquals(expResult, result);
+    }
+
+    @Test
+    public void testLoopValsspeler() {
+        System.out.println("Loop");
+        HashMap bur = new HashMap<String, Veld>();
+        Frame frame = new Frame();
+        Valsspeler vs = new Valsspeler(frame, 10);
+        Veld veldnoord = new Veld(locBuurNoord, null);
+        Veld veldZuid = new Veld(locBuurZuid, null);
+        Veld veldOost = new Veld(locBuurOost, vs);
+        Veld veldWest = new Veld(locBuurWest, null);
+        bur.put("noord", veldnoord);
+        bur.put("zuid", veldZuid);
+        bur.put("oost", veldOost);
+        bur.put("west", veldWest);
+        String looprichting = "oost";
+        Speler speler = new Speler();
+        Veld veld = new Veld(locSpeler, speler);
+        veld.setItem(speler);
+        veld.setBuren(bur);
+
+        String expResult = "java.awt.Point[x=2,y=1]";
         System.out.println(expResult);
         speler.Loop(looprichting);
         String result = String.valueOf(speler.getVeld().getLocatie());
