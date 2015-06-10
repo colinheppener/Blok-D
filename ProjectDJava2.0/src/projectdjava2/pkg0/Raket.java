@@ -24,21 +24,28 @@ public class Raket extends Item {
     }
 
     public void schiet() {
+
         while ((veld.getBuur(richting) != null)) {
             if (!(veld.getBuur(richting).getItem() instanceof Muur)) {
+
                 verplaatsItem(this, veld, veld.getBuur(richting));
+                veld = veld.getBuur(richting);
             } else {
                 veld.getBuur(richting).setItem(null);
                 veld.setItem(null);
-                return;
+                break;
             }
         }
     }
-    
-    public void teken(Graphics g) {
-            g.setColor(Color.RED);
-            g.fillRect((int) veld.getY() * 40, (int) veld.getX() * 40, 40, 40);
+
+    public void Teken(Graphics g) {
+        g.setColor(Color.RED);
+        g.fillRect((int) veld.getY() * 40, (int) veld.getX() * 40, 40, 40);
 
 //        g.drawString(waarde + "", (int) veld.getY() * 40, (int) veld.getX() * 40);
+    }
+
+    public String toString() {
+        return "raket";
     }
 }
