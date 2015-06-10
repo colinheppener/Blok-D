@@ -18,6 +18,7 @@ import javax.imageio.ImageIO;
 public class Speler extends Item {
 
     private String richting = "noord";
+    private boolean hasBazooka = false;
     
     public Speler() {
         try {
@@ -51,8 +52,20 @@ public class Speler extends Item {
     public void schiet()
     {
         Raket raket = new Raket(veld.getBuur(richting), richting);
+        this.hasBazooka = true;
     }
 
+    public boolean hasBazooka()
+    {
+        return hasBazooka;
+    }
+    
+    public void setBazooka(boolean waarde)
+    {
+        hasBazooka = true;
+    }
+    
+    
     @Override
     public void Teken(Graphics g) {
         g.setColor(Color.GREEN);

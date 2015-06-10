@@ -18,6 +18,7 @@ import javax.swing.SwingUtilities;
 public class Speelbord extends JComponent {//deze JComponent wordt weergegeven op de Frame in ProjectDJava20.java, in de main klasse dus.
 
     private Frame frame;
+    private Speler speler;
     private Veld[][] grid = new Veld[20][20];
     private int huidiglevel = 1;
     private int[][] opzetGrid;
@@ -118,7 +119,7 @@ public class Speelbord extends JComponent {//deze JComponent wordt weergegeven o
                 }
                 if (opzetGrid[i][j] == 3) {
                     Point locatie = new Point(i, j);
-                    Speler speler = new Speler();
+                    speler = new Speler();
                     grid[i][j] = new Veld(locatie, speler);
                     grid[i][j].getItem().setVeld(grid[i][j]);
                     CustomKeyListener keylisten = new CustomKeyListener(speler, this);
@@ -144,7 +145,7 @@ public class Speelbord extends JComponent {//deze JComponent wordt weergegeven o
                 }
                 if (opzetGrid[i][j] == 6) {
                     Point locatie = new Point(i, j);
-                    Bazooka bazooka = new Bazooka();
+                    Bazooka bazooka = new Bazooka(speler);
                     grid[i][j] = new Veld(locatie, bazooka);
                     grid[i][j].getItem().setVeld(grid[i][j]);
                 }

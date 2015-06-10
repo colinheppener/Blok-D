@@ -16,8 +16,10 @@ import javax.imageio.ImageIO;
  * @author Colin
  */
 public class Bazooka extends Item{
-    public Bazooka()
+    private Speler speler;
+    public Bazooka(Speler speler)
     {
+        this.speler = speler;
         try {
             plaatje = ImageIO.read(new File("src/images/bazooka.png"));
         } catch (IOException ex) {
@@ -48,5 +50,6 @@ public class Bazooka extends Item{
     public void voerActieUit()
     {
         System.out.println("bazooka uitgevoerd");
+        speler.setBazooka(true);
     }
 }
