@@ -30,6 +30,7 @@ public class Frame extends JFrame {
     int interval = 21;
     JProgressBar timerBar;
     JFrame frame = new JFrame();
+    Speelbord speelbord;
 
     public void createComponents() {
 
@@ -40,6 +41,7 @@ public class Frame extends JFrame {
         frame.setSize(HEIGHT, WIDTH);
         frame.setDefaultCloseOperation(EXIT_ON_CLOSE);
         final JComponent component = new Speelbord(this);
+        speelbord = (Speelbord) component;
         initialiseTimer();
 
         timerBar = new JProgressBar();
@@ -63,6 +65,9 @@ public class Frame extends JFrame {
                 //Execute when button is pressed
                 System.out.println("repaint");
                 component.requestFocusInWindow();
+                speelbord.HerstartLevel();
+                speelbord.repaint();
+                
             }
         });
         menuKnop.addActionListener(new ActionListener() {

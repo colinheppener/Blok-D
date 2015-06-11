@@ -196,9 +196,21 @@ public class Speelbord extends JComponent {//deze JComponent wordt weergegeven o
     }
 
     public void HerstartLevel() {
-
-        this.revalidate();
-        this.repaint();
+        if (huidiglevel == 1) {
+            CreateVelden("lvl1");
+            System.out.println("restart level 1");
+            return;
+        }
+        if (huidiglevel == 2) {
+            CreateVelden("lvl2");
+            System.out.println("restart lvl 2");
+            return;
+        }
+        if (huidiglevel == 3) {
+            CreateVelden("lvl3");
+            System.out.println("restart level 3");
+        }
+        
     }
 
     public void StartNieuwLevel() {
@@ -237,4 +249,3 @@ public class Speelbord extends JComponent {//deze JComponent wordt weergegeven o
 
     }
 }
-
