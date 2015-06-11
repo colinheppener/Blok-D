@@ -5,7 +5,9 @@
 package projectdjava2.pkg0;
 
 import java.awt.Point;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Iterator;
 
 /**
  *
@@ -15,29 +17,30 @@ public class Veld {
 
     private Point locatie;
     private Item ItemOpVeld;
-    private MazeSolver mazeSolverOpVeld;
+    private ArrayList<MazeSolver> mazeSolvers;
     private HashMap buren;
     private Speelbord speelbord;
 
     public Veld(Point loc, Item item)//constructor waarin de waarden van de klassevariabelen bepaald worden, 
     //vanuit deze constructor wordt ook de methode om de items aan te maken aangeroepen
     {
-
+        mazeSolvers = new ArrayList<>();
         locatie = loc;
         ItemOpVeld = item;
 
     }
+
     public Veld(Point loc, Item item, Speelbord splbord)//constructor waarin de waarden van de klassevariabelen bepaald worden, 
     //vanuit deze constructor wordt ook de methode om de items aan te maken aangeroepen
     {
+        mazeSolvers = new ArrayList<>();
         speelbord = splbord;
         locatie = loc;
         ItemOpVeld = item;
 
     }
-    
-    public Speelbord getSpeelbord()
-    {
+
+    public Speelbord getSpeelbord() {
         return speelbord;
     }
 
@@ -54,10 +57,15 @@ public class Veld {
     {
         return ItemOpVeld;
     }
-    
-    public MazeSolver getMazeSolver()
-    {
-        return mazeSolverOpVeld;
+
+    public MazeSolver getMazeSolver(Item itm) {
+        for (Iterator<MazeSolver> it = mazeSolvers.iterator(); it.hasNext();) {
+            MazeSolver mazeSolver = (MazeSolver) it.next();
+            if (itm == mazeSolver.getItem()) {
+                return mazeSolver;
+            }
+        }
+        return null;
     }
 
     public void setItem(Item item) {
@@ -70,11 +78,9 @@ public class Veld {
             getItem().setVeld(this);
         }
     }
-    
+
     public void setMazeSolver(MazeSolver mazeSolver) {
-        System.out.println(mazeSolverOpVeld);
-        mazeSolverOpVeld = mazeSolver;
-        System.out.println(mazeSolverOpVeld);
+        mazeSolvers.add(mazeSolver);
         System.out.println(getX() + " " + getY());
         System.out.println("");
         if (getItem() != null) {
@@ -84,7 +90,7 @@ public class Veld {
 
     public void setBuren(HashMap bur) {
 
-        
+
         buren = (HashMap) bur.clone();
 //        System.out.println(buren.get("noord") +"     noord!");
 //        System.out.println(buren.get("zuid") +"      zuid!");

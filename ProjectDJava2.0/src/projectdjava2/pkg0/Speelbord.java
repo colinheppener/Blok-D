@@ -21,6 +21,7 @@ public class Speelbord extends JComponent {//deze JComponent wordt weergegeven o
     private Speler speler;
     private Veld[][] grid = new Veld[20][20];
     private Vriend vriend;
+    private Helper helper;
     private int huidiglevel = 1;
     private int[][] opzetGrid;
     private int[][] lvl1 = {
@@ -109,6 +110,7 @@ public class Speelbord extends JComponent {//deze JComponent wordt weergegeven o
             opzetGrid = lvl3;
         }
         vriend = new Vriend(this, frame);
+        helper = new Helper(vriend, this);
         for (int i = 0; i < 20; i++) {
             for (int j = 0; j < 20; j++) {
                 if (opzetGrid[i][j] == 1) {
@@ -150,7 +152,6 @@ public class Speelbord extends JComponent {//deze JComponent wordt weergegeven o
                 }
                 if (opzetGrid[i][j] == 7) {
                     Point locatie = new Point(i, j);
-                    Helper helper = new Helper(vriend, this);
                     grid[i][j] = new Veld(locatie, helper);
                     grid[i][j].getItem().setVeld(grid[i][j]);
                 }
@@ -225,7 +226,7 @@ public class Speelbord extends JComponent {//deze JComponent wordt weergegeven o
         for (int i = 0; i < 20; i++) {
             for (int j = 0; j < 20; j++) {
                 Item veldItem = grid[i][j].getItem();
-                MazeSolver veldMazeSolver = grid[i][j].getMazeSolver();
+                MazeSolver veldMazeSolver = grid[i][j].getMazeSolver(helper);
                 if (veldItem != null) {
                     veldItem.Teken(g);
                 } else if (veldMazeSolver != null) {

@@ -55,7 +55,7 @@ public class MazeSolver {
             }
             if (veld.getBuur(richting) != null) {
                 if (!(veld.getBuur(richting).getItem() instanceof Muur)) {
-                    if (veld.getBuur(richting).getMazeSolver() == null || veld.getBuur(richting).getMazeSolver().getWaarde() >= waarde) {
+                    if (veld.getBuur(richting).getMazeSolver(item) == null || veld.getBuur(richting).getMazeSolver(item).getWaarde() >= waarde) {
                         if (!(veld.getBuur(richting).getItem() instanceof Vriend)) {
                             MazeSolver mazeSolver1 = new MazeSolver(waarde + 1, veld.getBuur(richting), speelbord, item, doel);
                             veld.getBuur(richting).setMazeSolver(mazeSolver1);
@@ -64,9 +64,9 @@ public class MazeSolver {
                         } else {
                             for (int j = 0; j < 20; j++) {
                                 for (int k = 0; k < 20; k++) {
-                                    if (speelbord.getGrid(j, k).getMazeSolver() != null) {
-                                        if (speelbord.getGrid(j, k).getMazeSolver().getDraw() == true) {
-                                            speelbord.getGrid(j, k).getMazeSolver().setDraw(false);
+                                    if (speelbord.getGrid(j, k).getMazeSolver(item) != null) {
+                                        if (speelbord.getGrid(j, k).getMazeSolver(item).getDraw() == true) {
+                                            speelbord.getGrid(j, k).getMazeSolver(item).setDraw(false);
                                         }
                                     }
                                 }
@@ -81,6 +81,10 @@ public class MazeSolver {
 
     public int getWaarde() {
         return waarde;
+    }
+    public Item getItem()
+    {
+        return item;
     }
 
     public void setVeld(Veld vel) {
@@ -113,8 +117,8 @@ public class MazeSolver {
                     richting = "west";
                 }
                 if (veld.getBuur(richting) != null) {
-                    if (veld.getBuur(richting).getMazeSolver() instanceof MazeSolver) {
-                        MazeSolver mazeSolver0 = (MazeSolver) veld.getBuur(richting).getMazeSolver();
+                    if (veld.getBuur(richting).getMazeSolver(item) instanceof MazeSolver) {
+                        MazeSolver mazeSolver0 = (MazeSolver) veld.getBuur(richting).getMazeSolver(item);
                         mazeSolver0.solveMaze(waarde);
                     }
                 }
