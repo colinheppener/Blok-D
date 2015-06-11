@@ -27,8 +27,8 @@ public class MazeSolver {
         item = itm;
         doel = dl;
     }
-    public MazeSolver(Item itm, Item dl, Speelbord speelbord)
-    {
+
+    public MazeSolver(Item itm, Item dl, Speelbord speelbord) {
         waarde = 0;
         item = itm;
         doel = dl;
@@ -55,7 +55,29 @@ public class MazeSolver {
             }
             if (veld.getBuur(richting) != null) {
                 if (!(veld.getBuur(richting).getItem() instanceof Muur)) {
-                    if (veld.getBuur(richting).getMazeSolver(item) == null || veld.getBuur(richting).getMazeSolver(item).getWaarde() >= waarde) {
+                    if (veld.getBuur(richting).getMazeSolver(item) == null) {
+                        if (!(veld.getBuur(richting).getItem() instanceof Vriend)) {
+                            MazeSolver mazeSolver1 = new MazeSolver(waarde + 1, veld.getBuur(richting), speelbord, item, doel);
+                            veld.getBuur(richting).setMazeSolver(mazeSolver1);
+                            System.out.println("richting");
+                            mazeSolver1.createNewMazeSolver();
+                        } else {
+                            for (int j = 0; j < 20; j++) {
+                                for (int k = 0; k < 20; k++) {
+                                    if (speelbord.getGrid(j, k).getMazeSolver(item) != null) {
+                                        if (speelbord.getGrid(j, k).getMazeSolver(item).getDraw() == true) {
+                                            speelbord.getGrid(j, k).getMazeSolver(item).setDraw(false);
+                                        }
+                                    }
+                                }
+                            }
+                            this.solveMaze(waarde + 1);
+                        }
+                    }
+                    else if(veld.getBuur(richting).getMazeSolver(item).getWaarde() < waarde+1)
+                    {
+                        System.out.println("waarde dit veld              "+ veld.getMazeSolver(item).getWaarde());
+                        System.out.println("waarde:                      "+ veld.getBuur(richting).getMazeSolver(item).getWaarde());
                         if (!(veld.getBuur(richting).getItem() instanceof Vriend)) {
                             MazeSolver mazeSolver1 = new MazeSolver(waarde + 1, veld.getBuur(richting), speelbord, item, doel);
                             veld.getBuur(richting).setMazeSolver(mazeSolver1);
@@ -82,8 +104,8 @@ public class MazeSolver {
     public int getWaarde() {
         return waarde;
     }
-    public Item getItem()
-    {
+
+    public Item getItem() {
         return item;
     }
 
@@ -127,10 +149,10 @@ public class MazeSolver {
     }
 
     public void Teken(Graphics g) {
-        if (draw == true) {
-            g.setColor(Color.RED);
-            g.fillRect((int) veld.getY() * 40, (int) veld.getX() * 40, 40, 40);
-        }
-//        g.drawString(waarde + "", (int) veld.getY() * 40, (int) veld.getX() * 40);
+        //  if (draw == true) {
+        g.setColor(Color.RED);
+        g.drawRect((int) veld.getY() * 40, (int) veld.getX() * 40, 40, 40);
+        //   }
+        g.drawString(waarde + "", (int) veld.getY() * 40, (int) veld.getX() * 40);
     }
 }
