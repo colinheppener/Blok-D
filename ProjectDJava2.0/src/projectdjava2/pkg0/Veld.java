@@ -61,7 +61,6 @@ public class Veld {
     public MazeSolver getMazeSolver(Item itm) {
         for (Iterator<MazeSolver> it = mazeSolvers.iterator(); it.hasNext();) {
             MazeSolver mazeSolver = (MazeSolver) it.next();
-            System.out.println("RRAAAAAY:       " + mazeSolver);
             if (itm == mazeSolver.getItem()) {
                 return mazeSolver;
             }
@@ -86,12 +85,10 @@ public class Veld {
             if (mzSolver.getVeld() == mazeSolver.getVeld()) {
                 mazeSolvers.remove(mazeSolver);
                 mazeSolvers.add(mzSolver);
-                System.out.println("                Flicker de ene weg en gooi de ander dr in");
                 return;
             }
         }
         mazeSolvers.add(mzSolver);
-        System.out.println("                   Nieuwe toegevoegd");
     }
 //            System.out.println(getX() + " " + getY());
 //            System.out.println("");

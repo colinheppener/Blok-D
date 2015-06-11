@@ -37,8 +37,6 @@ public class MazeSolver {
     }
 
     public void createNewMazeSolver() {
-        System.out.println("veld" + veld);
-        System.out.println("waarde:   " + waarde);
         String richting = "";
         for (int i = 0; i < 4; i++) {
             if (i == 0) {
@@ -55,35 +53,10 @@ public class MazeSolver {
             }
             if (veld.getBuur(richting) != null) {
                 if (!(veld.getBuur(richting).getItem() instanceof Muur)) {
-                    System.out.println("NULLLLLL:                     "+veld.getMazeSolver(item));
-                    if (veld.getBuur(richting).getMazeSolver(item) == null) {
+                    if (veld.getBuur(richting).getMazeSolver(item) == null || veld.getBuur(richting).getMazeSolver(item).getWaarde() > waarde+1) {
                         if (veld.getBuur(richting).getItem() != doel) {
                             MazeSolver mazeSolver1 = new MazeSolver(waarde + 1, veld.getBuur(richting), speelbord, item, doel);
                             veld.getBuur(richting).setMazeSolver(mazeSolver1);
-                            System.out.println("richting");
-                            mazeSolver1.createNewMazeSolver();
-                        } else {
-                            for (int j = 0; j < 20; j++) {
-                                for (int k = 0; k < 20; k++) {
-                                    if (speelbord.getGrid(j, k).getMazeSolver(item) != null) {
-                                        if (speelbord.getGrid(j, k).getMazeSolver(item).getDraw() == true) {
-                                            speelbord.getGrid(j, k).getMazeSolver(item).setDraw(false);
-                                        }
-                                    }
-                                }
-                            }
-                            this.solveMaze(waarde + 1);
-                        }
-                    }
-                    else if(veld.getBuur(richting).getMazeSolver(item).getWaarde() > veld.getMazeSolver(item).getWaarde()+1)
-                    {
-                        System.out.println("waarde dit veld              "+ veld.getMazeSolver(item).getWaarde());
-                        System.out.println("Waarde dit veld 2            "+ waarde);
-                        System.out.println("waarde:                      "+ veld.getBuur(richting).getMazeSolver(item).getWaarde());
-                        if (!(veld.getBuur(richting).getItem() instanceof Vriend)) {
-                            MazeSolver mazeSolver1 = new MazeSolver(waarde + 1, veld.getBuur(richting), speelbord, item, doel);
-                            veld.getBuur(richting).setMazeSolver(mazeSolver1);
-                            System.out.println("richting");
                             mazeSolver1.createNewMazeSolver();
                         } else {
                             for (int j = 0; j < 20; j++) {
