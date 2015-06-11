@@ -20,6 +20,7 @@ public class Speelbord extends JComponent {//deze JComponent wordt weergegeven o
     private Frame frame;
     private Speler speler;
     private Veld[][] grid = new Veld[20][20];
+    private Vriend vriend;
     private int huidiglevel = 1;
     private int[][] opzetGrid;
     private int[][] lvl1 = {
@@ -107,7 +108,7 @@ public class Speelbord extends JComponent {//deze JComponent wordt weergegeven o
         if (level.equals("lvl3")) {
             opzetGrid = lvl3;
         }
-
+        vriend = new Vriend(this, frame);
         for (int i = 0; i < 20; i++) {
             for (int j = 0; j < 20; j++) {
                 if (opzetGrid[i][j] == 1) {
@@ -126,7 +127,6 @@ public class Speelbord extends JComponent {//deze JComponent wordt weergegeven o
                 }
                 if (opzetGrid[i][j] == 4) {
                     Point locatie = new Point(i, j);
-                    Vriend vriend = new Vriend(this, frame);
                     grid[i][j] = new Veld(locatie, vriend);
                     grid[i][j].getItem().setVeld(grid[i][j]);
                 }
@@ -150,8 +150,8 @@ public class Speelbord extends JComponent {//deze JComponent wordt weergegeven o
                 }
                 if (opzetGrid[i][j] == 7) {
                     Point locatie = new Point(i, j);
-                    Helper helper = new Helper();
-                    grid[i][j] = new Veld(locatie, helper, this);
+                    Helper helper = new Helper(vriend, this);
+                    grid[i][j] = new Veld(locatie, helper);
                     grid[i][j].getItem().setVeld(grid[i][j]);
                 }
             }

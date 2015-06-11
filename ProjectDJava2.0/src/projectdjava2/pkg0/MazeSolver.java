@@ -17,15 +17,23 @@ public class MazeSolver {
     private boolean draw = false;
     private Veld veld;
     private Speelbord speelbord;
+    private Item item;
+    private Item doel;
 
-    public MazeSolver(int wrde, Veld vld, Speelbord splbord) {
+    public MazeSolver(int wrde, Veld vld, Speelbord splbord, Item itm, Item dl) {
         veld = vld;
         waarde = wrde;
-        buurVriend();
         speelbord = splbord;
+        item = itm;
+        doel = dl;
     }
-
-    private void buurVriend() {
+    public MazeSolver(Item itm, Item dl, Speelbord speelbord)
+    {
+        waarde = 0;
+        item = itm;
+        doel = dl;
+        this.speelbord = speelbord;
+        veld = item.getVeld();
     }
 
     public void createNewMazeSolver() {
@@ -49,7 +57,7 @@ public class MazeSolver {
                 if (!(veld.getBuur(richting).getItem() instanceof Muur)) {
                     if (veld.getBuur(richting).getMazeSolver() == null || veld.getBuur(richting).getMazeSolver().getWaarde() >= waarde) {
                         if (!(veld.getBuur(richting).getItem() instanceof Vriend)) {
-                            MazeSolver mazeSolver1 = new MazeSolver(waarde + 1, veld.getBuur(richting), speelbord);
+                            MazeSolver mazeSolver1 = new MazeSolver(waarde + 1, veld.getBuur(richting), speelbord, item, doel);
                             veld.getBuur(richting).setMazeSolver(mazeSolver1);
                             System.out.println("richting");
                             mazeSolver1.createNewMazeSolver();

@@ -17,7 +17,13 @@ import javax.imageio.ImageIO;
  */
 public class Helper extends Item{
     private Speelbord speelbord;
-    public Helper()
+    private Vriend vriend;
+    
+    public Helper(Vriend vriend, Speelbord speelbord)
+    {
+            this.vriend = vriend;
+            this.speelbord = speelbord;
+    }
     {
         try {
             plaatje = ImageIO.read(new File("src/images/helper.png"));
@@ -46,7 +52,7 @@ public class Helper extends Item{
     @Override
     public void voerActieUit()
     {
-        MazeSolver mazeSolver = new MazeSolver(0, veld, veld.getSpeelbord());
+        MazeSolver mazeSolver = new MazeSolver(this, vriend, speelbord);
         veld.setMazeSolver(mazeSolver);
         veld.getMazeSolver().setVeld(veld);
         System.out.println("helper uitgevoerd");
