@@ -87,13 +87,18 @@ public class Veld {
     public void setMazeSolver(MazeSolver mzSolver) {
         for (Iterator<MazeSolver> it = mazeSolvers.iterator(); it.hasNext();) {
             MazeSolver mazeSolver = (MazeSolver) it.next();
-            if (mzSolver.getVeld() == mazeSolver.getVeld()) {
+            if (mzSolver.getVeld() == mazeSolver.getVeld() && mzSolver.getItem() == mazeSolver.getItem()) {
                 mazeSolvers.remove(mazeSolver);
                 mazeSolvers.add(mzSolver);
                 return;
             }
         }
         mazeSolvers.add(mzSolver);
+    }
+    
+    public void giveArray()
+    {
+        System.out.println(mazeSolvers);
     }
 //            System.out.println(getX() + " " + getY());
 //            System.out.println("");

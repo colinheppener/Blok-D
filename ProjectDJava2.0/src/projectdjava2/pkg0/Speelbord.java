@@ -227,18 +227,14 @@ public class Speelbord extends JComponent {//deze JComponent wordt weergegeven o
             for (int j = 0; j < 20; j++) {
                 Item veldItem = grid[i][j].getItem();
                 MazeSolver veldMazeSolver = grid[i][j].getMazeSolver(helper);
-                MazeSolver veldMazeSolver2 = grid[i][j].getMazeSolver(speler);
                 if (veldItem != null) {
                     veldItem.Teken(g);
-                } else if (veldMazeSolver2 != null) {
-                    veldMazeSolver2.Teken(g);
-                }
-                else if (veldMazeSolver != null) {
+                } else if (veldMazeSolver != null) {
                     veldMazeSolver.Teken(g);
                 }
             }
-
         }
 
     }
 }
+
