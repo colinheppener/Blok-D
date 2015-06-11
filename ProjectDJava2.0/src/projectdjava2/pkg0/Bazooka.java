@@ -38,7 +38,7 @@ public class Bazooka extends Item {
     }
 
     public void schiet(String richting) {
-        Raket raket = new Raket(speler.getVeld().getBuur(richting), richting);
+        Raket raket = new Raket(speler.getVeld(), richting);
     }
 
     @Override

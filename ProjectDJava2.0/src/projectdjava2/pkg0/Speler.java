@@ -58,6 +58,7 @@ public class Speler extends Item {
         {
             bazooka.schiet(richting);
             bazooka = null;
+            veld.setItem(this);
         }
     }
 
