@@ -55,8 +55,9 @@ public class MazeSolver {
             }
             if (veld.getBuur(richting) != null) {
                 if (!(veld.getBuur(richting).getItem() instanceof Muur)) {
+                    System.out.println("NULLLLLL:                     "+veld.getMazeSolver(item));
                     if (veld.getBuur(richting).getMazeSolver(item) == null) {
-                        if (!(veld.getBuur(richting).getItem() instanceof Vriend)) {
+                        if (veld.getBuur(richting).getItem() != doel) {
                             MazeSolver mazeSolver1 = new MazeSolver(waarde + 1, veld.getBuur(richting), speelbord, item, doel);
                             veld.getBuur(richting).setMazeSolver(mazeSolver1);
                             System.out.println("richting");
@@ -117,6 +118,11 @@ public class MazeSolver {
     public void setDraw(boolean dr) {
         draw = dr;
     }
+    
+    public Veld getVeld()
+    {
+        return veld;
+    }
 
     public boolean getDraw() {
         return draw;
@@ -150,10 +156,10 @@ public class MazeSolver {
     }
 
     public void Teken(Graphics g) {
-        //  if (draw == true) {
+          if (draw == true) {
         g.setColor(Color.RED);
-        g.drawRect((int) veld.getY() * 40, (int) veld.getX() * 40, 40, 40);
-        //   }
-        g.drawString(waarde + "", (int) veld.getY() * 40, (int) veld.getX() * 40);
+        g.fillRect((int) veld.getY() * 40, (int) veld.getX() * 40, 40, 40);
+           }
+//        g.drawString(waarde + "", (int) veld.getY() * 40, (int) veld.getX() * 40);
     }
 }

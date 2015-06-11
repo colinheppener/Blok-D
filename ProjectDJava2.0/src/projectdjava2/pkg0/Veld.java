@@ -61,6 +61,7 @@ public class Veld {
     public MazeSolver getMazeSolver(Item itm) {
         for (Iterator<MazeSolver> it = mazeSolvers.iterator(); it.hasNext();) {
             MazeSolver mazeSolver = (MazeSolver) it.next();
+            System.out.println("RRAAAAAY:       " + mazeSolver);
             if (itm == mazeSolver.getItem()) {
                 return mazeSolver;
             }
@@ -82,22 +83,21 @@ public class Veld {
     public void setMazeSolver(MazeSolver mzSolver) {
         for (Iterator<MazeSolver> it = mazeSolvers.iterator(); it.hasNext();) {
             MazeSolver mazeSolver = (MazeSolver) it.next();
-            if (mzSolver == mazeSolver) {
+            if (mzSolver.getVeld() == mazeSolver.getVeld()) {
                 mazeSolvers.remove(mazeSolver);
                 mazeSolvers.add(mzSolver);
+                System.out.println("                Flicker de ene weg en gooi de ander dr in");
+                return;
             }
-            else
-            {
-                mazeSolvers.add(mzSolver);
-            }
+        }
+        mazeSolvers.add(mzSolver);
+        System.out.println("                   Nieuwe toegevoegd");
+    }
 //            System.out.println(getX() + " " + getY());
 //            System.out.println("");
 //            if (getItem() != null) {
 //                getItem().setVeld(this);
 //            }
-        }
-    }
-    
 
     public void setBuren(HashMap bur) {
 
