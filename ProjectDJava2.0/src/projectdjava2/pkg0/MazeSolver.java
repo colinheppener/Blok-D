@@ -74,9 +74,10 @@ public class MazeSolver {
                             this.solveMaze(waarde + 1);
                         }
                     }
-                    else if(veld.getBuur(richting).getMazeSolver(item).getWaarde() < waarde+1)
+                    else if(veld.getBuur(richting).getMazeSolver(item).getWaarde() > veld.getMazeSolver(item).getWaarde()+1)
                     {
                         System.out.println("waarde dit veld              "+ veld.getMazeSolver(item).getWaarde());
+                        System.out.println("Waarde dit veld 2            "+ waarde);
                         System.out.println("waarde:                      "+ veld.getBuur(richting).getMazeSolver(item).getWaarde());
                         if (!(veld.getBuur(richting).getItem() instanceof Vriend)) {
                             MazeSolver mazeSolver1 = new MazeSolver(waarde + 1, veld.getBuur(richting), speelbord, item, doel);

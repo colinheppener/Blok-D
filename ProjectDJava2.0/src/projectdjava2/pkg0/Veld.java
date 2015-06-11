@@ -79,14 +79,25 @@ public class Veld {
         }
     }
 
-    public void setMazeSolver(MazeSolver mazeSolver) {
-        mazeSolvers.add(mazeSolver);
-        System.out.println(getX() + " " + getY());
-        System.out.println("");
-        if (getItem() != null) {
-            getItem().setVeld(this);
+    public void setMazeSolver(MazeSolver mzSolver) {
+        for (Iterator<MazeSolver> it = mazeSolvers.iterator(); it.hasNext();) {
+            MazeSolver mazeSolver = (MazeSolver) it.next();
+            if (mzSolver == mazeSolver) {
+                mazeSolvers.remove(mazeSolver);
+                mazeSolvers.add(mzSolver);
+            }
+            else
+            {
+                mazeSolvers.add(mzSolver);
+            }
+//            System.out.println(getX() + " " + getY());
+//            System.out.println("");
+//            if (getItem() != null) {
+//                getItem().setVeld(this);
+//            }
         }
     }
+    
 
     public void setBuren(HashMap bur) {
 
