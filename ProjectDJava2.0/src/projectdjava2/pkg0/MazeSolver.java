@@ -136,7 +136,10 @@ public class MazeSolver {
 
     public void Teken(Graphics g) {
         if (draw == true) {
+            if(item instanceof Helper)
             g.setColor(Color.RED);
+            else
+                g.setColor(Color.GREEN);
             g.fillRect((int) veld.getY() * 40, (int) veld.getX() * 40, 40, 40);
         }
 //        g.drawString(waarde + "", (int) veld.getY() * 40, (int) veld.getX() * 40);

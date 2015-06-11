@@ -53,9 +53,7 @@ public class Speler extends Item {
 //            System.out.println(veld.getBuur("west").getItem().toString());
             }
         }
-        MazeSolver mazeSolver = new MazeSolver(this, vriend, speelbord);
-        veld.setMazeSolver(mazeSolver);
-        mazeSolver.createNewMazeSolver();
+        
     }
     public void schiet()
     {
@@ -67,6 +65,9 @@ public class Speler extends Item {
             bazooka = null;
             veld.setItem(this);
         }
+        MazeSolver mazeSolver = new MazeSolver(this, vriend, speelbord);
+        veld.setMazeSolver(mazeSolver);
+        mazeSolver.createNewMazeSolver();
     }
 
 //    public boolean hasBazooka()
