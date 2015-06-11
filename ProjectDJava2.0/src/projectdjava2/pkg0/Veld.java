@@ -67,6 +67,11 @@ public class Veld {
         }
         return null;
     }
+    
+    public void dellMazeSolver(MazeSolver mazeSolver)
+    {
+        mazeSolvers.remove(mazeSolver);
+    }
 
     public void setItem(Item item) {
         System.out.println(ItemOpVeld);

@@ -54,7 +54,6 @@ public class Helper extends Item{
     {
         MazeSolver mazeSolver = new MazeSolver(this, vriend, speelbord);
         veld.setMazeSolver(mazeSolver);
-        System.out.println("helper uitgevoerd");
         mazeSolver.createNewMazeSolver();
     }
 }

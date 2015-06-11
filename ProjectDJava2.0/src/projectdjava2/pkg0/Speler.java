@@ -20,8 +20,12 @@ public class Speler extends Item {
     private String richting = "noord";
 //    private boolean hasBazooka = false;
     private Bazooka bazooka;
+    private Vriend vriend;
+    private Speelbord speelbord;
     
-    public Speler() {
+    public Speler(Vriend vr, Speelbord sp) {
+        speelbord = sp;
+        vriend = vr;
         try {
             plaatje = ImageIO.read(new File("src/images/person.jpg"));
         } catch (IOException ex) {
@@ -49,6 +53,9 @@ public class Speler extends Item {
 //            System.out.println(veld.getBuur("west").getItem().toString());
             }
         }
+        MazeSolver mazeSolver = new MazeSolver(this, vriend, speelbord);
+        veld.setMazeSolver(mazeSolver);
+        mazeSolver.createNewMazeSolver();
     }
     public void schiet()
     {
