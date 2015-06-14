@@ -19,6 +19,9 @@ public class Item {
     public void Teken(Graphics g) {
     }
 
+    public void loopRichting(String richting) {
+    }
+
     public void voerActieUit() {
     }
 

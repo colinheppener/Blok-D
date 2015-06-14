@@ -99,7 +99,7 @@ public class Frame extends JFrame {
 
             public void run() {
                 timerBar.setValue(setInterval());
-
+                
             }
         }, delay, period);
 
@@ -108,6 +108,11 @@ public class Frame extends JFrame {
     public void meerTijd(int waarde)
     {
         timerBar.setValue(interval += waarde);
+    }
+    
+    public void minderTijd(int waarde)
+    {
+        timerBar.setValue(interval -= waarde);
     }
     
     private final int setInterval() {

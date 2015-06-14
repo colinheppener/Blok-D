@@ -75,8 +75,42 @@ public class MazeSolver {
                                     }
                                 }
                             }
-                            this.solveMaze(waarde + 1);
+                            if (doel instanceof Vriend) {
+                                this.solveMaze(waarde + 1);
+                            } else {
+                                this.getRichting(waarde + 1);
+                            }
                         }
+                    }
+                }
+            }
+        }
+    }
+
+    public void getRichting(int wrd) {
+        if (wrd == waarde + 1) {
+            draw = true;
+            String richting = "";
+            for (int i = 0; i < 4; i++) {
+                if (i == 0) {
+                    richting = "noord";
+                }
+                if (i == 1) {
+                    richting = "oost";
+                }
+                if (i == 2) {
+                    richting = "zuid";
+                }
+                if (i == 3) {
+                    richting = "west";
+                }
+                if (veld.getBuur(richting) != null) {
+                    if (veld.getBuur(richting).getItem() == item) {
+                        item.loopRichting(richting);
+                        
+                    } else if (veld.getBuur(richting).getMazeSolver(item) instanceof MazeSolver) {
+                        MazeSolver mazeSolver0 = (MazeSolver) veld.getBuur(richting).getMazeSolver(item);
+                        mazeSolver0.getRichting(waarde);
                     }
                 }
             }
@@ -136,10 +170,11 @@ public class MazeSolver {
 
     public void Teken(Graphics g) {
         if (draw == true) {
-            if(item instanceof Helper)
-            g.setColor(Color.RED);
-            else
+            if (item instanceof Helper) {
+                g.setColor(Color.RED);
+            } else {
                 g.setColor(Color.GREEN);
+            }
             g.fillRect((int) veld.getY() * 40, (int) veld.getX() * 40, 40, 40);
         }
 //        g.drawString(waarde + "", (int) veld.getY() * 40, (int) veld.getX() * 40);

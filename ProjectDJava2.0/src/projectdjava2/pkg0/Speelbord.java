@@ -43,7 +43,7 @@ public class Speelbord extends JComponent {//deze JComponent wordt weergegeven o
         {1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 0, 0, 1, 0, 1, 0, 1, 0, 1,},
         {1, 1, 1, 0, 1, 1, 1, 1, 0, 0, 1, 0, 1, 1, 0, 1, 0, 1, 0, 1,},
         {1, 0, 1, 0, 0, 0, 0, 0, 0, 1, 1, 0, 1, 1, 0, 1, 0, 1, 0, 1,},
-        {1, 0, 1, 1, 1, 1, 1, 1, 0, 1, 1, 0, 0, 1, 0, 1, 0, 1, 0, 1,},
+        {1, 0, 1, 1, 1, 1, 1, 1, 0, 1, 1, 9, 0, 1, 0, 1, 0, 1, 0, 1,},
         {1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 1, 4, 1,}
     };
     private int[][] lvl2 = {
@@ -97,6 +97,11 @@ public class Speelbord extends JComponent {//deze JComponent wordt weergegeven o
     public Speelbord(Frame fr) {
         frame = fr;
         CreateVelden("lvl1");
+    }
+    
+    public Frame getFrame()
+    {
+        return frame;
     }
 
     private void CreateVelden(String level) {
@@ -153,6 +158,12 @@ public class Speelbord extends JComponent {//deze JComponent wordt weergegeven o
                 if (opzetGrid[i][j] == 7) {
                     Point locatie = new Point(i, j);
                     grid[i][j] = new Veld(locatie, helper);
+                    grid[i][j].getItem().setVeld(grid[i][j]);
+                }
+                if (opzetGrid[i][j] == 9) {
+                    Point locatie = new Point(i, j);
+                    Vijand vijand = new Vijand(speler, this);
+                    grid[i][j] = new Veld(locatie, vijand);
                     grid[i][j].getItem().setVeld(grid[i][j]);
                 }
             }

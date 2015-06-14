@@ -22,7 +22,8 @@ public class Speler extends Item {
     private Bazooka bazooka;
     private Vriend vriend;
     private Speelbord speelbord;
-    
+    private Vijand vijand;
+
     public Speler(Vriend vr, Speelbord sp) {
         speelbord = sp;
         vriend = vr;
@@ -33,8 +34,15 @@ public class Speler extends Item {
         }
     }
 
+    public void setVijand(Vijand vijnd) {
+        vijand = vijnd;
+    }
+
     public void Loop(String looprichting) {
         richting = looprichting;
+        if (vijand != null) {
+            vijand.loop();
+        }
         //  System.out.println(veld.getBuur(looprichting));
         //  System.out.println(veld.getBuur(looprichting).getItem().toString());
         if ((veld.getBuur(looprichting) != null)) {
@@ -53,14 +61,13 @@ public class Speler extends Item {
 //            System.out.println(veld.getBuur("west").getItem().toString());
             }
         }
-        
+
     }
-    public void schiet()
-    {
+
+    public void schiet() {
         //Raket raket = new Raket(veld.getBuur(richting), richting);
         //this.hasBazooka = true;
-        if (bazooka != null)
-        {
+        if (bazooka != null) {
             bazooka.schiet(richting);
             bazooka = null;
             veld.setItem(this);
@@ -75,18 +82,14 @@ public class Speler extends Item {
 //    {
 //        return hasBazooka;
 //    }
-    
-    public void pikUpBazooka(Bazooka baz)
-    {
+    public void pikUpBazooka(Bazooka baz) {
         bazooka = baz;
     }
-    
+
 //    public void setBazooka(boolean waarde)
 //    {
 //        hasBazooka = true;
 //    }
-    
-    
     @Override
     public void Teken(Graphics g) {
         g.setColor(Color.GREEN);
