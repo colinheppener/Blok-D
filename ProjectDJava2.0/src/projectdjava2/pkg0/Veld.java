@@ -95,6 +95,10 @@ public class Veld {
     
     public void giveArray()
     {
+         for (Iterator<MazeSolver> it = mazeSolvers.iterator(); it.hasNext();) {
+            MazeSolver mazeSolver = (MazeSolver) it.next();
+             System.out.print(mazeSolver.getItem().toString() + "             ");
+        }
         System.out.println(mazeSolvers);
     }
 //            System.out.println(getX() + " " + getY());

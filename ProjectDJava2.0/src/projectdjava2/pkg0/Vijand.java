@@ -54,6 +54,12 @@ public class Vijand extends Item {
         }
         speelbord.repaint();
     }
+    
+    @Override
+    public String toString()
+    {
+        return "vijand";
+    }
 
     @Override
     public void voerActieUit() {

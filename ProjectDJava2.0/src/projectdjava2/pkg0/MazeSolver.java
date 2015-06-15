@@ -65,7 +65,6 @@ public class MazeSolver {
                             MazeSolver mazeSolver1 = new MazeSolver(waarde + 1, veld.getBuur(richting), speelbord, item, doel);
                             veld.getBuur(richting).setMazeSolver(mazeSolver1);
                             mazeSolver1.createNewMazeSolver();
-                            System.out.println("WOW");
                         } else {
                             for (int j = 0; j < 20; j++) {
                                 for (int k = 0; k < 20; k++) {

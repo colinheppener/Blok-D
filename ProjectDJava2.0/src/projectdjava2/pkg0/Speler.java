@@ -69,10 +69,6 @@ public class Speler extends Item {
             bazooka = null;
             veld.setItem(this);
         }
-        MazeSolver mazeSolver = new MazeSolver(this, vriend, speelbord);
-        veld.setMazeSolver(mazeSolver);
-        mazeSolver.createNewMazeSolver();
-        veld.giveArray();
     }
 
 //    public boolean hasBazooka()
