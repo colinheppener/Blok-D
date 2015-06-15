@@ -90,6 +90,7 @@ public class Veld {
             }
         }
         mazeSolvers.add(mzSolver);
+//        System.out.println(mazeSolvers);
     }
     
     public void giveArray()

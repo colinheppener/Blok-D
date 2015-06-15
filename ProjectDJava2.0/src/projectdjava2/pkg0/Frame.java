@@ -21,6 +21,8 @@ import javax.swing.*;
  */
 public class Frame extends JFrame {
 
+    private Vijand vijand;
+
     public Frame() {
         createComponents();
     }
@@ -67,7 +69,7 @@ public class Frame extends JFrame {
                 component.requestFocusInWindow();
                 speelbord.HerstartLevel();
                 speelbord.repaint();
-                
+
             }
         });
         menuKnop.addActionListener(new ActionListener() {
@@ -90,6 +92,10 @@ public class Frame extends JFrame {
         });
     }
 
+    public void setVijand(Vijand vij) {
+        vijand = vij;
+    }
+
     private void initialiseTimer() {
 
         int delay = 10;
@@ -99,22 +105,21 @@ public class Frame extends JFrame {
 
             public void run() {
                 timerBar.setValue(setInterval());
-                
+
             }
         }, delay, period);
 
 
     }
-    public void meerTijd(int waarde)
-    {
+
+    public void meerTijd(int waarde) {
         timerBar.setValue(interval += waarde);
     }
-    
-    public void minderTijd(int waarde)
-    {
+
+    public void minderTijd(int waarde) {
         timerBar.setValue(interval -= waarde);
     }
-    
+
     private final int setInterval() {
         if (interval == 0) {
             timer.cancel();
@@ -123,16 +128,17 @@ public class Frame extends JFrame {
                 frame.dispose();
                 frame = new Frame();
             }
-            if(dialogResult ==JOptionPane.CANCEL_OPTION)
-            {
+            if (dialogResult == JOptionPane.CANCEL_OPTION) {
                 frame.dispose();
             }
         }
+        if (vijand != null) {
+            vijand.loop();
+        }
         return --interval;
     }
-    
-    public int getCurrentTime()
-    {
+
+    public int getCurrentTime() {
         return interval;
     }
 }

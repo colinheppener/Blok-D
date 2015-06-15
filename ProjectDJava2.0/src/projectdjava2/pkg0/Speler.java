@@ -40,9 +40,6 @@ public class Speler extends Item {
 
     public void Loop(String looprichting) {
         richting = looprichting;
-        if (vijand != null) {
-            vijand.loop();
-        }
         //  System.out.println(veld.getBuur(looprichting));
         //  System.out.println(veld.getBuur(looprichting).getItem().toString());
         if ((veld.getBuur(looprichting) != null)) {
