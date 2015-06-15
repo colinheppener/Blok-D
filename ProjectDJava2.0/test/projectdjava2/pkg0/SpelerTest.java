@@ -33,6 +33,9 @@ public class SpelerTest {
     public void testLoopOost() {
         System.out.println("Loop");
         HashMap bur = new HashMap<String, Veld>();
+        Frame frame = new Frame();
+        Speelbord sb = new Speelbord(frame);
+        Vriend vriend = new Vriend(sb, frame);
         Veld veldnoord = new Veld(locBuurNoord, null);
         Veld veldZuid = new Veld(locBuurZuid, null);
         Veld veldOost = new Veld(locBuurOost, null);
@@ -42,7 +45,7 @@ public class SpelerTest {
         bur.put("oost", veldOost);
         bur.put("west", veldWest);
         String looprichting = "oost";
-        Speler speler = new Speler();
+        Speler speler = new Speler(vriend, sb);
         Veld veld = new Veld(locSpeler, speler);
         veld.setItem(speler);
         veld.setBuren(bur);
@@ -57,6 +60,9 @@ public class SpelerTest {
     public void testLoopWest() {
         System.out.println("Loop");
         HashMap bur = new HashMap<String, Veld>();
+        Frame frame = new Frame();
+        Speelbord sb = new Speelbord(frame);
+        Vriend vriend = new Vriend(sb, frame);
         Veld veldnoord = new Veld(locBuurNoord, null);
         Veld veldZuid = new Veld(locBuurZuid, null);
         Veld veldOost = new Veld(locBuurOost, null);
@@ -66,7 +72,7 @@ public class SpelerTest {
         bur.put("oost", veldOost);
         bur.put("west", veldWest);
         String looprichting = "west";
-        Speler speler = new Speler();
+        Speler speler = new Speler(vriend, sb);
         Veld veld = new Veld(locSpeler, speler);
         veld.setItem(speler);
         veld.setBuren(bur);
@@ -80,7 +86,9 @@ public class SpelerTest {
     @Test
     public void testLoopNoord() {
         System.out.println("Loop");
-
+        Frame frame = new Frame();
+        Speelbord sb = new Speelbord(frame);
+        Vriend vriend = new Vriend(sb, frame);
         HashMap bur = new HashMap<String, Veld>();
         Veld veldnoord = new Veld(locBuurNoord, null);
         Veld veldZuid = new Veld(locBuurZuid, null);
@@ -91,7 +99,7 @@ public class SpelerTest {
         bur.put("oost", veldOost);
         bur.put("west", veldWest);
         String looprichting = "noord";
-        Speler speler = new Speler();
+        Speler speler = new Speler(vriend, sb);
         Veld veld = new Veld(locSpeler, speler);
         veld.setItem(speler);
         veld.setBuren(bur);
@@ -106,6 +114,9 @@ public class SpelerTest {
     public void testLoopZuid() {
         System.out.println("Loop");
         HashMap bur = new HashMap<String, Veld>();
+        Frame frame = new Frame();
+        Speelbord sb = new Speelbord(frame);
+        Vriend vriend = new Vriend(sb, frame);
         Veld veldnoord = new Veld(locBuurNoord, null);
         Veld veldZuid = new Veld(locBuurZuid, null);
         Veld veldOost = new Veld(locBuurOost, null);
@@ -115,7 +126,7 @@ public class SpelerTest {
         bur.put("oost", veldOost);
         bur.put("west", veldWest);
         String looprichting = "zuid";
-        Speler speler = new Speler();
+        Speler speler = new Speler(vriend, sb);
         Veld veld = new Veld(locSpeler, speler);
         veld.setItem(speler);
         veld.setBuren(bur);
@@ -127,10 +138,14 @@ public class SpelerTest {
         System.out.println(result);
         assertEquals(expResult, result);
     }
+
     @Test
     public void testLoopMuur() {
         System.out.println("Loop");
         HashMap bur = new HashMap<String, Veld>();
+        Frame frame = new Frame();
+        Speelbord sb = new Speelbord(frame);
+        Vriend vriend = new Vriend(sb, frame);
         Muur muur = new Muur();
         Veld veldnoord = new Veld(locBuurNoord, null);
         Veld veldZuid = new Veld(locBuurZuid, null);
@@ -141,7 +156,7 @@ public class SpelerTest {
         bur.put("oost", veldOost);
         bur.put("west", veldWest);
         String looprichting = "oost";
-        Speler speler = new Speler();
+        Speler speler = new Speler(vriend, sb);
         Veld veld = new Veld(locSpeler, speler);
         veld.setItem(speler);
         veld.setBuren(bur);
@@ -170,7 +185,7 @@ public class SpelerTest {
         bur.put("oost", veldOost);
         bur.put("west", veldWest);
         String looprichting = "oost";
-        Speler speler = new Speler();
+        Speler speler = new Speler(vriend, sb);
         Veld veld = new Veld(locSpeler, speler);
         veld.setItem(speler);
         veld.setBuren(bur);
@@ -188,6 +203,9 @@ public class SpelerTest {
         System.out.println("Loop");
         HashMap bur = new HashMap<String, Veld>();
         Frame frame = new Frame();
+        Speelbord sb = new Speelbord(frame);
+        Vriend vriend = new Vriend(sb, frame);
+
         Valsspeler vs = new Valsspeler(frame, 10);
         Veld veldnoord = new Veld(locBuurNoord, null);
         Veld veldZuid = new Veld(locBuurZuid, null);
@@ -198,7 +216,7 @@ public class SpelerTest {
         bur.put("oost", veldOost);
         bur.put("west", veldWest);
         String looprichting = "oost";
-        Speler speler = new Speler();
+        Speler speler = new Speler(vriend, sb);
         Veld veld = new Veld(locSpeler, speler);
         veld.setItem(speler);
         veld.setBuren(bur);

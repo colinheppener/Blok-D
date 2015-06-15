@@ -44,7 +44,7 @@ public class Frame extends JFrame {
         speelbord = (Speelbord) component;
         initialiseTimer();
 
-        timerBar = new JProgressBar();
+        timerBar = new JProgressBar(JProgressBar.VERTICAL);
         timerBar.setMaximum(21);
         frame.add(component);
         frame.setResizable(true);
