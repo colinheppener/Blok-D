@@ -14,7 +14,7 @@ import java.awt.Point;
 
 /**
  *
- * @author Colin
+ * @author Colin & Jeroen
  */
 public class Muur extends Item {
 

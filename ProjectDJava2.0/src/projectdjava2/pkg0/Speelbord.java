@@ -13,7 +13,7 @@ import javax.swing.SwingUtilities;
 
 /**
  *
- * @author Colin
+ * @author Colin & Jeroen
  */
 public class Speelbord extends JComponent {//deze JComponent wordt weergegeven op de Frame in ProjectDJava20.java, in de main klasse dus.
 

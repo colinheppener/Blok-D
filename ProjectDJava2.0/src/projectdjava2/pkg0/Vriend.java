@@ -13,7 +13,7 @@ import javax.imageio.ImageIO;
 
 /**
  *
- * @author Colin
+ * @author Colin & Jeroen
  */
 public class Vriend extends Item {
     private Speelbord speelb;

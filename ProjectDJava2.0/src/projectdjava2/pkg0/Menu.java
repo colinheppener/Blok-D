@@ -11,7 +11,7 @@ import javax.swing.JFrame;
 
 /**
  *
- * @author Colin
+ * @author Colin & Jeroen
  */
 public class Menu {
 

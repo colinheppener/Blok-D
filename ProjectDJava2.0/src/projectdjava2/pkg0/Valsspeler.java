@@ -12,7 +12,7 @@ import javax.imageio.ImageIO;
 
 /**
  *
- * @author Colin
+ * @author Colin & Jeroen
  */
 public class Valsspeler extends Item {
 

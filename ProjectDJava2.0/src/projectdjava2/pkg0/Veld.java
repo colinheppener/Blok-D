@@ -11,7 +11,7 @@ import java.util.Iterator;
 
 /**
  *
- * @author Colin
+ * @author Colin & Jeroen
  */
 public class Veld {
 

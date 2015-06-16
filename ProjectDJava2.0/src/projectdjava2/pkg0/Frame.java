@@ -17,7 +17,7 @@ import javax.swing.*;
 
 /**
  *
- * @author Colin
+ * @author Colin & Jeroen
  */
 public class Frame extends JFrame {
 

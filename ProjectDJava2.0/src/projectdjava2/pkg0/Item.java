@@ -9,7 +9,7 @@ import java.awt.image.BufferedImage;
 
 /**
  *
- * @author Colin
+ * @author Colin & Jeroen
  */
 public class Item {
 

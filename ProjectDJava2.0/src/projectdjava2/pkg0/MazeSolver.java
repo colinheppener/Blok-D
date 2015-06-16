@@ -9,7 +9,7 @@ import java.awt.Graphics;
 
 /**
  *
- * @author Jeroen
+ * @author Colin & Jeroen
  */
 public class MazeSolver {
 

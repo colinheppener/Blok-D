@@ -9,7 +9,7 @@ import java.awt.event.KeyListener;
 
 /**
  *
- * @author Colin
+ * @author Colin & Jeroen
  */
 class CustomKeyListener implements KeyListener {
 
