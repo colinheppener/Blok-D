@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package projectdjava2.pkg0;
 
 import java.awt.Color;
@@ -49,14 +45,11 @@ public class MazeSolver {
             for (int i = 0; i < 4; i++) {
                 if (i == 0) {
                     richting = "noord";
-                }
-                else if (i == 1) {
+                } else if (i == 1) {
                     richting = "oost";
-                }
-                else if (i == 2) {
+                } else if (i == 2) {
                     richting = "zuid";
-                }
-                else if (i == 3) {
+                } else if (i == 3) {
                     richting = "west";
                 }
                 if (veld.getBuur(richting) != null) {
@@ -86,7 +79,6 @@ public class MazeSolver {
                 this.getRichting(waarde + 1);
             }
         }
-
     }
 
     public void getRichting(int wrd) {
@@ -96,20 +88,16 @@ public class MazeSolver {
             for (int i = 0; i < 4; i++) {
                 if (i == 0) {
                     richting = "noord";
-                }
-                else if (i == 1) {
+                } else if (i == 1) {
                     richting = "oost";
-                }
-                else if (i == 2) {
+                } else if (i == 2) {
                     richting = "zuid";
-                }
-                else if (i == 3) {
+                } else if (i == 3) {
                     richting = "west";
                 }
                 if (veld.getBuur(richting) != null) {
                     if (veld.getBuur(richting).getItem() == item) {
                         item.loopRichting(richting);
-
                     } else if (veld.getBuur(richting).getMazeSolver(item) instanceof MazeSolver) {
                         MazeSolver mazeSolver0 = (MazeSolver) veld.getBuur(richting).getMazeSolver(item);
                         mazeSolver0.getRichting(waarde);
@@ -172,13 +160,8 @@ public class MazeSolver {
 
     public void Teken(Graphics g) {
         if (draw == true) {
-            if (item instanceof Helper) {
-                g.setColor(Color.RED);
-            } else {
-                g.setColor(Color.GREEN);
-            }
+            g.setColor(Color.GREEN);
             g.fillRect((int) veld.getY() * 40, (int) veld.getX() * 40, 40, 40);
         }
-//        g.drawString(waarde + "", (int) veld.getY() * 40, (int) veld.getX() * 40);
     }
 }

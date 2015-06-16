@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package projectdjava2.pkg0;
 
 import java.awt.event.ActionEvent;
@@ -20,7 +16,6 @@ public class Menu {
     }
 
     private void createComponents() {
-
         final JFrame frame = new JFrame();
         frame.setSize(900, 900);
         frame.setVisible(true);
@@ -29,8 +24,8 @@ public class Menu {
         frame.add(button);
         button.addActionListener(new ActionListener() {
 
+            @Override
             public void actionPerformed(ActionEvent e) {
-                //Execute when button is pressed
                 frame.dispose();
                 Frame frame = new Frame();
             }

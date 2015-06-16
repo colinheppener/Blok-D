@@ -1,21 +1,15 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package projectdjava2.pkg0;
 
-import java.awt.Color;
 import java.awt.Graphics;
-import javax.swing.JComponent;
 import java.awt.Point;
 import java.util.HashMap;
-import javax.swing.SwingUtilities;
+import javax.swing.JComponent;
 
 /**
  *
  * @author Colin & Jeroen
  */
-public class Speelbord extends JComponent {//deze JComponent wordt weergegeven op de Frame in ProjectDJava20.java, in de main klasse dus.
+public class Speelbord extends JComponent {
 
     private Frame frame;
     private Speler speler;
@@ -98,9 +92,8 @@ public class Speelbord extends JComponent {//deze JComponent wordt weergegeven o
         frame = fr;
         CreateVelden("lvl1");
     }
-    
-    public Frame getFrame()
-    {
+
+    public Frame getFrame() {
         return frame;
     }
 
@@ -139,9 +132,7 @@ public class Speelbord extends JComponent {//deze JComponent wordt weergegeven o
                 }
                 if (opzetGrid[i][j] == 0) {
                     Point locatie = new Point(i, j);
-
                     grid[i][j] = new Veld(locatie, null);
-//                    grid[i][j].getItem().setVeld(grid[i][j]);
                 }
                 if (opzetGrid[i][j] == 5) {
                     Point locatie = new Point(i, j);
@@ -172,7 +163,7 @@ public class Speelbord extends JComponent {//deze JComponent wordt weergegeven o
     }
 
     public void getBuren() {
-        HashMap buren = new HashMap<String, Veld>();
+        HashMap buren = new HashMap<>();
         Veld buur;
         for (int i = 0; i < 20; i++) {
             for (int j = 0; j < 20; j++) {
@@ -201,7 +192,6 @@ public class Speelbord extends JComponent {//deze JComponent wordt weergegeven o
                     buren.put("west", null);
                 }
                 grid[i][j].setBuren(buren);
-//                System.out.println("I: "+i +"J: "+j);
             }
         }
     }
@@ -209,19 +199,15 @@ public class Speelbord extends JComponent {//deze JComponent wordt weergegeven o
     public void HerstartLevel() {
         if (huidiglevel == 1) {
             CreateVelden("lvl1");
-            System.out.println("restart level 1");
             return;
         }
         if (huidiglevel == 2) {
             CreateVelden("lvl2");
-            System.out.println("restart lvl 2");
             return;
         }
         if (huidiglevel == 3) {
             CreateVelden("lvl3");
-            System.out.println("restart level 3");
         }
-        
     }
 
     public void StartNieuwLevel() {
@@ -236,16 +222,13 @@ public class Speelbord extends JComponent {//deze JComponent wordt weergegeven o
             return;
         }
         if (huidiglevel == 3) {
-            System.out.println("GAME COMPLETED");
             System.exit(0);
         }
     }
 
     @Override
-    public void paintComponent(Graphics g) {//hier worden de vierkanten daadwerkelijk samengevoegd 
-        //en op het speelbord weergegeven, de velden tekenen zichzelf wel met de Teken methode
+    public void paintComponent(Graphics g) {
         super.paintComponent(g);
-//        System.out.println("repaint");
         for (int i = 0; i < 20; i++) {
             for (int j = 0; j < 20; j++) {
                 Item veldItem = grid[i][j].getItem();
@@ -257,6 +240,5 @@ public class Speelbord extends JComponent {//deze JComponent wordt weergegeven o
                 }
             }
         }
-
     }
 }

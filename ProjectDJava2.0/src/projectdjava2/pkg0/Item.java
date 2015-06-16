@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package projectdjava2.pkg0;
 
 import java.awt.Graphics;
@@ -18,7 +14,6 @@ public class Item {
     BufferedImage plaatjeR;
     BufferedImage plaatjeU;
     BufferedImage plaatjeD;
-
     Veld veld;
 
     public void Teken(Graphics g) {
@@ -28,10 +23,6 @@ public class Item {
     }
 
     public void voerActieUit() {
-    }
-
-    public String toString() {
-        return "item toegevoegd";
     }
 
     public void verplaatsItem(Item itm, Veld huidigVeld, Veld buurVeld) {
@@ -46,25 +37,24 @@ public class Item {
     public Veld getVeld() {
         return veld;
     }
-    
-    public BufferedImage getImageFile()
-    {
+
+    public BufferedImage getImageFile() {
         return plaatje;
     }
-    public BufferedImage getImageFileU()
-    {
+
+    public BufferedImage getImageFileU() {
         return plaatjeU;
     }
-    public BufferedImage getImageFileD()
-    {
+
+    public BufferedImage getImageFileD() {
         return plaatjeD;
     }
-    public BufferedImage getImageFileR()
-    {
+
+    public BufferedImage getImageFileR() {
         return plaatjeR;
     }
-    public BufferedImage getImageFileL()
-    {
+
+    public BufferedImage getImageFileL() {
         return plaatjeL;
     }
 }
