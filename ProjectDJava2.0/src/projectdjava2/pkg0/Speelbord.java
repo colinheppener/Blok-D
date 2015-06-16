@@ -28,11 +28,11 @@ public class Speelbord extends JComponent {//deze JComponent wordt weergegeven o
         {0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,},
         {1, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 1, 1,},
         {1, 0, 0, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 1,},
-        {1, 1, 1, 0, 1, 1, 1, 7, 1, 1, 1, 0, 0, 0, 0, 0, 1, 0, 1, 1,},
+        {1, 1, 1, 0, 1, 1, 1, 0, 1, 1, 1, 0, 0, 0, 0, 0, 1, 0, 1, 1,},
         {1, 0, 1, 0, 5, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1,},
         {1, 0, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1,},
         {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 1, 1, 1, 0, 1, 1,},
-        {0, 1, 1, 1, 0, 1, 1, 0, 1, 1, 1, 6, 0, 0, 1, 1, 1, 0, 1, 1,},
+        {0, 1, 1, 1, 0, 1, 1, 7, 1, 1, 1, 6, 0, 0, 1, 1, 1, 0, 1, 1,},
         {0, 0, 1, 1, 0, 0, 1, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 0, 1, 1,},
         {1, 0, 1, 1, 1, 0, 1, 1, 1, 1, 1, 0, 1, 1, 0, 0, 0, 0, 1, 1,},
         {1, 0, 0, 0, 1, 0, 1, 0, 0, 0, 1, 0, 1, 1, 0, 1, 1, 1, 1, 1,},
@@ -43,7 +43,7 @@ public class Speelbord extends JComponent {//deze JComponent wordt weergegeven o
         {1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 0, 0, 1, 0, 1, 0, 1, 0, 1,},
         {1, 1, 1, 0, 1, 1, 1, 1, 0, 0, 1, 0, 1, 1, 0, 1, 0, 1, 0, 1,},
         {1, 0, 1, 0, 0, 0, 0, 0, 0, 1, 1, 0, 1, 1, 0, 1, 0, 1, 0, 1,},
-        {1, 0, 1, 1, 1, 1, 1, 1, 0, 1, 1, 9, 0, 1, 0, 1, 0, 1, 0, 1,},
+        {1, 0, 1, 1, 1, 1, 1, 1, 0, 1, 1, 0, 0, 1, 9, 1, 0, 1, 0, 1,},
         {1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 1, 4, 1,}
     };
     private int[][] lvl2 = {
@@ -245,7 +245,7 @@ public class Speelbord extends JComponent {//deze JComponent wordt weergegeven o
     public void paintComponent(Graphics g) {//hier worden de vierkanten daadwerkelijk samengevoegd 
         //en op het speelbord weergegeven, de velden tekenen zichzelf wel met de Teken methode
         super.paintComponent(g);
-        System.out.println("repaint");
+//        System.out.println("repaint");
         for (int i = 0; i < 20; i++) {
             for (int j = 0; j < 20; j++) {
                 Item veldItem = grid[i][j].getItem();

@@ -16,6 +16,7 @@ public class Vijand extends Item {
     private Speler speler;
     private Speelbord speelbord;
     private Frame frame;
+    private String richting;
 
     public Vijand(Speler speler, Speelbord speelbord) {
         frame = speelbord.getFrame();
@@ -28,6 +29,19 @@ public class Vijand extends Item {
     }
 
     public void loop() {
+        if(richting != null)
+        {
+        verplaatsItem(this, veld, veld.getBuur(richting));
+        richting = null;
+        for (int j = 0; j < 20; j++) {
+            for (int k = 0; k < 20; k++) {
+                if (speelbord.getGrid(j, k).getMazeSolver(this) != null) {
+                    speelbord.getGrid(j, k).dellMazeSolver(speelbord.getGrid(j, k).getMazeSolver(this));
+                }
+            }
+        }
+        speelbord.repaint();
+        }
         MazeSolver mazeSolver = new MazeSolver(this, speler, speelbord);
         veld.setMazeSolver(mazeSolver);
         mazeSolver.createNewMazeSolver();
@@ -44,15 +58,7 @@ public class Vijand extends Item {
         } else if (richting == "west") {
             richting = "oost";
         }
-        verplaatsItem(this, veld, veld.getBuur(richting));
-        for (int j = 0; j < 20; j++) {
-            for (int k = 0; k < 20; k++) {
-                if (speelbord.getGrid(j, k).getMazeSolver(this) != null) {
-                    speelbord.getGrid(j, k).dellMazeSolver(speelbord.getGrid(j, k).getMazeSolver(this));
-                }
-            }
-        }
-        speelbord.repaint();
+        this.richting = richting;
     }
     
     @Override
