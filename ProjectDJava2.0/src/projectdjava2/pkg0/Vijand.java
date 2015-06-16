@@ -12,7 +12,7 @@ import javax.imageio.ImageIO;
 
 /**
  *
- * @author Jeroen
+ * @author Colin & Jeroen
  */
 public class Vijand extends Item {
 
@@ -20,6 +20,7 @@ public class Vijand extends Item {
     private Speelbord speelbord;
     private Frame frame;
     private String richting;
+    private String richtingT;
 
     public Vijand(Speler speler, Speelbord speelbord) {
         frame = speelbord.getFrame();
@@ -28,7 +29,10 @@ public class Vijand extends Item {
         this.speelbord = speelbord;
         this.speler = speler;
         try {
-            plaatje = ImageIO.read(new File("src/images/vijand.jpg"));
+            plaatjeU = ImageIO.read(new File("src/images/vijandU.jpg"));
+            plaatjeD = ImageIO.read(new File("src/images/vijandD.jpg"));
+            plaatjeL = ImageIO.read(new File("src/images/vijandL.jpg"));
+            plaatjeR = ImageIO.read(new File("src/images/vijandR.jpg"));
         } catch (IOException ex) {
             System.out.println(ex);
         }
@@ -36,18 +40,17 @@ public class Vijand extends Item {
     }
 
     public void loop() {
-        if(richting != null)
-        {
-        verplaatsItem(this, veld, veld.getBuur(richting));
-        richting = null;
-        for (int j = 0; j < 20; j++) {
-            for (int k = 0; k < 20; k++) {
-                if (speelbord.getGrid(j, k).getMazeSolver(this) != null) {
-                    speelbord.getGrid(j, k).dellMazeSolver(speelbord.getGrid(j, k).getMazeSolver(this));
+        if (richting != null) {
+            verplaatsItem(this, veld, veld.getBuur(richting));
+            richting = null;
+            for (int j = 0; j < 20; j++) {
+                for (int k = 0; k < 20; k++) {
+                    if (speelbord.getGrid(j, k).getMazeSolver(this) != null) {
+                        speelbord.getGrid(j, k).dellMazeSolver(speelbord.getGrid(j, k).getMazeSolver(this));
+                    }
                 }
             }
-        }
-        speelbord.repaint();
+            speelbord.repaint();
         }
         MazeSolver mazeSolver = new MazeSolver(this, speler, speelbord);
         veld.setMazeSolver(mazeSolver);
@@ -66,11 +69,11 @@ public class Vijand extends Item {
             richting = "oost";
         }
         this.richting = richting;
+        richtingT = richting;
     }
-    
+
     @Override
-    public String toString()
-    {
+    public String toString() {
         return "vijand";
     }
 
@@ -83,6 +86,14 @@ public class Vijand extends Item {
     public void Teken(Graphics g) {
         g.setColor(Color.GREEN);
 //        g.fillRect((int) veld.getY() * 40, (int) veld.getX() * 40, 40, 40);
-        g.drawImage(getImageFile(), (int) veld.getY() * 40, (int) veld.getX() * 40, 40, 40, null);
+        if ("noord".equals(richtingT)) {
+            g.drawImage(getImageFileU(), (int) veld.getY() * 40, (int) veld.getX() * 40, 40, 40, null);
+        } else if ("oost".equals(richtingT)) {
+            g.drawImage(getImageFileR(), (int) veld.getY() * 40, (int) veld.getX() * 40, 40, 40, null);
+        } else if ("zuid".equals(richtingT)) {
+            g.drawImage(getImageFileD(), (int) veld.getY() * 40, (int) veld.getX() * 40, 40, 40, null);
+        } else if ("west".equals(richtingT)) {
+            g.drawImage(getImageFileL(), (int) veld.getY() * 40, (int) veld.getX() * 40, 40, 40, null);
+        }
     }
 }

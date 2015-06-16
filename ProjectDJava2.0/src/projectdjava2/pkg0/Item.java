@@ -14,6 +14,11 @@ import java.awt.image.BufferedImage;
 public class Item {
 
     BufferedImage plaatje;
+    BufferedImage plaatjeL;
+    BufferedImage plaatjeR;
+    BufferedImage plaatjeU;
+    BufferedImage plaatjeD;
+
     Veld veld;
 
     public void Teken(Graphics g) {
@@ -45,5 +50,21 @@ public class Item {
     public BufferedImage getImageFile()
     {
         return plaatje;
+    }
+    public BufferedImage getImageFileU()
+    {
+        return plaatjeU;
+    }
+    public BufferedImage getImageFileD()
+    {
+        return plaatjeD;
+    }
+    public BufferedImage getImageFileR()
+    {
+        return plaatjeR;
+    }
+    public BufferedImage getImageFileL()
+    {
+        return plaatjeL;
     }
 }

@@ -6,6 +6,7 @@ package projectdjava2.pkg0;
 
 import java.awt.Color;
 import java.awt.Graphics;
+import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 import javax.imageio.ImageIO;
@@ -19,14 +20,23 @@ public class Speler extends Item {
     private String richting = "noord";
 //    private boolean hasBazooka = false;
     private Bazooka bazooka;
-    private Vriend vriend;
-    private Speelbord speelbord;
-    private Vijand vijand;
+    private BufferedImage plaatjeL2;
+    private BufferedImage plaatjeR2;
+    private BufferedImage plaatjeU2;
+    private BufferedImage plaatjeD2;
 
     public Speler(Vriend vr, Speelbord sp) {
-        speelbord = sp;
-        vriend = vr;
+//        speelbord = sp;
+//        vriend = vr;
         try {
+            plaatjeL = ImageIO.read(new File("src/images/personL.jpg"));
+            plaatjeR = ImageIO.read(new File("src/images/personR.jpg"));
+            plaatjeU = ImageIO.read(new File("src/images/personU.jpg"));
+            plaatjeD = ImageIO.read(new File("src/images/personD.jpg"));
+            plaatjeL2 = ImageIO.read(new File("src/images/personL2.jpg"));
+            plaatjeR2 = ImageIO.read(new File("src/images/personR2.jpg"));
+            plaatjeU2 = ImageIO.read(new File("src/images/personU2.jpg"));
+            plaatjeD2 = ImageIO.read(new File("src/images/personD2.jpg"));
             plaatje = ImageIO.read(new File("src/images/person.jpg"));
         } catch (IOException ex) {
             System.out.println(ex);
@@ -34,7 +44,7 @@ public class Speler extends Item {
     }
 
     public void setVijand(Vijand vijnd) {
-        vijand = vijnd;
+//        vijand = vijnd;
     }
 
     public void Loop(String looprichting) {
@@ -86,7 +96,23 @@ public class Speler extends Item {
     public void Teken(Graphics g) {
         g.setColor(Color.GREEN);
 //        g.fillRect((int) veld.getY() * 40, (int) veld.getX() * 40, 40, 40);
-        g.drawImage(getImageFile(), (int) veld.getY() * 40, (int) veld.getX() * 40, 40, 40, null);
+        if ("noord".equals(richting) && bazooka == null) {
+            g.drawImage(getImageFileU(), (int) veld.getY() * 40, (int) veld.getX() * 40, 40, 40, null);
+        } else if ("oost".equals(richting) && bazooka == null) {
+            g.drawImage(getImageFileR(), (int) veld.getY() * 40, (int) veld.getX() * 40, 40, 40, null);
+        } else if ("zuid".equals(richting) && bazooka == null) {
+            g.drawImage(getImageFileD(), (int) veld.getY() * 40, (int) veld.getX() * 40, 40, 40, null);
+        } else if ("west".equals(richting) && bazooka == null) {
+            g.drawImage(getImageFileL(), (int) veld.getY() * 40, (int) veld.getX() * 40, 40, 40, null);
+        } else if ("noord".equals(richting)) {
+            g.drawImage(plaatjeU2, (int) veld.getY() * 40, (int) veld.getX() * 40, 40, 40, null);
+        } else if ("oost".equals(richting)) {
+            g.drawImage(plaatjeR2, (int) veld.getY() * 40, (int) veld.getX() * 40, 40, 40, null);
+        } else if ("zuid".equals(richting)) {
+            g.drawImage(plaatjeD2, (int) veld.getY() * 40, (int) veld.getX() * 40, 40, 40, null);
+        } else if ("west".equals(richting)) {
+            g.drawImage(plaatjeL2, (int) veld.getY() * 40, (int) veld.getX() * 40, 40, 40, null);
+        }
     }
 
     @Override
