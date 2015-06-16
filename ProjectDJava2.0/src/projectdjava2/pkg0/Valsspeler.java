@@ -6,11 +6,9 @@ package projectdjava2.pkg0;
 
 import java.awt.Color;
 import java.awt.Graphics;
-import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 import javax.imageio.ImageIO;
-import javax.swing.JOptionPane;
 
 /**
  *
@@ -45,11 +43,6 @@ public class Valsspeler extends Item {
     @Override
     public String toString() {
         return "valsspeler";
-    }
-
-    public BufferedImage getImageFile() {
-
-        return plaatje;
     }
     
     @Override
