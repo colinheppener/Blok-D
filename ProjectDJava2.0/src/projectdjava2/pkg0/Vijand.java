@@ -6,6 +6,9 @@ package projectdjava2.pkg0;
 
 import java.awt.Color;
 import java.awt.Graphics;
+import java.io.File;
+import java.io.IOException;
+import javax.imageio.ImageIO;
 
 /**
  *
@@ -24,7 +27,11 @@ public class Vijand extends Item {
         frame.setVijand(this);
         this.speelbord = speelbord;
         this.speler = speler;
-
+        try {
+            plaatje = ImageIO.read(new File("src/images/vijand.jpg"));
+        } catch (IOException ex) {
+            System.out.println(ex);
+        }
         speler.setVijand(this);
     }
 
@@ -75,7 +82,7 @@ public class Vijand extends Item {
     @Override
     public void Teken(Graphics g) {
         g.setColor(Color.GREEN);
-        g.fillRect((int) veld.getY() * 40, (int) veld.getX() * 40, 40, 40);
-//        g.drawImage(getImageFile(), (int) veld.getY() * 40, (int) veld.getX() * 40, 40, 40, null);
+//        g.fillRect((int) veld.getY() * 40, (int) veld.getX() * 40, 40, 40);
+        g.drawImage(getImageFile(), (int) veld.getY() * 40, (int) veld.getX() * 40, 40, 40, null);
     }
 }
