@@ -29,9 +29,4 @@ public class Raket extends Item {
             }
         }
     }
-
-    @Override
-    public void Teken(Graphics g) {
-        g.fillRect((int) veld.getY() * 40, (int) veld.getX() * 40, 40, 40);
-    }
 }

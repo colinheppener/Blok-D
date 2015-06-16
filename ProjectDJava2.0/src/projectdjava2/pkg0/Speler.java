@@ -13,7 +13,7 @@ import javax.imageio.ImageIO;
  */
 public class Speler extends Item {
 
-    private String richting = "noord";
+    private String richting = "zuid";
     private Bazooka bazooka;
     private BufferedImage plaatjeL2;
     private BufferedImage plaatjeR2;
@@ -22,14 +22,14 @@ public class Speler extends Item {
 
     public Speler(Vriend vr, Speelbord sp) {
         try {
-            plaatjeL = ImageIO.read(new File("src/images/person.jpg"));
-            plaatjeR = ImageIO.read(new File("src/images/person.jpg"));
-            plaatjeU = ImageIO.read(new File("src/images/person.jpg"));
-            plaatjeD = ImageIO.read(new File("src/images/person.jpg"));
-            plaatjeL2 = ImageIO.read(new File("src/images/person.jpg"));
-            plaatjeR2 = ImageIO.read(new File("src/images/person.jpg"));
-            plaatjeU2 = ImageIO.read(new File("src/images/person.jpg"));
-            plaatjeD2 = ImageIO.read(new File("src/images/person.jpg"));
+            plaatjeL = ImageIO.read(new File("src/images/guyLeft.png"));
+            plaatjeR = ImageIO.read(new File("src/images/guyRight.png"));
+            plaatjeU = ImageIO.read(new File("src/images/guyUp.png"));
+            plaatjeD = ImageIO.read(new File("src/images/guyDown.png"));
+            plaatjeL2 = ImageIO.read(new File("src/images/guyLeftBazooka.png"));
+            plaatjeR2 = ImageIO.read(new File("src/images/guyRightBazooka.png"));
+            plaatjeU2 = ImageIO.read(new File("src/images/guyUpBazooka.png"));
+            plaatjeD2 = ImageIO.read(new File("src/images/guyDownBazooka.png"));
         } catch (IOException ex) {
             System.out.println(ex);
         }

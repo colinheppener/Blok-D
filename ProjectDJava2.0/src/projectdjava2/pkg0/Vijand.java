@@ -24,10 +24,10 @@ public class Vijand extends Item {
         this.speelbord = speelbord;
         this.speler = speler;
         try {
-            plaatjeU = ImageIO.read(new File("src/images/vijand.jpg"));
-            plaatjeD = ImageIO.read(new File("src/images/vijand.jpg"));
-            plaatjeL = ImageIO.read(new File("src/images/vijand.jpg"));
-            plaatjeR = ImageIO.read(new File("src/images/vijand.jpg"));
+            plaatjeU = ImageIO.read(new File("src/images/enemyUp.png"));
+            plaatjeD = ImageIO.read(new File("src/images/enemyDown.png"));
+            plaatjeL = ImageIO.read(new File("src/images/enemyLeft.png"));
+            plaatjeR = ImageIO.read(new File("src/images/enemyRight.png"));
         } catch (IOException ex) {
             System.out.println(ex);
         }
