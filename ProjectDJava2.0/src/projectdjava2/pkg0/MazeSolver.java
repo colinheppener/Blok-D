@@ -50,13 +50,13 @@ public class MazeSolver {
                 if (i == 0) {
                     richting = "noord";
                 }
-                if (i == 1) {
+                else if (i == 1) {
                     richting = "oost";
                 }
-                if (i == 2) {
+                else if (i == 2) {
                     richting = "zuid";
                 }
-                if (i == 3) {
+                else if (i == 3) {
                     richting = "west";
                 }
                 if (veld.getBuur(richting) != null) {
@@ -97,13 +97,13 @@ public class MazeSolver {
                 if (i == 0) {
                     richting = "noord";
                 }
-                if (i == 1) {
+                else if (i == 1) {
                     richting = "oost";
                 }
-                if (i == 2) {
+                else if (i == 2) {
                     richting = "zuid";
                 }
-                if (i == 3) {
+                else if (i == 3) {
                     richting = "west";
                 }
                 if (veld.getBuur(richting) != null) {

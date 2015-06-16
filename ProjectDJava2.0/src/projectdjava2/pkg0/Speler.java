@@ -29,15 +29,14 @@ public class Speler extends Item {
 //        speelbord = sp;
 //        vriend = vr;
         try {
-            plaatjeL = ImageIO.read(new File("src/images/personL.jpg"));
-            plaatjeR = ImageIO.read(new File("src/images/personR.jpg"));
-            plaatjeU = ImageIO.read(new File("src/images/personU.jpg"));
-            plaatjeD = ImageIO.read(new File("src/images/personD.jpg"));
-            plaatjeL2 = ImageIO.read(new File("src/images/personL2.jpg"));
-            plaatjeR2 = ImageIO.read(new File("src/images/personR2.jpg"));
-            plaatjeU2 = ImageIO.read(new File("src/images/personU2.jpg"));
-            plaatjeD2 = ImageIO.read(new File("src/images/personD2.jpg"));
-            plaatje = ImageIO.read(new File("src/images/person.jpg"));
+            plaatjeL = ImageIO.read(new File("src/images/person.jpg"));
+            plaatjeR = ImageIO.read(new File("src/images/person.jpg"));
+            plaatjeU = ImageIO.read(new File("src/images/person.jpg"));
+            plaatjeD = ImageIO.read(new File("src/images/person.jpg"));
+            plaatjeL2 = ImageIO.read(new File("src/images/person.jpg"));
+            plaatjeR2 = ImageIO.read(new File("src/images/person.jpg"));
+            plaatjeU2 = ImageIO.read(new File("src/images/person.jpg"));
+            plaatjeD2 = ImageIO.read(new File("src/images/person.jpg"));
         } catch (IOException ex) {
             System.out.println(ex);
         }

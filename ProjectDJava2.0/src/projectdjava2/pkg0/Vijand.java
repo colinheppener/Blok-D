@@ -20,7 +20,7 @@ public class Vijand extends Item {
     private Speelbord speelbord;
     private Frame frame;
     private String richting;
-    private String richtingT;
+    private String richtingT = "noord";
 
     public Vijand(Speler speler, Speelbord speelbord) {
         frame = speelbord.getFrame();
@@ -29,10 +29,10 @@ public class Vijand extends Item {
         this.speelbord = speelbord;
         this.speler = speler;
         try {
-            plaatjeU = ImageIO.read(new File("src/images/vijandU.jpg"));
-            plaatjeD = ImageIO.read(new File("src/images/vijandD.jpg"));
-            plaatjeL = ImageIO.read(new File("src/images/vijandL.jpg"));
-            plaatjeR = ImageIO.read(new File("src/images/vijandR.jpg"));
+            plaatjeU = ImageIO.read(new File("src/images/vijand.jpg"));
+            plaatjeD = ImageIO.read(new File("src/images/vijand.jpg"));
+            plaatjeL = ImageIO.read(new File("src/images/vijand.jpg"));
+            plaatjeR = ImageIO.read(new File("src/images/vijand.jpg"));
         } catch (IOException ex) {
             System.out.println(ex);
         }
@@ -59,14 +59,19 @@ public class Vijand extends Item {
 
     @Override
     public void loopRichting(String richting) {
-        if (richting == "noord") {
-            richting = "zuid";
-        } else if (richting == "oost") {
-            richting = "west";
-        } else if (richting == "zuid") {
-            richting = "noord";
-        } else if (richting == "west") {
-            richting = "oost";
+        switch (richting) {
+            case "noord":
+                richting = "zuid";
+                break;
+            case "oost":
+                richting = "west";
+                break;
+            case "zuid":
+                richting = "noord";
+                break;
+            case "west":
+                richting = "oost";
+                break;
         }
         this.richting = richting;
         richtingT = richting;
@@ -85,15 +90,20 @@ public class Vijand extends Item {
     @Override
     public void Teken(Graphics g) {
         g.setColor(Color.GREEN);
-//        g.fillRect((int) veld.getY() * 40, (int) veld.getX() * 40, 40, 40);
-        if ("noord".equals(richtingT)) {
-            g.drawImage(getImageFileU(), (int) veld.getY() * 40, (int) veld.getX() * 40, 40, 40, null);
-        } else if ("oost".equals(richtingT)) {
-            g.drawImage(getImageFileR(), (int) veld.getY() * 40, (int) veld.getX() * 40, 40, 40, null);
-        } else if ("zuid".equals(richtingT)) {
-            g.drawImage(getImageFileD(), (int) veld.getY() * 40, (int) veld.getX() * 40, 40, 40, null);
-        } else if ("west".equals(richtingT)) {
-            g.drawImage(getImageFileL(), (int) veld.getY() * 40, (int) veld.getX() * 40, 40, 40, null);
+        //        g.fillRect((int) veld.getY() * 40, (int) veld.getX() * 40, 40, 40);
+        switch (richtingT) {
+            case "noord":
+                g.drawImage(getImageFileU(), (int) veld.getY() * 40, (int) veld.getX() * 40, 40, 40, null);
+                break;
+            case "oost":
+                g.drawImage(getImageFileR(), (int) veld.getY() * 40, (int) veld.getX() * 40, 40, 40, null);
+                break;
+            case "zuid":
+                g.drawImage(getImageFileD(), (int) veld.getY() * 40, (int) veld.getX() * 40, 40, 40, null);
+                break;
+            case "west":
+                g.drawImage(getImageFileL(), (int) veld.getY() * 40, (int) veld.getX() * 40, 40, 40, null);
+                break;
         }
     }
 }
