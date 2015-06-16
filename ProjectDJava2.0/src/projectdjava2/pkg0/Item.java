@@ -41,9 +41,4 @@ public class Item {
     public Veld getVeld() {
         return veld;
     }
-    
-    public BufferedImage getImageFile()
-    {
-        return plaatje;
-    }
 }

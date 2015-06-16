@@ -45,6 +45,10 @@ public class Helper extends Item{
         return "helper";
     }
 
+    public BufferedImage getImageFile() {
+        
+        return plaatje;
+    }
     @Override
     public void voerActieUit()
     {

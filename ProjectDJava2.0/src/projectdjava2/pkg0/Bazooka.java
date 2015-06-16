@@ -46,6 +46,11 @@ public class Bazooka extends Item {
         return "bazooka";
     }
 
+    public BufferedImage getImageFile() {
+
+        return plaatje;
+    }
+
     public void voerActieUit() {
         System.out.println("bazooka uitgevoerd");
 //        speler.setBazooka(true);

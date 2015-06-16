@@ -4,8 +4,9 @@
  */
 package projectdjava2.pkg0;
 
-import java.awt.Color;
 import java.awt.Graphics;
+import java.awt.Color;
+import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 import javax.imageio.ImageIO;
@@ -93,5 +94,9 @@ public class Speler extends Item {
     public String toString()//tostring methode override om te checken of speler wordt toegevogd aan de grid.
     {
         return "speler";
+    }
+
+    public BufferedImage getImageFile() {
+        return plaatje;
     }
 }

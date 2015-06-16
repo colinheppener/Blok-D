@@ -38,4 +38,8 @@ public class Muur extends Item {
     {
         return "muur";
     }
+
+    public BufferedImage getImageFile() {
+        return plaatje;
+    }
 }

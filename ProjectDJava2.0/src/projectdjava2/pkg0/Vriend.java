@@ -6,9 +6,11 @@ package projectdjava2.pkg0;
 
 import java.awt.Color;
 import java.awt.Graphics;
+import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 import javax.imageio.ImageIO;
+import java.awt.Point;
 
 
 /**
@@ -43,6 +45,11 @@ public class Vriend extends Item {
         return "vriend";
     }
 
+    public BufferedImage getImageFile() {
+
+        return plaatje;
+    }
+    
     @Override
     public void voerActieUit()
     {
