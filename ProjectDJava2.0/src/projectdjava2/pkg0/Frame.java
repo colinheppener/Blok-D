@@ -58,6 +58,7 @@ public final class Frame extends JFrame {
                 component.requestFocusInWindow();
                 speelbord.HerstartLevel();
                 speelbord.repaint();
+                meerTijd(21);
             }
         });
         menuKnop.addActionListener(new ActionListener() {
