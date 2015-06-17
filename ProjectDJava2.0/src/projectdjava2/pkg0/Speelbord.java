@@ -199,14 +199,17 @@ public class Speelbord extends JComponent {
     public void HerstartLevel() {
         if (huidiglevel == 1) {
             CreateVelden("lvl1");
+            frame.herstartInterval();
             return;
         }
         if (huidiglevel == 2) {
             CreateVelden("lvl2");
+            frame.herstartInterval();
             return;
         }
         if (huidiglevel == 3) {
             CreateVelden("lvl3");
+            frame.herstartInterval();
         }
     }
 
