@@ -16,14 +16,14 @@ import static org.junit.Assert.*;
  * @author Colin
  */
 public class SpelerTest {
-
+    
     Point locSpeler = new Point(1, 1);
     Point locBuurNoord = new Point(1, 0);
     Point locBuurZuid = new Point(1, 2);
     Point locBuurOost = new Point(2, 1);
     Point locBuurWest = new Point(0, 1);
     Frame frame;
-
+    
     public SpelerTest() {
         frame = new Frame();
     }
@@ -35,7 +35,7 @@ public class SpelerTest {
     public void testLoopOost() {
         System.out.println("Loop");
         HashMap bur = new HashMap<>();
-
+        
         Speelbord sb = new Speelbord(frame);
         Vriend vriend = new Vriend(sb, frame);
         Veld veldnoord = new Veld(locBuurNoord, null);
@@ -52,12 +52,12 @@ public class SpelerTest {
         veld.setItem(speler);
         veld.setBuren(bur);
         String expResult = "java.awt.Point[x=2,y=1]";
-
+        
         speler.Loop(looprichting);
         String result = String.valueOf(speler.getVeld().getLocatie());
         assertEquals(expResult, result);
     }
-
+    
     @Test
     public void testLoopWest() {
         System.out.println("Loop");
@@ -78,12 +78,12 @@ public class SpelerTest {
         veld.setItem(speler);
         veld.setBuren(bur);
         String expResult = "java.awt.Point[x=0,y=1]";
-
+        
         speler.Loop(looprichting);
         String result = String.valueOf(speler.getVeld().getLocatie());
         assertEquals(expResult, result);
     }
-
+    
     @Test
     public void testLoopNoord() {
         System.out.println("Loop");
@@ -104,12 +104,11 @@ public class SpelerTest {
         veld.setItem(speler);
         veld.setBuren(bur);
         String expResult = "java.awt.Point[x=1,y=0]";
-
         speler.Loop(looprichting);
         String result = String.valueOf(speler.getVeld().getLocatie());
         assertEquals(expResult, result);
     }
-
+    
     @Test
     public void testLoopZuid() {
         System.out.println("Loop");
@@ -129,15 +128,13 @@ public class SpelerTest {
         Veld veld = new Veld(locSpeler, speler);
         veld.setItem(speler);
         veld.setBuren(bur);
-
+        
         String expResult = "java.awt.Point[x=1,y=2]";
-        System.out.println(expResult);
         speler.Loop(looprichting);
         String result = String.valueOf(speler.getVeld().getLocatie());
-        System.out.println(result);
         assertEquals(expResult, result);
     }
-
+    
     @Test
     public void testLoopMuur() {
         System.out.println("Loop");
@@ -158,15 +155,13 @@ public class SpelerTest {
         Veld veld = new Veld(locSpeler, speler);
         veld.setItem(speler);
         veld.setBuren(bur);
-
+        
         String expResult = "java.awt.Point[x=1,y=1]";
-        System.out.println(expResult);
         speler.Loop(looprichting);
         String result = String.valueOf(speler.getVeld().getLocatie());
-        System.out.println(result);
         assertEquals(expResult, result);
     }
-
+    
     @Test
     public void testLoopVriend() {
         System.out.println("Loop");
@@ -186,22 +181,20 @@ public class SpelerTest {
         Veld veld = new Veld(locSpeler, speler);
         veld.setItem(speler);
         veld.setBuren(bur);
-
+        
         String expResult = "java.awt.Point[x=2,y=1]";
-        System.out.println(expResult);
         speler.Loop(looprichting);
         String result = String.valueOf(speler.getVeld().getLocatie());
-        System.out.println(result);
         assertEquals(expResult, result);
     }
-
+    
     @Test
     public void testLoopValsspeler() {
         System.out.println("Loop");
         HashMap bur = new HashMap<>();
         Speelbord sb = new Speelbord(frame);
         Vriend vriend = new Vriend(sb, frame);
-
+        
         Valsspeler vs = new Valsspeler(frame, 10);
         Veld veldnoord = new Veld(locBuurNoord, null);
         Veld veldZuid = new Veld(locBuurZuid, null);
@@ -216,12 +209,95 @@ public class SpelerTest {
         Veld veld = new Veld(locSpeler, speler);
         veld.setItem(speler);
         veld.setBuren(bur);
-
+        
         String expResult = "java.awt.Point[x=2,y=1]";
-        System.out.println(expResult);
         speler.Loop(looprichting);
         String result = String.valueOf(speler.getVeld().getLocatie());
-        System.out.println(result);
+        assertEquals(expResult, result);
+    }
+    
+    @Test
+    public void testLoopBazooka() {
+        System.out.println("Loop");
+        HashMap bur = new HashMap<>();
+        Speelbord sb = new Speelbord(frame);
+        Vriend vriend = new Vriend(sb, frame);
+        Speler speler = new Speler(vriend, sb);
+        Bazooka bazooka = new Bazooka(speler);
+        
+        Veld veldnoord = new Veld(locBuurNoord, null);
+        Veld veldZuid = new Veld(locBuurZuid, null);
+        Veld veldOost = new Veld(locBuurOost, bazooka);
+        Veld veldWest = new Veld(locBuurWest, null);
+        bazooka.setVeld(veldOost);
+        bur.put("noord", veldnoord);
+        bur.put("zuid", veldZuid);
+        bur.put("oost", veldOost);
+        bur.put("west", veldWest);
+        String looprichting = "oost";
+        
+        Veld veld = new Veld(locSpeler, speler);
+        veld.setItem(speler);
+        veld.setBuren(bur);
+        
+        String expResult = "java.awt.Point[x=2,y=1]";
+        speler.Loop(looprichting);
+        String result = String.valueOf(speler.getVeld().getLocatie());
+        assertEquals(expResult, result);
+    }
+    
+    @Test
+    public void testLoopGeenVeld() {
+        System.out.println("Loop");
+        HashMap bur = new HashMap<>();
+        Speelbord sb = new Speelbord(frame);
+        Vriend vriend = new Vriend(sb, frame);
+        Speler speler = new Speler(vriend, sb);
+        
+        Veld veldnoord = new Veld(locBuurNoord, null);
+        Veld veldZuid = new Veld(locBuurZuid, null);
+        Veld veldWest = new Veld(locBuurWest, null);
+        bur.put("noord", veldnoord);
+        bur.put("zuid", veldZuid);
+        bur.put("oost", null);
+        bur.put("west", veldWest);
+        String looprichting = "oost";
+        
+        Veld veld = new Veld(locSpeler, speler);
+        veld.setItem(speler);
+        veld.setBuren(bur);
+        
+        String expResult = "java.awt.Point[x=1,y=1]";
+        speler.Loop(looprichting);
+        String result = String.valueOf(speler.getVeld().getLocatie());
+        assertEquals(expResult, result);
+    }
+
+    @Test
+    public void testLoopVijand() {
+        System.out.println("Loop");
+        HashMap bur = new HashMap<>();
+        Speelbord sb = new Speelbord(frame);
+        Vriend vriend = new Vriend(sb, frame);
+        Speler speler = new Speler(vriend, sb);
+        Vijand vijand = new Vijand(speler, sb);
+        Veld veldnoord = new Veld(locBuurNoord, null);
+        Veld veldZuid = new Veld(locBuurZuid, null);
+        Veld veldOost = new Veld(locBuurOost, vijand);
+        Veld veldWest = new Veld(locBuurWest, null);
+        bur.put("noord", veldnoord);
+        bur.put("zuid", veldZuid);
+        bur.put("oost", veldOost);
+        bur.put("west", veldWest);
+        String looprichting = "oost";
+        
+        Veld veld = new Veld(locSpeler, speler);
+        veld.setItem(speler);
+        veld.setBuren(bur);
+        
+        String expResult = "java.awt.Point[x=2,y=1]";
+        speler.Loop(looprichting);
+        String result = String.valueOf(speler.getVeld().getLocatie());
         assertEquals(expResult, result);
     }
 }

@@ -50,4 +50,6 @@ public class ValsspelerTest {
         System.out.println("end:" + timeAfter);
         assertNotSame(startTime, timeAfter);
     }
+    
+    
 }
