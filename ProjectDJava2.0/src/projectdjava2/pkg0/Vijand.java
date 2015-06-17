@@ -34,21 +34,27 @@ public class Vijand extends Item {
     }
 
     public void loop() {
-        if (richting != null) {
-            verplaatsItem(this, veld, veld.getBuur(richting));
-            richting = null;
-            for (int j = 0; j < 20; j++) {
-                for (int k = 0; k < 20; k++) {
-                    if (speelbord.getGrid(j, k).getMazeSolver(this) != null) {
-                        speelbord.getGrid(j, k).dellMazeSolver(speelbord.getGrid(j, k).getMazeSolver(this));
+        if (richting != null && veld != null) {
+                if (veld.getBuur(richting).getItem() == speler) {
+                    voerActieUit();
+                } else {
+                    verplaatsItem(this, veld, veld.getBuur(richting));
+                }
+                richting = null;
+                for (int j = 0; j < 20; j++) {
+                    for (int k = 0; k < 20; k++) {
+                        if (speelbord.getGrid(j, k).getMazeSolver(this) != null) {
+                            speelbord.getGrid(j, k).dellMazeSolver(speelbord.getGrid(j, k).getMazeSolver(this));
+                        }
                     }
                 }
+                speelbord.repaint();
             }
-            speelbord.repaint();
+        if (veld != null){
+            MazeSolver mazeSolver = new MazeSolver(this, speler, speelbord);
+            veld.setMazeSolver(mazeSolver);
+            mazeSolver.createNewMazeSolver();
         }
-        MazeSolver mazeSolver = new MazeSolver(this, speler, speelbord);
-        veld.setMazeSolver(mazeSolver);
-        mazeSolver.createNewMazeSolver();
     }
 
     @Override
@@ -79,6 +85,8 @@ public class Vijand extends Item {
     @Override
     public void voerActieUit() {
         frame.minderTijd(10);
+        veld.setItem(null);
+        veld = null;
     }
 
     @Override
