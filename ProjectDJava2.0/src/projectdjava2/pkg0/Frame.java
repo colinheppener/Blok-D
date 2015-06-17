@@ -37,7 +37,7 @@ public final class Frame extends JFrame {
         final JComponent component = new Speelbord(this);
         speelbord = (Speelbord) component;
         initialiseTimer();
-        timerBar = new JProgressBar(JProgressBar.VERTICAL);
+        timerBar = new JProgressBar();
         timerBar.setMaximum(21);
         frame.add(component);
         frame.setResizable(true);
@@ -96,6 +96,9 @@ public final class Frame extends JFrame {
 
     public void meerTijd(int waarde) {
         timerBar.setValue(interval += waarde);
+        if (interval > 21) {
+            interval = 21;
+        }
     }
 
     public void minderTijd(int waarde) {
@@ -103,15 +106,25 @@ public final class Frame extends JFrame {
     }
 
     private int setInterval() {
-        if (interval == 0) {
+        if (interval < 1) {
             timer.cancel();
-            int dialogResult = JOptionPane.showConfirmDialog(rootPane, "Tijd is op, wilt u herstarten?");
+            Object[] choices = {"Opnieuw proberen", "Naar menu"};
+            Object defaultChoice = choices[0];
+            int dialogResult = JOptionPane.showOptionDialog(this,
+                    "Wilt u opnieuw het doolhof proberen of terug naar het menu?",
+                    "Opnieuw proberen?",
+                    JOptionPane.YES_NO_OPTION,
+                    JOptionPane.QUESTION_MESSAGE,
+                    null,
+                    choices,
+                    defaultChoice);
             if (dialogResult == JOptionPane.YES_OPTION) {
                 frame.dispose();
                 frame = new Frame();
             }
-            if (dialogResult == JOptionPane.CANCEL_OPTION) {
+            if (dialogResult == JOptionPane.NO_OPTION) {
                 frame.dispose();
+                Menu menu = new Menu();
             }
         }
         if (vijand != null) {

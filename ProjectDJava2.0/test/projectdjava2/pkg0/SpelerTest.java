@@ -22,8 +22,10 @@ public class SpelerTest {
     Point locBuurZuid = new Point(1, 2);
     Point locBuurOost = new Point(2, 1);
     Point locBuurWest = new Point(0, 1);
+    Frame frame;
 
     public SpelerTest() {
+        frame = new Frame();
     }
 
     /**
@@ -32,8 +34,8 @@ public class SpelerTest {
     @Test
     public void testLoopOost() {
         System.out.println("Loop");
-        HashMap bur = new HashMap<String, Veld>();
-        Frame frame = new Frame();
+        HashMap bur = new HashMap<>();
+
         Speelbord sb = new Speelbord(frame);
         Vriend vriend = new Vriend(sb, frame);
         Veld veldnoord = new Veld(locBuurNoord, null);
@@ -59,8 +61,7 @@ public class SpelerTest {
     @Test
     public void testLoopWest() {
         System.out.println("Loop");
-        HashMap bur = new HashMap<String, Veld>();
-        Frame frame = new Frame();
+        HashMap bur = new HashMap<>();
         Speelbord sb = new Speelbord(frame);
         Vriend vriend = new Vriend(sb, frame);
         Veld veldnoord = new Veld(locBuurNoord, null);
@@ -86,10 +87,9 @@ public class SpelerTest {
     @Test
     public void testLoopNoord() {
         System.out.println("Loop");
-        Frame frame = new Frame();
         Speelbord sb = new Speelbord(frame);
         Vriend vriend = new Vriend(sb, frame);
-        HashMap bur = new HashMap<String, Veld>();
+        HashMap bur = new HashMap<>();
         Veld veldnoord = new Veld(locBuurNoord, null);
         Veld veldZuid = new Veld(locBuurZuid, null);
         Veld veldOost = new Veld(locBuurOost, null);
@@ -113,8 +113,7 @@ public class SpelerTest {
     @Test
     public void testLoopZuid() {
         System.out.println("Loop");
-        HashMap bur = new HashMap<String, Veld>();
-        Frame frame = new Frame();
+        HashMap bur = new HashMap<>();
         Speelbord sb = new Speelbord(frame);
         Vriend vriend = new Vriend(sb, frame);
         Veld veldnoord = new Veld(locBuurNoord, null);
@@ -142,8 +141,7 @@ public class SpelerTest {
     @Test
     public void testLoopMuur() {
         System.out.println("Loop");
-        HashMap bur = new HashMap<String, Veld>();
-        Frame frame = new Frame();
+        HashMap bur = new HashMap<>();
         Speelbord sb = new Speelbord(frame);
         Vriend vriend = new Vriend(sb, frame);
         Muur muur = new Muur();
@@ -172,8 +170,7 @@ public class SpelerTest {
     @Test
     public void testLoopVriend() {
         System.out.println("Loop");
-        HashMap bur = new HashMap<String, Veld>();
-        Frame frame = new Frame();
+        HashMap bur = new HashMap<>();
         Speelbord sb = new Speelbord(frame);
         Vriend vriend = new Vriend(sb, frame);
         Veld veldnoord = new Veld(locBuurNoord, null);
@@ -201,8 +198,7 @@ public class SpelerTest {
     @Test
     public void testLoopValsspeler() {
         System.out.println("Loop");
-        HashMap bur = new HashMap<String, Veld>();
-        Frame frame = new Frame();
+        HashMap bur = new HashMap<>();
         Speelbord sb = new Speelbord(frame);
         Vriend vriend = new Vriend(sb, frame);
 
