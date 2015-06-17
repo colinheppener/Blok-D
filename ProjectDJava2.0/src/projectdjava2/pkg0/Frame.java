@@ -101,11 +101,6 @@ public final class Frame extends JFrame {
             interval = 21;
         }
     }
-    
-    public void herstartInterval()
-    {
-        interval = 22;
-    }
 
     public void minderTijd(int waarde) {
         timerBar.setValue(interval -= waarde);
