@@ -131,7 +131,7 @@ public class MazeSolver {
         return draw;
     }
 
-    public void solveMaze(int wrd) {
+    private void solveMaze(int wrd) {
         if (wrd == waarde + 1) {
             draw = true;
             String richting = "";

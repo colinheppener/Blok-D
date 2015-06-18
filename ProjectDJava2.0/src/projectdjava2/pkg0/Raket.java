@@ -21,8 +21,9 @@ public class Raket extends Item {
         while ((veld.getBuur(richting) != null)) {
             if (!(veld.getBuur(richting).getItem() instanceof Muur)) {
                 verplaatsItem(this, veld, veld.getBuur(richting));
-                veld = veld.getBuur(richting);
+                System.out.println((int) veld.getY() +"     "+ (int) veld.getX());
             } else {
+                System.out.println((int) veld.getY() +"      "+ (int) veld.getX() + "OUT");
                 veld.getBuur(richting).setItem(null);
                 veld.setItem(null);
                 break;

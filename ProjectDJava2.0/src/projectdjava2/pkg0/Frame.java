@@ -15,19 +15,19 @@ import javax.swing.*;
 public final class Frame extends JFrame {
 
     private Vijand vijand;
-    final int HEIGHT = 950;
-    final int WIDTH = 950;
-    Timer timer;
-    int interval = 21;
-    JProgressBar timerBar;
-    JFrame frame = new JFrame();
-    Speelbord speelbord;
+    private final int HEIGHT = 950;
+    private final int WIDTH = 950;
+    private Timer timer;
+    private int interval = 21;
+    private JProgressBar timerBar;
+    private JFrame frame = new JFrame();
+    private Speelbord speelbord;
 
     public Frame() {
         createComponents();
     }
 
-    public void createComponents() {
+    private void createComponents() {
         JPanel controlPanel = new JPanel();
         JButton herstartKnop = new JButton("Herstart Level");
         JButton menuKnop = new JButton("Terug naar menu");
@@ -104,6 +104,16 @@ public final class Frame extends JFrame {
 
     public void minderTijd(int waarde) {
         timerBar.setValue(interval -= waarde);
+    }
+    
+    public void stopTimer()
+    {
+        timer.cancel();
+    }
+    
+    public void startTimer()
+    {
+        initialiseTimer();
     }
 
     private int setInterval() {

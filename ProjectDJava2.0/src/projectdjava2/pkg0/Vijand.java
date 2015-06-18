@@ -78,11 +78,6 @@ public class Vijand extends Item {
     }
 
     @Override
-    public String toString() {
-        return "vijand";
-    }
-
-    @Override
     public void voerActieUit() {
         frame.minderTijd(10);
         veld.setItem(null);

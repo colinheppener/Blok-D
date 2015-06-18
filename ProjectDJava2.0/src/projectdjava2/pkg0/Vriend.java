@@ -33,6 +33,5 @@ public class Vriend extends Item {
     @Override
     public void voerActieUit() {
         speelb.StartNieuwLevel();
-        frame.meerTijd(21);
     }
 }

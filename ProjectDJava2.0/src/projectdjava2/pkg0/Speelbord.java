@@ -24,9 +24,9 @@ public class Speelbord extends JComponent {
         {1, 0, 0, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 1,},
         {1, 1, 1, 0, 1, 1, 1, 0, 1, 1, 1, 0, 0, 0, 0, 0, 1, 0, 1, 1,},
         {1, 0, 1, 0, 5, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1,},
-        {1, 0, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1,},
+        {1, 0, 1, 1, 1, 1, 1, 7, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1,},
         {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 1, 1, 1, 0, 1, 1,},
-        {0, 1, 1, 1, 0, 1, 1, 7, 1, 1, 1, 6, 0, 0, 1, 1, 1, 0, 1, 1,},
+        {0, 1, 1, 1, 0, 1, 1, 0, 1, 1, 1, 6, 0, 0, 1, 1, 1, 0, 1, 1,},
         {0, 0, 1, 1, 0, 0, 1, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 0, 1, 1,},
         {1, 0, 1, 1, 1, 0, 1, 1, 1, 1, 1, 0, 1, 1, 0, 0, 0, 0, 1, 1,},
         {1, 0, 0, 0, 1, 0, 1, 0, 0, 0, 1, 0, 1, 1, 0, 1, 1, 1, 1, 1,},
@@ -212,16 +212,23 @@ public class Speelbord extends JComponent {
 
     public void StartNieuwLevel() {
         if (huidiglevel == 1) {
+            frame.stopTimer();
             CreateVelden("lvl2");
             huidiglevel++;
+            frame.meerTijd(21);
+            frame.startTimer();
             return;
         }
         if (huidiglevel == 2) {
+            frame.stopTimer();
             CreateVelden("lvl3");
             huidiglevel++;
+            frame.meerTijd(21);
+            frame.startTimer();
             return;
         }
         if (huidiglevel == 3) {
+            frame.stopTimer();
             System.exit(0);
         }
     }
