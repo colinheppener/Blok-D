@@ -14,10 +14,10 @@ public class Raket extends Item {
         richting = rchting;
         veld = vld;
         veld.setItem(this);
-        schiet();
+     
     }
 
-    private void schiet() {
+    public void schiet() {
         while ((veld.getBuur(richting) != null)) {
             if (!(veld.getBuur(richting).getItem() instanceof Muur)) {
                 verplaatsItem(this, veld, veld.getBuur(richting));
