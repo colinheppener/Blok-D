@@ -292,6 +292,7 @@ public class SpelerTest {
         String looprichting = "oost";
         
         Veld veld = new Veld(locSpeler, speler);
+        vijand.setVeld(veld);
         veld.setItem(speler);
         veld.setBuren(bur);
         
