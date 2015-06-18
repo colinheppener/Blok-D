@@ -7,7 +7,7 @@ import java.awt.image.BufferedImage;
  *
  * @author Colin & Jeroen
  */
-public class Item {
+public abstract class Item {
 
     BufferedImage plaatje;
     BufferedImage plaatjeL;
