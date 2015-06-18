@@ -26,16 +26,16 @@ class CustomKeyListener implements KeyListener {
         if (e.getKeyCode() == KeyEvent.VK_ENTER) {
         }
         if (e.getKeyCode() == KeyEvent.VK_UP) {
-            speler.Loop("noord");
+            speler.loop("noord");
         }
         if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
-            speler.Loop("oost");
+            speler.loop("oost");
         }
         if (e.getKeyCode() == KeyEvent.VK_DOWN) {
-            speler.Loop("zuid");
+            speler.loop("zuid");
         }
         if (e.getKeyCode() == KeyEvent.VK_LEFT) {
-            speler.Loop("west");
+            speler.loop("west");
         }
         if (e.getKeyCode() == KeyEvent.VK_SPACE) {
             speler.schiet();

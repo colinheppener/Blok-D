@@ -16,7 +16,7 @@ public abstract class Item {
     BufferedImage plaatjeD;
     Veld veld;
 
-    public void Teken(Graphics g) {
+    public void teken(Graphics g) {
     }
 
     public void loopRichting(String richting) {
@@ -25,7 +25,7 @@ public abstract class Item {
     public void voerActieUit() {
     }
 
-    public void verplaatsItem(Item itm, Veld huidigVeld, Veld buurVeld) {
+    public void verplaatsItem(Item itm, Veld huidigVeld, Veld buurVeld) {       //verplaatst items over het speelbord
         huidigVeld.setItem(null);
         buurVeld.setItem(itm);
     }

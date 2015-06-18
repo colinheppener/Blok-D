@@ -17,7 +17,7 @@ public class Raket extends Item {
         schiet();
     }
 
-    private void schiet() {
+    private void schiet() {             //laat de raket bewegen in de afgeschoten richting totdat deze tegen ene muur aan komt
         while ((veld.getBuur(richting) != null)) {
             if (!(veld.getBuur(richting).getItem() instanceof Muur)) {
                 verplaatsItem(this, veld, veld.getBuur(richting));

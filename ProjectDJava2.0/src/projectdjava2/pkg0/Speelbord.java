@@ -84,20 +84,20 @@ public class Speelbord extends JComponent {
         {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1}
     };
 
-    public Veld getGrid(int i, int j) {
-        return grid[i][j];
-    }
-
     public Speelbord(Frame fr) {
         frame = fr;
-        CreateVelden("lvl1");
+        createVelden("lvl1");
+    }
+
+    public Veld getGrid(int i, int j) {
+        return grid[i][j];
     }
 
     public Frame getFrame() {
         return frame;
     }
 
-    private void CreateVelden(String level) {
+    private void createVelden(String level) {       //creert alle velden en items die op het speelbord komen te staan
         if (level.equals("lvl1")) {
             opzetGrid = lvl1;
         }
@@ -196,24 +196,24 @@ public class Speelbord extends JComponent {
         }
     }
 
-    public void HerstartLevel() {
+    public void herstartLevel() {   //herstart huidige level
         if (huidiglevel == 1) {
-            CreateVelden("lvl1");
+            createVelden("lvl1");
             return;
         }
         if (huidiglevel == 2) {
-            CreateVelden("lvl2");
+            createVelden("lvl2");
             return;
         }
         if (huidiglevel == 3) {
-            CreateVelden("lvl3");
+            createVelden("lvl3");
         }
     }
 
-    public void StartNieuwLevel() {
+    public void startNieuwLevel() { //start het volgende level
         if (huidiglevel == 1) {
             frame.stopTimer();
-            CreateVelden("lvl2");
+            createVelden("lvl2");
             huidiglevel++;
             frame.meerTijd(21);
             frame.startTimer();
@@ -221,7 +221,7 @@ public class Speelbord extends JComponent {
         }
         if (huidiglevel == 2) {
             frame.stopTimer();
-            CreateVelden("lvl3");
+            createVelden("lvl3");
             huidiglevel++;
             frame.meerTijd(21);
             frame.startTimer();
@@ -234,16 +234,16 @@ public class Speelbord extends JComponent {
     }
 
     @Override
-    public void paintComponent(Graphics g) {
+    public void paintComponent(Graphics g) {        //tekent alle objecten in het spel
         super.paintComponent(g);
         for (int i = 0; i < 20; i++) {
             for (int j = 0; j < 20; j++) {
                 Item veldItem = grid[i][j].getItem();
                 MazeSolver veldMazeSolver = grid[i][j].getMazeSolver(helper);
                 if (veldItem != null) {
-                    veldItem.Teken(g);
+                    veldItem.teken(g);
                 } else if (veldMazeSolver != null) {
-                    veldMazeSolver.Teken(g);
+                    veldMazeSolver.teken(g);
                 }
             }
         }

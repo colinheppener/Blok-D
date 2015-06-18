@@ -1,6 +1,5 @@
 package projectdjava2.pkg0;
 
-import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.image.BufferedImage;
 import java.io.File;
@@ -35,7 +34,7 @@ public class Speler extends Item {
         }
     }
 
-    public void Loop(String looprichting) {
+    public void loop(String looprichting) {     //laat speler lopen in meegegeven richting als dit mogelijk is
         richting = looprichting;
         if ((veld.getBuur(looprichting) != null)) {
             if (!(veld.getBuur(looprichting).getItem() instanceof Muur)) {
@@ -47,7 +46,7 @@ public class Speler extends Item {
         }
     }
 
-    public void schiet() {
+    public void schiet() {      //laat de bazooka een raket vuren
         if (bazooka != null) {
             bazooka.schiet(richting);
             bazooka = null;
@@ -55,12 +54,12 @@ public class Speler extends Item {
         }
     }
 
-    public void pikUpBazooka(Bazooka baz) {
+    public void pikUpBazooka(Bazooka baz) {     //maakt het mogelijk een bazooka op te pakken
         bazooka = baz;
     }
 
     @Override
-    public void Teken(Graphics g) {
+    public void teken(Graphics g) {
         if ("noord".equals(richting) && bazooka == null) {
             g.drawImage(getImageFileU(), (int) veld.getY() * 40, (int) veld.getX() * 40, 40, 40, null);
         } else if ("oost".equals(richting) && bazooka == null) {

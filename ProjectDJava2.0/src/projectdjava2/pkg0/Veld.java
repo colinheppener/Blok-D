@@ -46,7 +46,7 @@ public class Veld {
         return ItemOpVeld;
     }
 
-    public MazeSolver getMazeSolver(Item itm) {
+    public MazeSolver getMazeSolver(Item itm) {     //geeft de mazesolver die op het veld staat en de route zoekt voor het meegegeven item
         for (Iterator<MazeSolver> it = mazeSolvers.iterator(); it.hasNext();) {
             MazeSolver mazeSolver = (MazeSolver) it.next();
             if (mazeSolver.getItem() == null) {
@@ -59,7 +59,7 @@ public class Veld {
         return null;
     }
 
-    public void dellMazeSolver(MazeSolver mazeSolver) {
+    public void dellMazeSolver(MazeSolver mazeSolver) {     //haalt mazesolver weg
         mazeSolvers.remove(mazeSolver);
     }
 
@@ -70,7 +70,7 @@ public class Veld {
         }
     }
 
-    public void setMazeSolver(MazeSolver mzSolver) {
+    public void setMazeSolver(MazeSolver mzSolver) {        //voegt een nieuwe mazeSolver toe als deze nog niet bestaat
         for (Iterator<MazeSolver> it = mazeSolvers.iterator(); it.hasNext();) {
             MazeSolver mazeSolver = (MazeSolver) it.next();
             if (mzSolver.getVeld() == mazeSolver.getVeld() && mzSolver.getItem() == mazeSolver.getItem()) {
@@ -86,11 +86,11 @@ public class Veld {
         buren = (HashMap) bur.clone();
     }
 
-    public int getY() {
+    public int getY() {     //geeft Y coordinaat
         return (int) locatie.getY();
     }
 
-    public int getX() {
+    public int getX() {     //geeft X coordinaat
         return (int) locatie.getX();
     }
 }

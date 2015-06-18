@@ -25,12 +25,12 @@ public class Valsspeler extends Item {
     }
 
     @Override
-    public void Teken(Graphics g) {
-        g.drawImage(getImageFile(), (int) veld.getY() * 40, (int) veld.getX() * 40, 40, 40, null);
+    public void voerActieUit() {        //geeft meer tijd
+        frame.meerTijd(valsspelerWaarde);
     }
 
     @Override
-    public void voerActieUit() {
-        frame.meerTijd(valsspelerWaarde);
+    public void teken(Graphics g) {
+        g.drawImage(getImageFile(), (int) veld.getY() * 40, (int) veld.getX() * 40, 40, 40, null);
     }
 }

@@ -27,7 +27,7 @@ public final class Frame extends JFrame {
         createComponents();
     }
 
-    private void createComponents() {
+    private void createComponents() {           //Creert de componenten die nodig zijn voor het spel
         JPanel controlPanel = new JPanel();
         JButton herstartKnop = new JButton("Herstart Level");
         JButton menuKnop = new JButton("Terug naar menu");
@@ -56,7 +56,7 @@ public final class Frame extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 component.requestFocusInWindow();
-                speelbord.HerstartLevel();
+                speelbord.herstartLevel();
                 speelbord.repaint();
                 meerTijd(21);
             }
@@ -82,7 +82,7 @@ public final class Frame extends JFrame {
         vijand = vij;
     }
 
-    private void initialiseTimer() {
+    private void initialiseTimer() {            //maakt timer aan
         int delay = 10;
         int period = 1000;
         timer = new Timer();
@@ -95,14 +95,14 @@ public final class Frame extends JFrame {
         }, delay, period);
     }
 
-    public void meerTijd(int waarde) {
+    public void meerTijd(int waarde) {          //voegt tijd aan de timer toe
         timerBar.setValue(interval += waarde);
         if (interval > 21) {
             interval = 21;
         }
     }
 
-    public void minderTijd(int waarde) {
+    public void minderTijd(int waarde) {        //haalt tijd van de timer af
         timerBar.setValue(interval -= waarde);
     }
     
@@ -116,7 +116,7 @@ public final class Frame extends JFrame {
         initialiseTimer();
     }
 
-    private int setInterval() {
+    private int setInterval() {             //houd de tijd bij
         if (interval < 1) {
             timer.cancel();
             Object[] choices = {"Opnieuw proberen", "Naar menu"};
@@ -144,7 +144,7 @@ public final class Frame extends JFrame {
         return --interval;
     }
 
-    public int getCurrentTime() {
+    public int getCurrentTime() {           //geeft huidige tijd
         return interval;
     }
 }

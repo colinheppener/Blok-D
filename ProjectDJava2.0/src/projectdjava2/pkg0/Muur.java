@@ -20,7 +20,7 @@ public class Muur extends Item {
     }
 
     @Override
-    public void Teken(Graphics g) {
+    public void teken(Graphics g) {
         g.drawImage(getImageFile(), (int) veld.getY() * 40, (int) veld.getX() * 40, 40, 40, null);
     }
 }

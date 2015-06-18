@@ -15,7 +15,7 @@ public class Menu {
         createComponents();
     }
 
-    private void createComponents() {
+    private void createComponents() {       //creert het frame en bijbehorende componenten
         final JFrame frame = new JFrame();
         frame.setSize(900, 900);
         frame.setVisible(true);

@@ -39,7 +39,7 @@ public class MazeSolver {
         }
     }
 
-    public void createNewMazeSolver() {
+    public void createNewMazeSolver() {         //creert nieuwe mazesolver om het doolhof recursief op te lossen
         String richting = "";
         if (veld.getItem() != doel) {
             for (int i = 0; i < 4; i++) {
@@ -81,7 +81,7 @@ public class MazeSolver {
         }
     }
 
-    public void getRichting(int wrd) {
+    public void getRichting(int wrd) {      //geeft de richting die ene item op moet lopen om een ander item te volgen
         if (wrd == waarde + 1) {
             draw = true;
             String richting = "";
@@ -119,7 +119,7 @@ public class MazeSolver {
         veld = vel;
     }
 
-    public void setDraw(boolean dr) {
+    public void setDraw(boolean dr) {           //draw is de boolean die aangeeft of een mazesolver onderdeel is van de kortste gevonden route naar een item of niet
         draw = dr;
     }
 
@@ -131,7 +131,7 @@ public class MazeSolver {
         return draw;
     }
 
-    private void solveMaze(int wrd) {
+    private void solveMaze(int wrd) {           //laat de weg zien die een item moet lopen om bij de vriend te komen
         if (wrd == waarde + 1) {
             draw = true;
             String richting = "";
@@ -158,7 +158,7 @@ public class MazeSolver {
         }
     }
 
-    public void Teken(Graphics g) {
+    public void teken(Graphics g) {
         if (draw == true) {
             g.setColor(Color.GREEN);
             g.fillRect((int) veld.getY() * 40, (int) veld.getX() * 40, 40, 40);

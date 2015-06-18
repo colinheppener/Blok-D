@@ -25,12 +25,12 @@ public class Helper extends Item {
     }
 
     @Override
-    public void Teken(Graphics g) {
+    public void teken(Graphics g) {
         g.drawImage(getImageFile(), (int) veld.getY() * 40, (int) veld.getX() * 40, 40, 40, null);
     }
 
     @Override
-    public void voerActieUit() {
+    public void voerActieUit() {    //maakt een mazesolver aan
         MazeSolver mazeSolver = new MazeSolver(this, vriend, speelbord);
         veld.setMazeSolver(mazeSolver);
         mazeSolver.createNewMazeSolver();

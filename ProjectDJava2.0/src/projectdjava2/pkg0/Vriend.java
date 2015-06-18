@@ -25,13 +25,12 @@ public class Vriend extends Item {
     }
 
     @Override
-    public void Teken(Graphics g) {
-        g.drawImage(getImageFile(), (int) veld.getY() * 40, (int) veld.getX() * 40, 40, 40, null);
-
+    public void voerActieUit() {            //start een nieuw level
+        speelb.startNieuwLevel();
     }
 
     @Override
-    public void voerActieUit() {
-        speelb.StartNieuwLevel();
+    public void teken(Graphics g) {
+        g.drawImage(getImageFile(), (int) veld.getY() * 40, (int) veld.getX() * 40, 40, 40, null);
     }
 }

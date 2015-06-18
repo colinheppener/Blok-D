@@ -33,7 +33,7 @@ public class Vijand extends Item {
         }
     }
 
-    public void loop() {
+    public void loop() {        //laat vijand lopen in de eerder bepaalde richting en maakt ene nieuwe mazesolver aan voor de volgende stap
         if (richting != null && veld != null) {
                 if (veld.getBuur(richting).getItem() == speler) {
                     voerActieUit();
@@ -58,7 +58,7 @@ public class Vijand extends Item {
     }
 
     @Override
-    public void loopRichting(String richting) {
+    public void loopRichting(String richting) {         //set de looprichting die deze van de mazeSolver krijgt
         switch (richting) {
             case "noord":
                 richting = "zuid";
@@ -78,14 +78,14 @@ public class Vijand extends Item {
     }
 
     @Override
-    public void voerActieUit() {
+    public void voerActieUit() {        //haalt tijd van de timer af
         frame.minderTijd(10);
         veld.setItem(null);
         veld = null;
     }
 
     @Override
-    public void Teken(Graphics g) {
+    public void teken(Graphics g) {
         switch (richtingT) {
             case "noord":
                 g.drawImage(getImageFileU(), (int) veld.getY() * 40, (int) veld.getX() * 40, 40, 40, null);

@@ -22,18 +22,18 @@ public class Bazooka extends Item {
         }
     }
 
-    @Override
-    public void Teken(Graphics g) {
-        g.drawImage(getImageFile(), (int) veld.getY() * 40, (int) veld.getX() * 40, 40, 40, null);
-    }
-
-    public void schiet(String richting) {
+    public void schiet(String richting) {   //wordt door speler aangeroepen om een raket af te vuren
         Raket raket = new Raket(speler.getVeld(), richting);
     }
 
     @Override
-    public void voerActieUit() {
+    public void voerActieUit() {            //geeft speler de bazooka mee zodat deze de mogelijkheid krijgt ermee te schieten
         speler.pikUpBazooka(this);
         veld.setItem(null);
+    }
+
+    @Override
+    public void teken(Graphics g) {
+        g.drawImage(getImageFile(), (int) veld.getY() * 40, (int) veld.getX() * 40, 40, 40, null);
     }
 }
