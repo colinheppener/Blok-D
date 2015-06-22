@@ -22,6 +22,8 @@ public final class Frame extends JFrame {
     private JProgressBar timerBar;
     private JFrame frame = new JFrame();
     private Speelbord speelbord;
+    private boolean optPaneCreated = false;
+    private boolean optPaneYesOption = false;
 
     public Frame() {
         createComponents();
@@ -118,6 +120,7 @@ public final class Frame extends JFrame {
 
     private int setInterval() {
         if (interval < 1) {
+            optPaneCreated = true;
             timer.cancel();
             Object[] choices = {"Opnieuw proberen", "Naar menu"};
             Object defaultChoice = choices[0];
@@ -128,7 +131,9 @@ public final class Frame extends JFrame {
                     JOptionPane.QUESTION_MESSAGE,
                     null,
                     choices,
-                    defaultChoice);                    
+                    defaultChoice);
+     
+                    
             if (dialogResult == JOptionPane.YES_OPTION) {
                 frame.dispose();
                 frame = new Frame();
