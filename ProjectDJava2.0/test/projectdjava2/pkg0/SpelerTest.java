@@ -294,7 +294,7 @@ public class SpelerTest {
         Veld veld = new Veld(locSpeler, speler);
         veld.setItem(speler);
         veld.setBuren(bur);
-        vijand.setVeld(veld);
+        
         String expResult = "java.awt.Point[x=2,y=1]";
         speler.Loop(looprichting);
         String result = String.valueOf(speler.getVeld().getLocatie());
